@@ -7,6 +7,10 @@
 
 ## Usage
 
+### [IMPORTANT]
+
+VSCode 확장 기능 중에서 **Prettier**와 **Eslint**를 설치해야 합니다.
+
 ### 의존성 설치
 ```
 yarn install
