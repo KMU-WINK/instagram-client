@@ -1,29 +1,27 @@
 import React from "react";
 import Button from "./components/common/Button";
 import Input from "./components/common/Input";
-import { BrowserRouter, Route, Routes
-	,Link } from "react-router-dom";
-import HomeView from "./views/HomeView";
-import MainView from "./views/MainView";
-import CategoryView from "./views/setting/CategoryView";
+import SettingsWrapper from "./components/Settings/SettingsWrapper";
+import Main from "./components/Main";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import SettingsModal from "./components/Settings/SettingsModal";
 
 export default function App() {
 	return (
-		<BrowserRouter>
-			<nav>
-				<Link to="/">Main</Link>
-				<Link to="/home">Home</Link>
-				<Link to="/setting/category">Category</Link>
-			</nav>
-			<Routes>
-				<Route path="/" element={<MainView/>} />
-				<Route path="/home" element={<HomeView/>} />
-				<Route path="/setting/category" element={<CategoryView/>} />
-			</Routes>
-		</BrowserRouter>
 		// <div>
 		// 	<Input defaultValue="@probablyup" type="text" />
 		// 	<Button primary>Button</Button>
+		// 	<SettingsWrapper></SettingsWrapper>
 		// </div>
+		<BrowserRouter>
+			<nav>
+				<Link to="/">Main</Link>
+				<Link to="/settings">Setting</Link>
+			</nav>
+			<Routes>
+				<Route path="/" element={<Main />} />
+				<Route path="/settings" element={<SettingsModal />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
