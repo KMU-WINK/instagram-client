@@ -2,7 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import Header from "../components/common/Header";
 import MainFeed from "../components/home/MainFeed";
-import Story from "../components/home/Story";
+import Storys from "../components/home/Storys";
+import Card from "../components/home/Card";
 
 const HomeContainer = styled.div `
   margin: 0 auto;
@@ -13,8 +14,9 @@ const HomeContainer = styled.div `
 export default function HomeView() {
 	return <>
 		<Header></Header>
+		<Card/>
 		<HomeContainer>
-			<Story/>
+			<Storys/>
 			<MainFeed></MainFeed>
 		</HomeContainer>
 	</>

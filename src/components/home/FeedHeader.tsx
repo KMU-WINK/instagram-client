@@ -15,6 +15,12 @@ const HeaderContainer = styled.div `
   align-items: center;
 `;
 
+const FeedProfile = styled.img`
+	width: 40px;
+	height: 40px;
+  border-radius: 100%;
+  margin:0 0 0 16px;
+`;
 
 const ProfileRight = styled.div`
 	margin-left:11px;
@@ -36,7 +42,7 @@ const More = styled.img`
 export default function FeedHeader() {
 	return <>
 		<HeaderContainer>
-				<Profile margin='0 0 0 16px' width='40px' height='40px' src={Border}/>
+				<FeedProfile src={Border}/>
 				<ProfileRight>
 					<Name>Insta_123</Name>
 					<SubName>place</SubName>
