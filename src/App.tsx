@@ -6,9 +6,10 @@ import { BrowserRouter, Route, Routes
 import HomeView from "./views/HomeView";
 import MainView from "./views/MainView";
 import CategoryView from "./views/setting/CategoryView";
+import GlobalStyles from "./global";
 
 export default function App() {
-	return (
+	return <>
 		<BrowserRouter>
 			<nav>
 				<Link to="/">Main</Link>
@@ -21,9 +22,11 @@ export default function App() {
 				<Route path="/setting/category" element={<CategoryView/>} />
 			</Routes>
 		</BrowserRouter>
+		<GlobalStyles />
+		</>
 		// <div>
 		// 	<Input defaultValue="@probablyup" type="text" />
 		// 	<Button primary>Button</Button>
 		// </div>
-	);
+	;
 }
