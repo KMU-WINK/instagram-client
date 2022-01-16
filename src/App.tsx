@@ -1,10 +1,9 @@
 import React from "react";
-import Button from "./components/common/Button";
-import Input from "./components/common/Input";
-import SettingsWrapper from "./components/Settings/SettingsWrapper";
-import Main from "./components/Main";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import SettingsModal from "./components/Settings/SettingsModal";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+
+import HomeView from "./pages/HomeView";
+import MainView from "./pages/MainView";
+import CategoryView from "./pages/setting/CategoryView";
 
 export default function App() {
 	return (
@@ -16,11 +15,13 @@ export default function App() {
 		<BrowserRouter>
 			<nav>
 				<Link to="/">Main</Link>
-				<Link to="/settings">Setting</Link>
+				<Link to="/home">Home</Link>
+				<Link to="/setting/category">Category</Link>
 			</nav>
 			<Routes>
-				<Route path="/" element={<Main />} />
-				<Route path="/settings" element={<SettingsModal />} />
+				<Route path="/" element={<MainView />} />
+				<Route path="/home" element={<HomeView />} />
+				<Route path="/setting/category" element={<CategoryView />} />
 			</Routes>
 		</BrowserRouter>
 	);
