@@ -2,10 +2,12 @@ import styled from "styled-components";
 import React from 'react';
 // @ts-ignore
 import Border from '../../img/profileBorder.png';
+import CardButton from "./CardButton";
+import { FontBlue, Font2_Light, Font1_Light, FontNormal } from "../style/Font";
 
 const CardContainer = styled.div`
 	position:fixed;
-	width:360px;
+	width:320px;
 	top:120px;
 	left:6.25vw;
   border: 1px solid #DCDBDB;
@@ -30,10 +32,9 @@ const CardInfo = styled.div`
 	
 `;
 
-const CardId = styled.div`
-	font-size: 24px;
-	color:#000;
+const CardId = styled(FontNormal)`
 	margin-bottom:8px;
+	font-size: 24px;
 `;
 
 const CardFont = styled.div`
@@ -59,25 +60,26 @@ export default function Card() {
 				<CardProfile src={Border}/>
 				<CardInfo>
 					<CardId>insta_123</CardId>
-					<CardFont>김선호</CardFont>
-					<CardFont>예술가</CardFont>
+					<FontNormal>김선호</FontNormal>
+					<Font2_Light>예술가</Font2_Light>
 				</CardInfo>
-				<CardFont>전환</CardFont>
+				<FontBlue>전환</FontBlue>
 			</CardTop>
 			<CardCenter>
 				<CardCount>
-					<CardFont>게시물</CardFont>
-					<CardFont>0,000</CardFont>
+					<Font2_Light>게시물</Font2_Light>
+					<Font1_Light>0,000</Font1_Light>
 				</CardCount>
 				<CardCount>
-					<CardFont>게시물</CardFont>
-					<CardFont>0,000</CardFont>
+					<Font2_Light>팔로워</Font2_Light>
+					<Font1_Light>0,000</Font1_Light>
 				</CardCount>
 				<CardCount>
-					<CardFont>게시물</CardFont>
-					<CardFont>0,000</CardFont>
+					<Font2_Light>팔로우</Font2_Light>
+					<Font1_Light>0,000</Font1_Light>
 				</CardCount>
 			</CardCenter>
+			<CardButton></CardButton>
 		</CardContainer>
 	</>
 }

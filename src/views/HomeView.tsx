@@ -4,17 +4,19 @@ import Header from "../components/common/Header";
 import MainFeed from "../components/home/MainFeed";
 import Storys from "../components/home/Storys";
 import Card from "../components/home/Card";
+import Recommend from "../components/home/Recommend";
 
 const HomeContainer = styled.div `
   margin: 0 auto;
 	margin-top:122px;
-  max-width:830px;
+  max-width:828px;
   height: 1019px;
 `
 export default function HomeView() {
 	return <>
 		<Header></Header>
 		<Card/>
+		<Recommend/>
 		<HomeContainer>
 			<Storys/>
 			<MainFeed></MainFeed>

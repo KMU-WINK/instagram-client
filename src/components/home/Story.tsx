@@ -5,6 +5,11 @@ import Border from '../../img/profileBorder.png';
 // @ts-ignore
 import ViewedBorder from '../../img/storyViewed.png';
 
+interface StoryProps {
+	id: string;
+	//todo: profile도 props로 관리하기
+}
+
 const StoryContainer = styled.div`
 `;
 const StoryProfile = styled.img`
@@ -21,7 +26,7 @@ const StoryName = styled.div`
 	margin-top:5px;
 `;
 
-export default function Story() {
+export default function Story(props: StoryProps) {
 	const [isView, setIsView] = useState(false);
 
 	const storyClick = () => {
@@ -31,7 +36,7 @@ export default function Story() {
 	return <>
 		<StoryContainer>
 			<StoryProfile src={isView ? ViewedBorder : Border} onClick={storyClick}/>
-			<StoryName>insta_123</StoryName>
+			<StoryName>{props.id}</StoryName>
 		</StoryContainer>
 	</>
 }

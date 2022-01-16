@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import React from 'react';
-import Profile from "../common/Profile";
+import { Font1_Light,FontBold } from "../style/Font";
 // @ts-ignore
 import more from '../../img/more.png';
 // @ts-ignore
 import Border from '../../img/profileBorder.png';
 
 const HeaderContainer = styled.div `
-	width:100%;
 	height:71px;
 	display:flex;
   border: 1px solid #E0E0E0;
@@ -25,15 +24,6 @@ const FeedProfile = styled.img`
 const ProfileRight = styled.div`
 	margin-left:11px;
 `;
-const Name = styled.div `
-	font-size:14px;
-  font-weight: bold;
-`;
-
-const SubName = styled.div `
-  font-size:14px;
-`;
-
 const More = styled.img`
 	margin-left:auto;
 	margin-right: 23px;
@@ -44,8 +34,8 @@ export default function FeedHeader() {
 		<HeaderContainer>
 				<FeedProfile src={Border}/>
 				<ProfileRight>
-					<Name>Insta_123</Name>
-					<SubName>place</SubName>
+					<FontBold>Insta_123</FontBold>
+					<Font1_Light>place</Font1_Light>
 				</ProfileRight>
 			<More src={more}/>
 		</HeaderContainer>

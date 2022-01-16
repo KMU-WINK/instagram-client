@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from 'react';
 import FeedHeader from "./FeedHeader";
-import Profile from "../common/Profile";
 // @ts-ignore
 import profile from '../../img/sea.jpg';
 // @ts-ignore
@@ -33,15 +32,15 @@ export default function Storys() {
 		<StorysContainer>
 			<MoreBtn src={StoryPrev}/>
 			<BorderContainer>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
-				<Story/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
+				<Story id="insta_123"/>
 			</BorderContainer>
 			<MoreBtn src={StoryNext}/>
 		</StorysContainer>
