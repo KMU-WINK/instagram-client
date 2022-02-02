@@ -31,7 +31,7 @@ function TabPanel(props: SettingsWrapperProps) {
 function a11yProps(index: number) {
 	return {
 		id: `vertical-tab-${index}`,
-		"aria-controls": `vertical-tabpanel-${index}`
+		"aria-controls": `vertical-tabpanel-${index}`,
 	};
 }
 
@@ -44,9 +44,7 @@ export default function SettingsWrapper() {
 	};
 
 	return (
-		<Box
-			sx={{ flexGrow: 1, display: "flex", height: "996px", width: "1194px" }}
-		>
+		<Box sx={{ flexGrow: 1, display: "flex", height: "996px", width: "1194px" }}>
 			<Tabs
 				orientation="vertical"
 				variant="scrollable"

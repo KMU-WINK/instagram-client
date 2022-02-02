@@ -2,36 +2,34 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-left: 45px;
-  margin-top: 30px;
+	margin-left: 45px;
+	margin-top: 30px;
 `;
 const Header = styled.h6`
-  margin-top: 20px;
-  font-size: 20px;
-  margin-bottom: 10px;
+	margin-top: 20px;
+	font-size: 20px;
+	margin-bottom: 10px;
 `;
 
-const HashTagContainer = styled.div`
-`;
+const HashTagContainer = styled.div``;
 
 const HashTagHeaderContent = styled.div`
-  color: #6F6F6F;
-  width: 432px;
-  line-height: 1.7;
+	color: #6f6f6f;
+	width: 432px;
+	line-height: 1.7;
 `;
 
-const HashTagBody = styled.div`
-`;
+const HashTagBody = styled.div``;
 const Item = styled.div`
-  display: inline-block;
-  align-items: center;
-  margin-right: 40px;
-  margin-top: 30px;
+	display: inline-block;
+	align-items: center;
+	margin-right: 40px;
+	margin-top: 30px;
 `;
 
 const RadioBtn = styled.input.attrs({ type: "radio" })`
-  margin-left: 0;
-  margin-right: 15px;
+	margin-left: 0;
+	margin-right: 15px;
 `;
 
 const RadioLabel = styled.label`
@@ -39,45 +37,43 @@ const RadioLabel = styled.label`
 `;
 
 const HashTagBtnContainer = styled.div`
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 600px;
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
 `;
 
 const HashTagBtn = styled.button`
-  background: none;
-  color: #B0B0B0;
-  font-size: 15px;
-  line-height: 2.0;
-  margin-right: 18px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  border: 2px solid #B0B0B0;
+	background: none;
+	color: #b0b0b0;
+	font-size: 15px;
+	line-height: 2;
+	margin-right: 18px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 20px;
+	border: 2px solid #b0b0b0;
 `;
 
 const AddHashTag = styled.a`
-  display: block;
-  font-weight: 540;
-  font-size: 15px;
-  margin-top: 10px;
-  &:visited,
-  &:link,
-  &:hover {
-    text-decoration: none;
-    outline: none;
-	color: black;
-  }
+	display: block;
+	font-weight: 540;
+	font-size: 15px;
+	margin-top: 10px;
+	&:visited,
+	&:link,
+	&:hover {
+		text-decoration: none;
+		outline: none;
+		color: black;
+	}
 `;
 
-const ThemeContainer = styled.div`
-`;
+const ThemeContainer = styled.div``;
 
 const ThemeItem = styled.div`
 	margin-bottom: 5px;
-
 `;
 
 export default function EditFeed() {
@@ -97,7 +93,7 @@ export default function EditFeed() {
 		"국민대",
 		"Stack",
 		"동아리",
-		"여행"
+		"여행",
 	]);
 
 	const handleRadioTagChange = (event: any) => {
@@ -120,7 +116,6 @@ export default function EditFeed() {
 			value.style.borderColor = "#B0B0B0";
 			value.style.color = "#B0B0B0";
 		}
-
 	};
 	return (
 		<>
@@ -133,17 +128,25 @@ export default function EditFeed() {
 					</HashTagHeaderContent>
 					<HashTagBody>
 						<Item>
-							<RadioBtn value={"optionA"} checked={radioTag === "optionA"}
-											 onChange={event => handleRadioTagChange(event)}></RadioBtn>
+							<RadioBtn
+								value={"optionA"}
+								checked={radioTag === "optionA"}
+								onChange={(event) => handleRadioTagChange(event)}
+							></RadioBtn>
 							<RadioLabel>사용된 횟수</RadioLabel>
 						</Item>
 						<Item>
-							<RadioBtn value={"optionB"} checked={radioTag === "optionB"}
-											 onChange={event => handleRadioTagChange(event)}></RadioBtn>
+							<RadioBtn
+								value={"optionB"}
+								checked={radioTag === "optionB"}
+								onChange={(event) => handleRadioTagChange(event)}
+							></RadioBtn>
 							<RadioLabel>좋아요 많은 순</RadioLabel>
 						</Item>
 						<HashTagBtnContainer>
-							{tag.map((item) => (<HashTagBtn onClick={handleBtnChange}>{"# " + item}</HashTagBtn>))}
+							{tag.map((item) => (
+								<HashTagBtn onClick={handleBtnChange}>{"# " + item}</HashTagBtn>
+							))}
 						</HashTagBtnContainer>
 						<AddHashTag href="#">해쉬태그 추가하러가기</AddHashTag>
 					</HashTagBody>
@@ -151,18 +154,27 @@ export default function EditFeed() {
 				<ThemeContainer>
 					<Header>테마</Header>
 					<ThemeItem>
-						<RadioBtn value={"light"} checked={radioTheme === "light"}
-								  onChange={event => handleRadioThemeChange(event)}></RadioBtn>
+						<RadioBtn
+							value={"light"}
+							checked={radioTheme === "light"}
+							onChange={(event) => handleRadioThemeChange(event)}
+						></RadioBtn>
 						<RadioLabel>라이트 모드</RadioLabel>
 					</ThemeItem>
 					<ThemeItem>
-						<RadioBtn value={"dark"} checked={radioTheme === "dark"}
-								  onChange={event => handleRadioThemeChange(event)}></RadioBtn>
+						<RadioBtn
+							value={"dark"}
+							checked={radioTheme === "dark"}
+							onChange={(event) => handleRadioThemeChange(event)}
+						></RadioBtn>
 						<RadioLabel>다크 모드</RadioLabel>
 					</ThemeItem>
 					<ThemeItem>
-						<RadioBtn value={"custom"} checked={radioTheme === "custom"}
-								  onChange={event => handleRadioThemeChange(event)}></RadioBtn>
+						<RadioBtn
+							value={"custom"}
+							checked={radioTheme === "custom"}
+							onChange={(event) => handleRadioThemeChange(event)}
+						></RadioBtn>
 						<RadioLabel>사용자 지정</RadioLabel>
 					</ThemeItem>
 				</ThemeContainer>

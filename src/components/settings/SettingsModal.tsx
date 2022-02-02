@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
 import SettingsWrapper from "./SettingsWrapper";
 import Typography from "@mui/material/Typography";
 
 const style = {
-	position: 'absolute' as 'absolute',
-	top: '5%',
-	left: '5%',
+	position: "absolute" as "absolute",
+	top: "5%",
+	left: "5%",
 	width: 1194,
 	height: 996,
-	overflow: 'scroll',
-	bgcolor: 'background.paper',
-	border: '2px solid #000',
+	overflow: "scroll",
+	bgcolor: "background.paper",
+	border: "2px solid #000",
 	boxShadow: 24,
 	p: 4,
 };
