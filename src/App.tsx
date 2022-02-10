@@ -4,6 +4,8 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import HomeView from "./pages/HomeView";
 import MainView from "./pages/MainView";
 import CategoryView from "./pages/setting/CategoryView";
+import EditFeedView from "./pages/setting/EditFeedView";
+import EditProfileView from "./pages/setting/EditProfileView";
 
 export default function App() {
 	return (
@@ -22,6 +24,8 @@ export default function App() {
 				<Route path="/" element={<MainView />} />
 				<Route path="/home" element={<HomeView />} />
 				<Route path="/setting/category" element={<CategoryView />} />
+				<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+				<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 			</Routes>
 		</BrowserRouter>
 	);

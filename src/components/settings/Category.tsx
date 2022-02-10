@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
+interface CategoryProps {
+	children: any;
+	id: string;
+	onClick: () => void;
+	color: string;
+}
+
 const CategoryContainer = styled.li`
-	margin: 0;
-	margin-left: 30px;
-	padding: 0;
-	border: 0;
+	width: 272px;
+	height: 60px;
 `;
 
 const CategoryLink = styled.a`
-	border-left: 2px solid transparent;
+	width: 100%;
+	height: 100%;
 	display: block;
-	font-size: 16px;
-	height: inherit;
-	line-height: 20px;
-	padding: 16px 16px 16px 30px;
-	color: black;
-	font-size: 20px;
+	font-size: 18px;
 	&:visited,
 	&:link,
 	&:hover {
@@ -24,15 +25,24 @@ const CategoryLink = styled.a`
 		outline: none;
 	}
 	&:hover {
-		background-color: lightgray;
+		background-color: #F8F8F8;
 	}
 `;
 
-export default function Category() {
+const CategoryName = styled.div`
+	position: relative;
+	top: 17px;
+	left: 41px;
+`
+
+export default function Category(props: CategoryProps) {
+
 	return (
 		<>
 			<CategoryContainer>
-				<CategoryLink href="#">피드 편집</CategoryLink>
+				<CategoryLink>
+					<CategoryName style={{color: props.color}}>{props.id}</CategoryName>
+				</CategoryLink>
 			</CategoryContainer>
 		</>
 	);
