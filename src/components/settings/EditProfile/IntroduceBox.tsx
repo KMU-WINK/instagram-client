@@ -10,6 +10,7 @@ const InputContainer = styled.div`
 const InputArea = styled.textarea`
 	min-height: 94px;
   border: 1px #858585 solid;
+	resize: vertical;
   border-radius: 5px;
   font-size: 20px;
   width: 100%;
