@@ -5,7 +5,13 @@ import CardBorder from "./CardBorder";
 // @ts-ignore
 import businessCardImg from "../../img/businessCardImg.png";
 // @ts-ignore
-import kakao from "../../img/kakao.png";
+import Kakao from "../../img/kakao.png";
+// @ts-ignore
+import Mobile from "../../img/mobile.png";
+// @ts-ignore
+import Email from "../../img/email.png";
+// @ts-ignore
+import Address from "../../img/address.png";
 
 interface CardFrontProps {
 	color: string;
@@ -64,7 +70,11 @@ const Tag = styled.span`
 
 const PersonalInfoContainer = styled.div`
 	position: relative;
-	top: 200px;
+	top: 170px;
+	left: 30px;
+	display: grid;
+	grid-template-columns: 25px 230px;
+	grid-row-gap: 5px;
 `;
 
 const IconImage = styled.img`
@@ -75,11 +85,15 @@ const IconImage = styled.img`
 const PersonalInfo = styled.div`
 	display: inline-block;
 	font-size: 9px;
+	text-align: left;
 `;
 
 export default function CardFront(props: CardFrontProps) {
 	const name = "_2soh";
 	const kakaoID = "2soh56";
+	const mobile = "010-4739-3099";
+	const email = "2sohing3@naver.com";
+	const address = "서울시 송파구 잠실2동 89단지 1호";
 	const position = "일러스터 / 대표";
 	const tags = ["몽환적인", "여자일러", "메이크업", "외주"];
 
@@ -99,8 +113,14 @@ export default function CardFront(props: CardFrontProps) {
 						</TagsContainer>
 					</CenterContainer>
 					<PersonalInfoContainer>
-						<IconImage src={kakao} />
+						<IconImage src={Kakao} />
 						<PersonalInfo>{kakaoID}</PersonalInfo>
+						<IconImage src={Mobile} />
+						<PersonalInfo>{mobile}</PersonalInfo>
+						<IconImage src={Email} />
+						<PersonalInfo>{email}</PersonalInfo>
+						<IconImage src={Address} />
+						<PersonalInfo>{address}</PersonalInfo>
 					</PersonalInfoContainer>
 				</CardBorder>
 			</CardContainer>

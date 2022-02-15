@@ -9,25 +9,6 @@ interface CardBackProps {
 	color: string;
 }
 
-const Container = styled.div`
-	display: inline-block;
-	width: 295px;
-	height: 518px;
-	padding: 12px;
-	margin: 20px;
-	background-color: #f2e8e8;
-	// background-color: ${(props) => props.color ? props.color : "#f2e8e8"};
-	text-align: center;
-	vertical-align: middle;
-`;
-
-const Border = styled.div`
-	width: 286px;
-	height: 505px;
-	border: 5px double rgb(0, 0, 0, 0.2);
-	border-radius: 5px;
-`;
-
 const QR = styled.img`
 	position: relative;
 	left: 56px;
