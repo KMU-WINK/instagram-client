@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 // @ts-ignore
-import Border from '../../img/profileBorder.png';
-// @ts-ignore
 import ViewedBorder from '../../img/storyViewed.png';
+// @ts-ignore
+import border from "../../img/profileBorder.svg";
+// @ts-ignore
+import testImg from "../../img/sea.jpg";
 
 interface StoryProps {
 	id: string;
@@ -12,11 +14,24 @@ interface StoryProps {
 
 const StoryContainer = styled.div`
 `;
-const StoryProfile = styled.img`
+
+const ImgProfileContainer = styled.div `
+	
+`;
+
+const Border = styled.img`
+	position: absolute;
 	width: 80px;
 	height: 80px;
   border-radius: 100%;
-	display:block;
+`;
+
+const Img = styled.img`
+	margin: 4px 0 0 4px;
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+	
 `;
 
 const StoryName = styled.div`
@@ -35,7 +50,10 @@ export default function Story(props: StoryProps) {
 
 	return <>
 		<StoryContainer>
-			<StoryProfile src={isView ? ViewedBorder : Border} onClick={storyClick}/>
+			<ImgProfileContainer onClick={storyClick}>
+				<Border src={isView ? ViewedBorder : border}/>
+				<Img src={testImg}/>
+			</ImgProfileContainer>
 			<StoryName>{props.id}</StoryName>
 		</StoryContainer>
 	</>

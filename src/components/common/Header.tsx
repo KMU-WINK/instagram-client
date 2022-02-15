@@ -15,7 +15,7 @@ import compass from '../../img/compass.png';
 // @ts-ignore
 import Heart from '../../img/Heart.png';
 // @ts-ignore
-import profile from '../../img/profile.png';
+import profile from '../../img/profile.svg';
 
 const Logo = styled.img`
 	width:104px;
@@ -32,6 +32,7 @@ const HeaderContainer = styled.div`
 	display:flex;
   justify-content: space-between;
   align-items: center;
+	z-index: 999;
 `;
 
 const SearchInput = styled.input`
@@ -57,7 +58,8 @@ const SearchIcon = styled.img`
 `;
 
 const Icon = styled.img `
-
+	width:22px;
+	height:22px;
 `;
 
 const IconContainer = styled.div `

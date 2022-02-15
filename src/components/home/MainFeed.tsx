@@ -27,7 +27,7 @@ export default function MainFeed() {
 				pagination={{ clickable: true }}
 			>
 				<SwiperSlide><FeedImg src={Sea}/></SwiperSlide>
-			</Swiper>
+			</Swiper>//todo:swiper지우고직접슬라이드만들거나..swiper해결하거나
 			<FeedFooter/>
 		</FeedContainer>
 
