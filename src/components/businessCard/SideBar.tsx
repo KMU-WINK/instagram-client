@@ -42,6 +42,7 @@ export default function SideBar({ getPalette } : {getPalette: any}) {
 	const onClickMenu = (menuIndex:number) => {
 		setState({ activeTab: menuIndex });
 	}
+	
 	const onClickPalette = (color: string) => {
 		console.log(color);
 		setColor(color);

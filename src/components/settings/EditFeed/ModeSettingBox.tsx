@@ -1,12 +1,13 @@
 import React from "react";
+import sytled from "styled-components";
 import styled from "styled-components";
+
 import Container from "./Container";
 import Title from "./Title";
 
 const LabelContainer = styled.div`
 	width: 520px;
-	display: grid;
-	grid-template-columns: 22px 510px 20px;
+	margin-top: 33px;
 `;
 
 const CheckBox = styled.input.attrs({
@@ -23,22 +24,21 @@ const CheckBox = styled.input.attrs({
 const LabelText = styled.label`
 	font-size: 16px;
 	color: #000000;
+	margin-left: 8px;
 `;
 
-const Tooltip = styled.div`
-	color: #0095f6;
-	font-size: 16px;
-`;
-
-export default function RecommendBox() {
+export default function ModeSettingBox() {
 	return (
 		<>
-			<Container topMargin={22} height={50}>
-				<Title content="비슷한 계정 추천" />
+			<Container topMargin={55} height={95}>
+				<Title content="다크 설정" />
+				<LabelContainer>
+					<CheckBox checked />
+					<LabelText>화이트 모드</LabelText>
+				</LabelContainer>
 				<LabelContainer>
 					<CheckBox />
-					<LabelText>팔로우할 만한 비슷한 계정을 추천할 때 회원님의 계정을 포함합니다.</LabelText>
-					<Tooltip>[?]</Tooltip>
+					<LabelText>다크 모드</LabelText>
 				</LabelContainer>
 			</Container>
 		</>

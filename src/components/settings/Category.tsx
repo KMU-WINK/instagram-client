@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 interface CategoryProps {
 	children: any;
 	id: string;
-	onClick: () => void;
 	color: string;
+	index: number;
 }
 
 const CategoryContainer = styled.li`
@@ -36,11 +36,15 @@ const CategoryName = styled.div`
 `
 
 export default function Category(props: CategoryProps) {
+	const [state, setState] = useState({ activeTab: 0 });
+	const clickHandler = (index: number) => {
+		setState({activeTab: index});
+	}
 
 	return (
 		<>
 			<CategoryContainer>
-				<CategoryLink>
+				<CategoryLink onClick={() => clickHandler(props.index)}>
 					<CategoryName style={{color: props.color}}>{props.id}</CategoryName>
 				</CategoryLink>
 			</CategoryContainer>

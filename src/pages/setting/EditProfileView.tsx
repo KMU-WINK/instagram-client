@@ -10,41 +10,16 @@ import EmailBox from "../../components/settings/EditProfile/EmailBox";
 import PhoneBox from "../../components/settings/EditProfile/PhoneBox";
 import GenderBox from "../../components/settings/EditProfile/GenderBox";
 import RecommendBox from "../../components/settings/EditProfile/RecommendBox";
-
-const Container = styled.div`
-	width: 919px;
-	height: 900px;
-	text-align: center;
-`;
-
-const ScrollContainer = styled.div`
-	width: 891px;
-	margin-top: 20px;
-	height: 860px;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	&::-webkit-scrollbar {
-		width: 4px;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		height: 30%;
-		background-color: #cdcdcd;
-	}
-
-	&::-webkit-scrollbar-track {
-		background-color: #efefef;
-	}
-`;
-
-const BoxContainer = styled.div`
-	width: 760px;
-`;
+import ModalBodyContainer from "../../components/settings/ModalBodyContainer";
+import ScrollContainer from "../../components/settings/ScrollContainer";
+import BoxContainer from "../../components/settings/BoxContainer";
+import BlueButton from "../../components/common/BlueButton";
+import FooterBox from "../../components/settings/EditProfile/FooterBox";
 
 export default function EditProfileView() {
 	return (
 		<>
-			<Container>
+			<ModalBodyContainer>
 				<ScrollContainer>
 					<BoxContainer>
 						<ProfileBox />
@@ -57,9 +32,10 @@ export default function EditProfileView() {
 						<PhoneBox />
 						<GenderBox />
 						<RecommendBox />
+						<FooterBox />
 					</BoxContainer>
 				</ScrollContainer>
-			</Container>
+			</ModalBodyContainer>
 		</>
 	);
 }

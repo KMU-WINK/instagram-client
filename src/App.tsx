@@ -7,6 +7,7 @@ import CategoryView from "./pages/setting/CategoryView";
 import EditFeedView from "./pages/setting/EditFeedView";
 import EditProfileView from "./pages/setting/EditProfileView";
 import CardSettingView from "./pages/businessCard/CardSettingVeiw";
+import ImageSettingView from "./pages/businessCard/ImageSettingView";
 
 export default function App() {
 	return (
@@ -21,6 +22,7 @@ export default function App() {
 				<Link to="/home">Home</Link>
 				<Link to="/setting/category">Category</Link>
 				<Link to="/businesscard/setting">명함 설정</Link>
+				<Link to="/businesscard/setting/image">사진 선택</Link>
 			</nav>
 			<Routes>
 				<Route path="/" element={<MainView />} />
@@ -29,6 +31,7 @@ export default function App() {
 				<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 				<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 				<Route path="/businesscard/setting" element={<CardSettingView />} />
+				<Route path="/businesscard/setting/image" element={<ImageSettingView />} />
 			</Routes>
 		</BrowserRouter>
 	);
