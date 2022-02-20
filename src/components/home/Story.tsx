@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // @ts-ignore
 import ViewedBorder from '../../img/storyViewed.png';
 // @ts-ignore
-import border from "../../img/profileBorder.svg";
+import Border from "../../img/profileBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 
