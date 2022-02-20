@@ -10,16 +10,27 @@ import addBtn from '../../img/addStory.svg';
 import CardChange from '../../img/CardChange.svg';
 // @ts-ignore
 import CardImg from '../../img/Subtract.svg';
-import { Font2_Light, FontBold, FontNormal } from "../style/Font";
+// @ts-ignore
+import LinkImg from '../../img/facebook.svg';
+import {
+	Font2_Light,
+	FontBold,
+	FontNormal,
+	Font2_16px_Bold,
+	Font2_16px_Light,
+	Font2_18px_Bold,
+	Font2_18px_Light
+} from "../style/Font";
 
 interface ButtonProps {
-	width: number;
+	width: string;
 	height: number;
 };
 
 const FlexContainer = styled.div`
 	display: flex;
 	gap: 8px;
+	align-items: center;
 `;
 
 const LeftContainer = styled.div`
@@ -59,7 +70,7 @@ const EditContainer = styled.div`
 const Button = styled.div<ButtonProps>`
 	display:flex;
 	justify-content: center;
-	width:${(props) => props.width}px;
+	width:${(props) => props.width ? props.width : '100%'};
 	height:${(props) => props.height}px;
   border: 0.8px solid rgba(0, 0, 0, 0.6);
   border-radius: 4px;
@@ -81,28 +92,35 @@ const NumberContainer = styled.div`
 	margin:40px 0 16px 0;
 `;
 
-const Name = styled.div`
+const ProfileContainer = styled.div`
 	margin: 40px 0;
 `;
 
-const SmallFontBold = styled(Font2_Light)`
-	font-size: 16px;
-	font-weight: bold;
+const ProfileCardImg = styled.img`
+	height: 17px;
 `;
 
-const SmallFont = styled(Font2_Light)`
-	font-size: 16px;
+const ProfileContent = styled(Font2_16px_Light)`
+	margin-bottom: 60px;
 `;
 
-const BigFontBold = styled(Font2_Light)`
-	font-size: 18px;
-	font-weight: bold;
+const LinkContainer = styled.div`
+  border: 0.8px solid rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+	padding: 20px;
 `;
 
-const BigFont = styled(Font2_Light)`
-	font-size: 18px;
+const Link = styled.div`
+  border: 1px solid #DCDBDB;
+	display:flex;
+  align-items: center;
+	padding-left: 20px;
+	gap: 20px;
 `;
 
+const LinkImg = styled.img`
+	height:36px;
+`;
 
 export default function LeftProfile() {
 	return <>
@@ -114,37 +132,59 @@ export default function LeftProfile() {
 				<ProfileName>_SSunho_97</ProfileName>
 			</Profile>
 			<EditContainer>
-				<Button width={141} height={40}>프로필 편집</Button>
+				<Button width="141px" height={40}>프로필 편집</Button>
 				<SettingIcon src={CardImg}/>
 			</EditContainer>
 			<InfoContainer>
 				<NumberContainer>
 					<FlexContainer>
-						<SmallFont>게시물:</SmallFont>
-						<SmallFontBold>120</SmallFontBold>
+						<Font2_16px_Light>게시물:</Font2_16px_Light>
+						<Font2_16px_Bold>120</Font2_16px_Bold>
 					</FlexContainer>
 					<FlexContainer>
-						<SmallFont>게시물:</SmallFont>
-						<SmallFontBold>120</SmallFontBold>
+						<Font2_16px_Light>게시물:</Font2_16px_Light>
+						<Font2_16px_Bold>120</Font2_16px_Bold>
 					</FlexContainer>
 					<FlexContainer>
-						<SmallFont>게시물:</SmallFont>
-						<SmallFontBold>120</SmallFontBold>
+						<Font2_16px_Light>게시물:</Font2_16px_Light>
+						<Font2_16px_Bold>120</Font2_16px_Bold>
 					</FlexContainer>
 				</NumberContainer>
-				<SmallFont>@Bright_Ocean 님이 팔로우합니다.</SmallFont>
-				<Name>
-					<BigFontBold>김선호</BigFontBold>
-					<BigFont>예술가</BigFont>
-				</Name>
-				<SmallFont>
+				<Font2_16px_Light>@Bright_Ocean 님이 팔로우합니다.</Font2_16px_Light>
+				<ProfileContainer>
+					<Font2_18px_Bold>김선호</Font2_18px_Bold>
+					<Font2_18px_Light>예술가</Font2_18px_Light>
+				</ProfileContainer>
+				<ProfileContent>
 					안녕하세요 예술가 김선호 입니다.
-				</SmallFont>
+				</ProfileContent>
+				<Button width="100%" height={60}>
+					<FlexContainer>
+						<ProfileCardImg src={CardChange}/>
+						<Font2_16px_Light>프로필카드</Font2_16px_Light>
+					</FlexContainer>
+				</Button>
+				<ProfileContainer>
+					<Font2_16px_Bold>LinkTree</Font2_16px_Bold>
+					<LinkContainer>
+						<Link>
+							<LinkImg src={LinkImg}/>
+							<Font2_18px_Bold>김선호 SNS</Font2_18px_Bold>
+						</Link>
+					</LinkContainer>
+				</ProfileContainer>
+				<ProfileContainer>
+					<Font2_16px_Light>Instagram Web Ver. 4.0</Font2_16px_Light>
+				</ProfileContainer>
+				<ProfileContainer>
+					<Font2_16px_Bold>Designed by</Font2_16px_Bold>
+					<Font2_16px_Light>Hyun jin Kim, Sun ho Kim, Ji Won Lee, Hye Won Yang, Chan Hee Shin, Yu Jin Jo</Font2_16px_Light>
+				</ProfileContainer>
+				<ProfileContainer>
+					<Font2_16px_Bold>Developed by</Font2_16px_Bold>
+					<Font2_16px_Light>Hyun jin Kim, Sun ho Kim, Ji Won Lee, Hye Won Yang, Chan Hee Shin, Yu Jin Jo</Font2_16px_Light>
+				</ProfileContainer>
 			</InfoContainer>
-			<Button width={400} height={60}>
-				<img src={CardChange}/>
-				프로필카드
-			</Button>
 		</LeftContainer>
 	</>
 
