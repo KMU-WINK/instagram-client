@@ -1,51 +1,55 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Categories from "../../components/settings/Categories";
-import EditFeed from "../../components/settings/EditFeed";
-import EditProfile from "../../components/settings/EditProfile";
+import SideNavigationBar from "../../components/settings/SideNavigationBar";
+import EditProfileView from "./EditProfileView";
+import EditFeedView from "./EditFeedView";
 
 const SettingsModal = styled.div`
-  position: fixed;
-  width: 1194px;
-  height: 800px;
+	position: fixed;
+	top: 40px;
+	left: 363px;
+	width: 1200px;
+	height: 960px;
+	border-radius: 16px;
+	border: 1px solid beige;
 `;
 
 const ModalHeader = styled.div`
-  width: 100%;
-  height: 64px;
-  border-bottom: 1px solid #b4b4b4;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 55px;
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid #858585;
+`;
+
+const HeaderText = styled.div`
+	position: relative;
+	top: 14px;
+	left: 578px;
+	font-weight: bold;
+	font-size: 24px;
 `;
 
 const ModalBody = styled.div`
-  display: flex;
+	display: flex;
 `;
 
-const SettingsNav = styled.nav`
-  width: 267px;
-  height: 550px;
-  border-right: 1px solid #b4b4b4;
-  border-bottom: 1px solid #b4b4b4;
-`;
-
+const menuList = {
+	0: <EditProfileView />,
+	1: <EditFeedView />,
+};
 
 export default function CategoryView() {
+
 	return (
 		<>
 			<SettingsModal>
-				<ModalHeader>설정</ModalHeader>
+				<ModalHeader>
+					<HeaderText>설정</HeaderText>
+				</ModalHeader>
 				<ModalBody>
-					<SettingsNav>
-						<Categories></Categories>
-					</SettingsNav>
-					<EditFeed></EditFeed>
+					<SideNavigationBar />
+					<EditProfileView></EditProfileView>
 				</ModalBody>
-
 			</SettingsModal>
-
 		</>
 	);
-};
+}

@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const MainView= () => (
-	<div>main</div>
-);
+const MainView = () => <div>main</div>;
 
-export default MainView
+export default MainView;

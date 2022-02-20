@@ -7,38 +7,25 @@ import border from "../../img/profileBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 
+
 interface StoryProps {
 	id: string;
 	//todo: profile도 props로 관리하기
 }
 
-const StoryContainer = styled.div`
-`;
-
-const ImgProfileContainer = styled.div `
-	
-`;
-
-const Border = styled.img`
-	position: absolute;
+const StoryContainer = styled.div``;
+const StoryProfile = styled.img`
 	width: 80px;
 	height: 80px;
-  border-radius: 100%;
-`;
-
-const Img = styled.img`
-	margin: 4px 0 0 4px;
-  width: 72px;
-  height: 72px;
-  border-radius: 100%;
-	
+	border-radius: 100%;
+	display: block;
 `;
 
 const StoryName = styled.div`
-	color:#000;
+	color: #000;
 	font-size: 16px;
 	text-align: center;
-	margin-top:5px;
+	margin-top: 5px;
 `;
 
 export default function Story(props: StoryProps) {
@@ -46,15 +33,14 @@ export default function Story(props: StoryProps) {
 
 	const storyClick = () => {
 		setIsView(true);
-	}
+	};
 
-	return <>
-		<StoryContainer>
-			<ImgProfileContainer onClick={storyClick}>
-				<Border src={isView ? ViewedBorder : border}/>
-				<Img src={testImg}/>
-			</ImgProfileContainer>
-			<StoryName>{props.id}</StoryName>
-		</StoryContainer>
-	</>
+	return (
+		<>
+			<StoryContainer>
+				<StoryProfile src={isView ? ViewedBorder : Border} onClick={storyClick} />
+				<StoryName>{props.id}</StoryName>
+			</StoryContainer>
+		</>
+	);
 }
