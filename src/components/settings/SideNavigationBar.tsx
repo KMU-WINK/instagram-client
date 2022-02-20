@@ -16,6 +16,10 @@ const NavigationBarTop = styled.div`
 `;
 
 export default function SideNavigationBar(props: any) {
+	const parentFunction = (data: number) => {
+		console.log(data);
+	}
+
 	return (
 		<>
 			<NavigationBarContainer>

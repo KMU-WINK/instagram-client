@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
 // @ts-ignore
 import BackImg from "../../img/BackBtn.png";
 
+interface ModalHeaderProps {
+	headerTitle : string;
+}
 const HeaderContainer = styled.div`
 	width: 1250px;
 	height: 60px;
@@ -32,12 +34,12 @@ const NextBtn = styled.div`
 	margin-top: 19px;
 `;
 
-export default function ModalHeader() {
+export default function ModalHeader(props: ModalHeaderProps) {
 	return (
 		<>
 			<HeaderContainer>
 				<BackBtn src={BackImg} />
-				<HeaderText>명함 스타일 설정</HeaderText>
+				<HeaderText>{props.headerTitle}</HeaderText>
 				<NextBtn>다음</NextBtn>
 			</HeaderContainer>
 		</>

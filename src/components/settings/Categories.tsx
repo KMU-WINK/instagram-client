@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Category from "./Category";
-import EditFeedView from "../../pages/setting/EditFeedView";
-import EditProfileView from "../../pages/setting/EditProfileView";
 
 const menuArr = [
 	"프로필 편집",
@@ -26,33 +24,14 @@ const CategoriesContainer = styled.ul`
 `;
 
 export default function Categories() {
-	const [state, setState] = useState({ activeTab: 0 });
-
-	const clickHandler = (index: number) => {
-		setState({ activeTab: index });
-	};
 
 	return (
 		<>
 			<CategoriesContainer>
 				{menuArr.map((value, index) => (
-					<Category
-						children={""}
-						color={"#00000"}
-						id={value}
-						onClick={() => {
-							clickHandler(index);
-						}}
-					/>
-				))}
-				<Category
-					children={""}
-					color={"#3796F0"}
-					id="프로페셔널 계정으로 전환"
-					onClick={() => {
-						clickHandler(9);
-					}}
-				/>
+					<Category children={""} color={"#00000"} id={value} index={index} />))}
+				<Category children={""} color={"#3796F0"} id="프로페셔널 계정으로 전환" index={9} />
+
 			</CategoriesContainer>
 		</>
 	);

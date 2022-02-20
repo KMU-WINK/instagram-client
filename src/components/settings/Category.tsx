@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 interface CategoryProps {
 	children: any;
 	id: string;
-	onClick: () => void;
 	color: string;
+	index: number;
 }
 
 const CategoryContainer = styled.li`
