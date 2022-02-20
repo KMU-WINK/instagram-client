@@ -38,7 +38,6 @@ const menuList = {
 };
 
 export default function CategoryView() {
-
 	return (
 		<>
 			<SettingsModal>

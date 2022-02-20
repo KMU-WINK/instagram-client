@@ -13,13 +13,13 @@ export const FontNormal = styled.div`
 
 export const FontBold_16px = styled.div`
 	font-size: 16px;
-  font-weight: bold;
-	color:#000;
+	font-weight: bold;
+	color: #000;
 `;
 
 export const FontNormal_16px = styled.div`
 	font-size: 16px;
-	color:#000;
+	color: #000;
 `;
 
 export const Font1_Light = styled.div`

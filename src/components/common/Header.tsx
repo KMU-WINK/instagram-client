@@ -15,8 +15,8 @@ import compass from "../../img/compass.png";
 // @ts-ignore
 import Heart from "../../img/Heart.png";
 // @ts-ignore
-import profile from '../../img/profile.svg';
-
+import profile from "../../img/profile.svg";
+import { useNavigate } from "react-router-dom";
 
 const Logo = styled.img`
 	width: 104px;
@@ -33,6 +33,9 @@ const HeaderContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	top: 0;
+	z-index: 9999;
 `;
 
 const SearchInput = styled.input`
@@ -67,6 +70,7 @@ const IconContainer = styled.div`
 `;
 
 export default function Header() {
+	const navigate = useNavigate();
 	return (
 		<>
 			<HeaderContainer>
@@ -81,7 +85,7 @@ export default function Header() {
 					<Icon src={plus} />
 					<Icon src={compass} />
 					<Icon src={Heart} />
-					<Icon src={profile} />
+					<Icon src={profile} onClick={() => navigate("/feed/:id")} />
 				</IconContainer>
 			</HeaderContainer>
 		</>

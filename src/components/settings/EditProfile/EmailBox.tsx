@@ -10,17 +10,17 @@ const InputContainer = styled.div`
 
 export default function EmailBox() {
 	const [state, setState] = useState("");
-	const handleChange = (e:any) => {
+	const handleChange = (e: any) => {
 		setState(e.target.value);
 		console.log(state);
-	}
+	};
 
 	return (
 		<>
 			<Container topMargin={22} height={50}>
 				<Title content="이메일" />
 				<InputContainer>
-					<TextInput minHeight={44} placeholder="이메일" value={state} onChange={handleChange}/>
+					<TextInput minHeight={44} placeholder="이메일" value={state} onChange={handleChange} />
 				</InputContainer>
 			</Container>
 		</>

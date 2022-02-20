@@ -25,7 +25,7 @@ const CategoryLink = styled.a`
 		outline: none;
 	}
 	&:hover {
-		background-color: #F8F8F8;
+		background-color: #f8f8f8;
 	}
 `;
 
@@ -33,15 +33,14 @@ const CategoryName = styled.div`
 	position: relative;
 	top: 17px;
 	left: 41px;
-`
+`;
 
 export default function Category(props: CategoryProps) {
-
 	return (
 		<>
 			<CategoryContainer>
 				<CategoryLink>
-					<CategoryName style={{color: props.color}}>{props.id}</CategoryName>
+					<CategoryName style={{ color: props.color }}>{props.id}</CategoryName>
 				</CategoryLink>
 			</CategoryContainer>
 		</>

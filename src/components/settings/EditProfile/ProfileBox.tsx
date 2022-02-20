@@ -9,7 +9,7 @@ const ProfileContainer = styled.div`
 `;
 
 const EditBtn = styled.div`
-	color: #0095F6;
+	color: #0095f6;
 	font-size: 16px;
 	text-align: right;
 `;
@@ -31,7 +31,7 @@ export default function ProfileBox() {
 			const imgTarget = event.target.files[0];
 			const fileReader = new FileReader();
 			fileReader.readAsDataURL(imgTarget);
-			fileReader.onload = function(e: any) {
+			fileReader.onload = function (e: any) {
 				setImage(e.target.result);
 			};
 		} else {
@@ -39,25 +39,30 @@ export default function ProfileBox() {
 		}
 	};
 
-return (
-	<>
-		<Container topMargin={40} height={150}>
-			<Title content="프로필 사진" />
-			<ProfileContainer>
-				<EditBtn onClick={() => {
-					fileInput.current.click();
-				}}>수정</EditBtn>
-				<Avatar
-					src={image}
-					style={{ width: "88px", height: "88px", display: "block", marginLeft: "205px" }} />
-				<UploadProfile
-					accept="image/jpg,impge/png,image/jpeg"
-					name="profile_img"
-					onChange={onChangeHandle}
-					ref={fileInput}
-				/>
-			</ProfileContainer>
-		</Container>
-	</>
-);
+	return (
+		<>
+			<Container topMargin={40} height={150}>
+				<Title content="프로필 사진" />
+				<ProfileContainer>
+					<EditBtn
+						onClick={() => {
+							fileInput.current.click();
+						}}
+					>
+						수정
+					</EditBtn>
+					<Avatar
+						src={image}
+						style={{ width: "88px", height: "88px", display: "block", marginLeft: "205px" }}
+					/>
+					<UploadProfile
+						accept="image/jpg,impge/png,image/jpeg"
+						name="profile_img"
+						onChange={onChangeHandle}
+						ref={fileInput}
+					/>
+				</ProfileContainer>
+			</Container>
+		</>
+	);
 }

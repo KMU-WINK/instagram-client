@@ -15,8 +15,6 @@ const NavigationBarTop = styled.div`
 	border-bottom: #b4b4b4 1px solid;
 `;
 
-
-
 export default function SideNavigationBar(props: any) {
 	return (
 		<>
@@ -26,7 +24,6 @@ export default function SideNavigationBar(props: any) {
 				</NavigationBarTop>
 				<NavigationBarBottom></NavigationBarBottom>
 			</NavigationBarContainer>
-
 		</>
 	);
 }

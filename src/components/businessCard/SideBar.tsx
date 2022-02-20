@@ -18,7 +18,7 @@ const SideBarBottom = styled.div`
 	height: 670px;
 `;
 
-export default function SideBar({ getPalette } : {getPalette: any}) {
+export default function SideBar({ getPalette }: { getPalette: any }) {
 	const [state, setState] = useState("");
 
 	const onClickPalette = (color: string) => {
@@ -33,7 +33,7 @@ export default function SideBar({ getPalette } : {getPalette: any}) {
 				<SideBarTop></SideBarTop>
 				<SideBarBottom>
 					{/*<Templates />*/}
-					<ColorPalettes onClickPalette={onClickPalette}/>
+					<ColorPalettes onClickPalette={onClickPalette} />
 				</SideBarBottom>
 			</SideBarContainer>
 		</>

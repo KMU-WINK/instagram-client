@@ -11,10 +11,10 @@ const InputContainer = styled.div`
 
 export default function NameBox() {
 	const [state, setState] = useState("2SoH/이소");
-	const handleChange = (e:any) => {
+	const handleChange = (e: any) => {
 		setState(e.target.value);
 		console.log(state);
-	}
+	};
 
 	return (
 		<>

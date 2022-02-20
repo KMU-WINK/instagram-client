@@ -10,17 +10,17 @@ const InputContainer = styled.div`
 
 export default function WebSiteBox() {
 	const [state, setState] = useState("");
-	const handleChange = (e:any) => {
+	const handleChange = (e: any) => {
 		setState(e.target.value);
 		console.log(state);
-	}
+	};
 
 	return (
 		<>
 			<Container topMargin={22} height={50}>
 				<Title content="웹사이트" />
 				<InputContainer>
-					<TextInput minHeight={44} placeholder="웹사이트" value={state} onChange={handleChange}/>
+					<TextInput minHeight={44} placeholder="웹사이트" value={state} onChange={handleChange} />
 				</InputContainer>
 			</Container>
 		</>

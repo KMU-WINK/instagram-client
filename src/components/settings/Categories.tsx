@@ -17,27 +17,42 @@ const menuArr = [
 ];
 
 const CategoriesContainer = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  width: 267px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	width: 267px;
 `;
 
 export default function Categories() {
 	const [state, setState] = useState({ activeTab: 0 });
 
 	const clickHandler = (index: number) => {
-		setState({activeTab: index});
-	}
+		setState({ activeTab: index });
+	};
 
 	return (
 		<>
 			<CategoriesContainer>
 				{menuArr.map((value, index) => (
-					<Category children={""} color={"#00000"} id={value} onClick={() => {clickHandler(index)}} />))}
-				<Category children={""} color={"#3796F0"} id="프로페셔널 계정으로 전환" onClick={() => {clickHandler(9)}} />
+					<Category
+						children={""}
+						color={"#00000"}
+						id={value}
+						onClick={() => {
+							clickHandler(index);
+						}}
+					/>
+				))}
+				<Category
+					children={""}
+					color={"#3796F0"}
+					id="프로페셔널 계정으로 전환"
+					onClick={() => {
+						clickHandler(9);
+					}}
+				/>
 			</CategoriesContainer>
 		</>
 	);

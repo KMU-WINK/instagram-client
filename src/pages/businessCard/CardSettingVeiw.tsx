@@ -37,10 +37,10 @@ export default function CardSettingView() {
 				<ModalHeader />
 				<ModalBody>
 					<CardMain>
-						<CardFront color={state}/>
-						<CardBack color={state}/>
+						<CardFront color={state} />
+						<CardBack color={state} />
 					</CardMain>
-					<SideBar getPalette={getPalette}/>
+					<SideBar getPalette={getPalette} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>
