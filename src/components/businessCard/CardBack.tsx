@@ -32,10 +32,10 @@ const TagsContainer = styled.div`
 `;
 
 const Tag = styled.span`
-  font-size: 10px;
+	font-size: 10px;
 `;
 
-export default function CardBack(props:CardBackProps) {
+export default function CardBack(props: CardBackProps) {
 	const name = "_2soh";
 	const tags = ["예술가", "일러스터", "코스메틱", "여성"];
 
@@ -43,10 +43,12 @@ export default function CardBack(props:CardBackProps) {
 		<>
 			<CardContainer color={props.color}>
 				<CardBorder>
-					<QR src={QRcode}/>
+					<QR src={QRcode} />
 					<Name>{name}</Name>
 					<TagsContainer>
-						{tags.map((item) => (<Tag>{" #"+item}</Tag>))}
+						{tags.map((item) => (
+							<Tag>{" #" + item}</Tag>
+						))}
 					</TagsContainer>
 				</CardBorder>
 			</CardContainer>

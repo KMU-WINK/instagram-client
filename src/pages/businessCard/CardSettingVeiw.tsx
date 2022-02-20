@@ -39,10 +39,10 @@ export default function CardSettingView() {
 				<ModalHeader headerTitle={"명함 스타일 설정"} />
 				<ModalBody>
 					<CardMain>
-						<CardFront color={state}/>
-						<CardBack color={state}/>
+						<CardFront color={state} />
+						<CardBack color={state} />
 					</CardMain>
-					<SideBar getPalette={getPalette}/>
+					<SideBar getPalette={getPalette} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

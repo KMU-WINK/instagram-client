@@ -25,7 +25,7 @@ const CategoryLink = styled.a`
 		outline: none;
 	}
 	&:hover {
-		background-color: #F8F8F8;
+		background-color: #f8f8f8;
 	}
 `;
 
@@ -33,19 +33,14 @@ const CategoryName = styled.div`
 	position: relative;
 	top: 17px;
 	left: 41px;
-`
+`;
 
 export default function Category(props: CategoryProps) {
-	const [state, setState] = useState({ activeTab: 0 });
-	const clickHandler = (index: number) => {
-		setState({activeTab: index});
-	}
-
 	return (
 		<>
 			<CategoryContainer>
-				<CategoryLink onClick={() => clickHandler(props.index)}>
-					<CategoryName style={{color: props.color}}>{props.id}</CategoryName>
+				<CategoryLink>
+					<CategoryName style={{ color: props.color }}>{props.id}</CategoryName>
 				</CategoryLink>
 			</CategoryContainer>
 		</>

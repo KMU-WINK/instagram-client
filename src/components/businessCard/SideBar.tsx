@@ -39,6 +39,7 @@ export default function SideBar({ getPalette } : {getPalette: any}) {
 	const [state, setState] = useState({activeTab : 0});
 	const [color, setColor] = useState("");
 
+
 	const onClickMenu = (menuIndex:number) => {
 		setState({ activeTab: menuIndex });
 	}
@@ -64,7 +65,9 @@ export default function SideBar({ getPalette } : {getPalette: any}) {
 					<TabMenu className={state.activeTab === 1 ? 'active' : ''} onClick={() => onClickMenu(1)}>배경 색</TabMenu>
 				</SideBarTop>
 				<SideBarBottom>
-					{menuList[state.activeTab]}
+					{/*<Templates />*/}
+					<ColorPalettes onClickPalette={onClickPalette} />
+
 				</SideBarBottom>
 			</SideBarContainer>
 		</>

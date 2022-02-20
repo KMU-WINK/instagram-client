@@ -9,7 +9,7 @@ const Container = styled.div`
 	margin: 15px 30px 15px 30px;
 `;
 
-export default function ColorPalettes({ onClickPalette } : {onClickPalette: any}) {
+export default function ColorPalettes({ onClickPalette }: { onClickPalette: any }) {
 	const colorArr = [
 		"#F5F5F5",
 		"#EFE7E7",
@@ -29,9 +29,9 @@ export default function ColorPalettes({ onClickPalette } : {onClickPalette: any}
 		"#282828",
 	];
 
-	const handleChange = (e:any) => {
+	const handleChange = (e: any) => {
 		onClickPalette(e.target.id);
-	}
+	};
 
 	return (
 		<>

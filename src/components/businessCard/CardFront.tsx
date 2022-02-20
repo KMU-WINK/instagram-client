@@ -23,23 +23,22 @@ const ImageContainer = styled.div`
 	left: 70px;
 	width: 140px;
 	height: 140px;
-  border: 5px solid transparent;
-  border-radius: 50%;
-  background-image: linear-gradient(#fff, #fff),
-  linear-gradient(45deg, #FF0000, #FF006B, #FFA927, #E1FF27);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+	border: 5px solid transparent;
+	border-radius: 50%;
+	background-image: linear-gradient(#fff, #fff), linear-gradient(45deg, #ff0000, #ff006b, #ffa927, #e1ff27);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
 	overflow: hidden;
 `;
 
 const Image = styled.img`
-  width: 100%;
+	width: 100%;
 	height: 100%;
 `;
 
 const CenterContainer = styled.div`
-  position: relative;
-  top: 100px;
+	position: relative;
+	top: 100px;
 `;
 
 const Name = styled.div`
@@ -60,11 +59,10 @@ const Line = styled.div`
 	margin-left: 73px;
 `;
 
-const TagsContainer = styled.div`
-`;
+const TagsContainer = styled.div``;
 
 const Tag = styled.span`
-  font-size: 8px;
+	font-size: 8px;
 	color: rgb(0, 0, 0, 0.4);
 `;
 
@@ -109,7 +107,9 @@ export default function CardFront(props: CardFrontProps) {
 						<Position>{position}</Position>
 						<Line />
 						<TagsContainer>
-							{tags.map((item) => (<Tag>{" #"+item}</Tag>))}
+							{tags.map((item) => (
+								<Tag>{" #" + item}</Tag>
+							))}
 						</TagsContainer>
 					</CenterContainer>
 					<PersonalInfoContainer>

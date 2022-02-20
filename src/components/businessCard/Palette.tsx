@@ -9,7 +9,7 @@ const Palette = styled.div<PaletteProps>`
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
-	border: 1px #8F8F8F solid;
+	border: 1px #8f8f8f solid;
 	margin: 18px;
 `;
 

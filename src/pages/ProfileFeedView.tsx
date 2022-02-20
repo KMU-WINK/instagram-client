@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import Header from "../components/common/Header";
 import ImgProfile from "../components/common/ImgProfile";
@@ -10,11 +10,13 @@ const FeedContainer = styled.div`
 `;
 
 export default function ProfileFeedView() {
-	return <>
-		<Header></Header>
-		<FeedContainer>
-			<LeftProfile/>
-			<RightFeed/>
-		</FeedContainer>
-	</>
-};
+	return (
+		<>
+			<Header></Header>
+			<FeedContainer>
+				<LeftProfile />
+				<RightFeed />
+			</FeedContainer>
+		</>
+	);
+}
