@@ -38,7 +38,7 @@ export default function Story(props: StoryProps) {
 	return (
 		<>
 			<StoryContainer>
-				<StoryProfile src={isView ? ViewedBorder : border} onClick={storyClick} />
+				<StoryProfile src={isView ? ViewedBorder : Border} onClick={storyClick} />
 				<StoryName>{props.id}</StoryName>
 			</StoryContainer>
 		</>
