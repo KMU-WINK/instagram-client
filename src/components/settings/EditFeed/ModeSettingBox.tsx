@@ -1,13 +1,19 @@
 import React from "react";
-import sytled from "styled-components";
 import styled from "styled-components";
-
 import Container from "./Container";
 import Title from "./Title";
+import BlueButton from "../../common/BlueButton";
 
 const LabelContainer = styled.div`
-	width: 520px;
+	display: inline-block;
+	width: 120px;
 	margin-top: 33px;
+	margin-right: 24px;
+`;
+
+const CheckContainer = styled.div`
+	display: flex;
+	flex-direction: row;
 `;
 
 const CheckBox = styled.input.attrs({
@@ -30,16 +36,19 @@ const LabelText = styled.label`
 export default function ModeSettingBox() {
 	return (
 		<>
-			<Container topMargin={55} height={95}>
+			<Container style={{borderBottom: "#C4C4C4 1px solid"}} topMargin={55} height={170}>
 				<Title content="다크 설정" />
-				<LabelContainer>
-					<CheckBox checked />
-					<LabelText>화이트 모드</LabelText>
-				</LabelContainer>
-				<LabelContainer>
-					<CheckBox />
-					<LabelText>다크 모드</LabelText>
-				</LabelContainer>
+				<CheckContainer>
+					<LabelContainer>
+						<CheckBox checked />
+						<LabelText>화이트 모드</LabelText>
+					</LabelContainer>
+					<LabelContainer>
+						<CheckBox />
+						<LabelText>다크 모드</LabelText>
+					</LabelContainer>
+				</CheckContainer>
+				<BlueButton style={{marginLeft: "625px"}} height={36} width={115}>적용하기</BlueButton>
 			</Container>
 		</>
 	);
