@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 // @ts-ignore
-import Border from "../../img/profileBorder.png";
+import ViewedBorder from '../../img/storyViewed.png';
 // @ts-ignore
-import ViewedBorder from "../../img/storyViewed.png";
+import border from "../../img/profileBorder.svg";
+// @ts-ignore
+import testImg from "../../img/sea.jpg";
+
 
 interface StoryProps {
 	id: string;

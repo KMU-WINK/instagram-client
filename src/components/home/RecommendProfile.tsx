@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { Font2_Light, FontBlue, FontBold } from "../style/Font";
 // @ts-ignore
-import basicProfile from "../../img/BasicProfile.png";
+import basicProfile from '../../img/profile.svg';
 
 interface RecommendProps {
 	id: string;

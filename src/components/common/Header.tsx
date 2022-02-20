@@ -15,7 +15,8 @@ import compass from "../../img/compass.png";
 // @ts-ignore
 import Heart from "../../img/Heart.png";
 // @ts-ignore
-import profile from "../../img/profile.png";
+import profile from '../../img/profile.svg';
+
 
 const Logo = styled.img`
 	width: 104px;
