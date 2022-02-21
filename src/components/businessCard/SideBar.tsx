@@ -65,9 +65,7 @@ export default function SideBar({ getPalette } : {getPalette: any}) {
 					<TabMenu className={state.activeTab === 1 ? 'active' : ''} onClick={() => onClickMenu(1)}>배경 색</TabMenu>
 				</SideBarTop>
 				<SideBarBottom>
-					{/*<Templates />*/}
-					<ColorPalettes onClickPalette={onClickPalette} />
-
+					{menuList[state.activeTab]}
 				</SideBarBottom>
 			</SideBarContainer>
 		</>

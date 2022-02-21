@@ -20,7 +20,7 @@ const CategoriesContainer = styled.ul`
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-	width: 267px;
+	width: 100%;
 `;
 
 export default function Categories() {

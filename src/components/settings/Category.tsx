@@ -9,9 +9,10 @@ interface CategoryProps {
 }
 
 const CategoryContainer = styled.li`
-	width: 272px;
+	width: 100%;
 	height: 60px;
 `;
+
 
 const CategoryLink = styled.a`
 	width: 100%;
@@ -36,6 +37,8 @@ const CategoryName = styled.div`
 `;
 
 export default function Category(props: CategoryProps) {
+
+
 	return (
 		<>
 			<CategoryContainer>
