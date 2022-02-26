@@ -12,6 +12,7 @@ import CardChange from '../../img/CardChange.svg';
 import CardImg from '../../img/Subtract.svg';
 // @ts-ignore
 import LinkImg from '../../img/facebook.svg';
+import FeedButton from "./FeedButton";
 import {
 	Font2_Light,
 	FontBold,
@@ -21,11 +22,6 @@ import {
 	Font2_18px_Bold,
 	Font2_18px_Light
 } from "../style/Font";
-
-interface ButtonProps {
-	width: string;
-	height: number;
-};
 
 const FlexContainer = styled.div`
 	display: flex;
@@ -65,17 +61,6 @@ const ProfileName = styled(FontNormal)`
 const EditContainer = styled.div`
 	display:flex;
   justify-content: center;
-`;
-
-const Button = styled.div<ButtonProps>`
-	display:flex;
-	justify-content: center;
-	width:${(props) => props.width ? props.width : '100%'};
-	height:${(props) => props.height}px;
-  border: 0.8px solid rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
-	font-size: 16px;
-	line-height:${(props) => props.height}px;
 `;
 
 const SettingIcon = styled.img`
@@ -132,7 +117,7 @@ export default function LeftProfile() {
 				<ProfileName>_SSunho_97</ProfileName>
 			</Profile>
 			<EditContainer>
-				<Button width="141px" height={40}>프로필 편집</Button>
+				<FeedButton width="141px" height="40px">프로필 편집</FeedButton>
 				<SettingIcon src={CardImg}/>
 			</EditContainer>
 			<InfoContainer>
@@ -158,12 +143,12 @@ export default function LeftProfile() {
 				<ProfileContent>
 					안녕하세요 예술가 김선호 입니다.
 				</ProfileContent>
-				<Button width="100%" height={60}>
+				<FeedButton width="100%" height="60px">
 					<FlexContainer>
 						<ProfileCardImg src={CardChange}/>
 						<Font2_16px_Light>프로필카드</Font2_16px_Light>
 					</FlexContainer>
-				</Button>
+				</FeedButton>
 				<ProfileContainer>
 					<Font2_16px_Bold>LinkTree</Font2_16px_Bold>
 					<LinkContainer>

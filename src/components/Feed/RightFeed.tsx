@@ -6,6 +6,7 @@ import Post from '../../img/post.svg';
 import Highlights from "./Highlights";
 import RightNav from "./RightNav";
 import FeedMain from "./FeedMain";
+import RightCategory from "./RightCategory";
 
 const RightContainer = styled.div`
   width:90%;
@@ -18,6 +19,7 @@ export default function RightFeed() {
 		<RightContainer>
 			<Highlights/>
 			<RightNav/>
+			<RightCategory/>
 			<FeedMain/>
 		</RightContainer>
 	</>
