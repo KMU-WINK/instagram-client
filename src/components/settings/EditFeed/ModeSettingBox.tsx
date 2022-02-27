@@ -5,32 +5,32 @@ import Title from "./Title";
 import BlueButton from "../../common/BlueButton";
 
 const LabelContainer = styled.div`
-  display: inline-block;
-  width: 120px;
-  margin-top: 33px;
-  margin-right: 24px;
+	display: inline-block;
+	width: 120px;
+	margin-top: 33px;
+	margin-right: 24px;
 `;
 
 const CheckContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 `;
 
 const CheckBox = styled.input.attrs({
-	type: "checkbox"
+	type: "checkbox",
 })`
-  float: left;
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
-  border: 1px #858585 solid;
-  margin: 0;
+	float: left;
+	width: 22px;
+	height: 22px;
+	border-radius: 5px;
+	border: 1px #858585 solid;
+	margin: 0;
 `;
 
 const LabelText = styled.label`
-  font-size: 16px;
-  color: #000000;
-  margin-left: 8px;
+	font-size: 16px;
+	color: #000000;
+	margin-left: 8px;
 `;
 
 export default function ModeSettingBox() {
@@ -48,7 +48,9 @@ export default function ModeSettingBox() {
 						<LabelText>다크 모드</LabelText>
 					</LabelContainer>
 				</CheckContainer>
-				<BlueButton style={{ marginLeft: "625px" }} height={36} width={115}>적용하기</BlueButton>
+				<BlueButton style={{ marginLeft: "625px" }} height={36} width={115}>
+					적용하기
+				</BlueButton>
 			</Container>
 		</>
 	);

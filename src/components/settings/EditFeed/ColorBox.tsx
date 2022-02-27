@@ -7,40 +7,40 @@ import BlueButton from "../../common/BlueButton";
 import None from "../../../img/None.png";
 
 const InnerContainer = styled.div`
-  width: 100%;
+	width: 100%;
 `;
 
 const PreviewBtn = styled.button`
-  margin-left: 645px;
-  color: #0095F6;
-  font-size: 16px;
-  line-height: 28px;
-  background-color: #ffffff;
-  border: none;
+	margin-left: 645px;
+	color: #0095f6;
+	font-size: 16px;
+	line-height: 28px;
+	background-color: #ffffff;
+	border: none;
 `;
 
 const PaletteBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 500px;
-  margin-top: 35px;
-  margin-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 500px;
+	margin-top: 35px;
+	margin-bottom: 50px;
 `;
 
 const Default = styled.img`
-  width: 48px;
-  height: 48px;
-  margin-right: 22px;
-  margin-bottom: 10px;
+	width: 48px;
+	height: 48px;
+	margin-right: 22px;
+	margin-bottom: 10px;
 `;
 
 const Palette = styled.div`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 22px;
-  margin-bottom: 10px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	margin-right: 22px;
+	margin-bottom: 10px;
 `;
 
 export default function ColorBox() {
@@ -78,7 +78,9 @@ export default function ColorBox() {
 						<Palette style={{ backgroundColor: "#8400EA" }} />
 					</PaletteBox>
 				</InnerContainer>
-				<BlueButton height={36} width={115} style={{ marginLeft: "625px" }}>적용하기</BlueButton>
+				<BlueButton height={36} width={115} style={{ marginLeft: "625px" }}>
+					적용하기
+				</BlueButton>
 			</Container>
 		</>
 	);

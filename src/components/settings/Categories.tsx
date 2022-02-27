@@ -24,14 +24,13 @@ const CategoriesContainer = styled.ul`
 `;
 
 export default function Categories() {
-
 	return (
 		<>
 			<CategoriesContainer>
 				{menuArr.map((value, index) => (
-					<Category children={""} color={"#00000"} id={value} index={index} />))}
+					<Category children={""} color={"#00000"} id={value} index={index} />
+				))}
 				<Category children={""} color={"#3796F0"} id="프로페셔널 계정으로 전환" index={9} />
-
 			</CategoriesContainer>
 		</>
 	);

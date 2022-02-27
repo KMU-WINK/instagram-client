@@ -8,13 +8,13 @@ interface Title {
 const Text = styled.div`
 	font-size: 18px;
 	font-weight: bold;
-  float: left;
+	float: left;
 `;
 
 export default function Title(props: Title) {
-	return(
+	return (
 		<>
-				<Text>{props.content}</Text>
+			<Text>{props.content}</Text>
 		</>
-	)
+	);
 }

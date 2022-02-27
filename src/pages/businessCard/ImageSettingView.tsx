@@ -34,9 +34,8 @@ export default function ImageSettingView() {
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"사진 선택"} />
 				<ModalBody>
-					<CardMain>
-					</CardMain>
-					<SideBar getPalette={getPalette}/>
+					<CardMain></CardMain>
+					<SideBar getPalette={getPalette} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

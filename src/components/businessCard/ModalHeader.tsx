@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BackImg from "../../img/BackBtn.png";
 
 interface ModalHeaderProps {
-	headerTitle : string;
+	headerTitle: string;
 }
 const HeaderContainer = styled.div`
 	width: 1250px;

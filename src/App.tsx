@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
@@ -12,15 +12,41 @@ import ImageSettingView from "./pages/businessCard/ImageSettingView";
 import LoginPage from "./pages/auth/LoginPage";
 import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
+import { ThemeContext, themes } from "./contexts/ThemeContext";
+
+type Mode = "light" | "dark";
+
+type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
+
+type PointColor =
+	| "Original"
+	| "Pink"
+	| "Red"
+	| "Orange"
+	| "Yellow"
+	| "Green"
+	| "Aqua Green"
+	| "Mint"
+	| "Blue"
+	| "Navy"
+	| "Rose"
+	| "Purple"
+	| "Light Purple";
 
 export default function App() {
+	const [theme, setTheme] = useState(themes["light-Original-Original"]);
+
+	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
+
+	console.log(theme);
+
 	return (
 		// <div>
 		// 	<Input defaultValue="@probablyup" type="text" />
 		// 	<Button primary>Button</Button>
 		// 	<SettingsWrapper></SettingsWrapper>
 		// </div>
-		<>
+		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 			<GlobalStyles />
 			<BrowserRouter>
 				<Routes>
@@ -32,9 +58,9 @@ export default function App() {
 					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 					<Route path="/businesscard/setting" element={<CardSettingView />} />
-          <Route path="/businesscard/setting/image" element={<ImageSettingView />} />
+					<Route path="/businesscard/setting/image" element={<ImageSettingView />} />
 				</Routes>
 			</BrowserRouter>
-		</>
+		</ThemeContext.Provider>
 	);
 }

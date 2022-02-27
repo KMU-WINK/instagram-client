@@ -8,10 +8,10 @@ import TestImg from "../../../img/CateTestImg.png";
 import CategoryBox from "./CategoryBox";
 
 const InnerContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 35px;
-  width: 775px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-top: 35px;
+	width: 775px;
 `;
 
 export default function CategorySettingBox() {
