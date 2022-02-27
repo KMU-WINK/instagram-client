@@ -14,12 +14,6 @@ const HomeContainer = styled.div`
 	height: 1019px;
 `;
 export default function HomeView() {
-	const { theme, setTheme } = useContext(ThemeContext);
-
-	useEffect(() => {
-		console.log(theme);
-	}, [theme]);
-
 	return (
 		<>
 			<Header></Header>
@@ -28,11 +22,6 @@ export default function HomeView() {
 			<HomeContainer>
 				<Storys />
 				<MainFeed></MainFeed>
-				<button
-					onClick={() => {
-						setTheme("dark-Original-Light Purple");
-					}}
-				/>
 			</HomeContainer>
 		</>
 	);

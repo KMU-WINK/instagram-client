@@ -13,6 +13,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
 import { ThemeContext, themes } from "./contexts/ThemeContext";
+import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
 
 type Mode = "light" | "dark";
 
@@ -57,6 +58,7 @@ export default function App() {
 					<Route path="/feed/:id" element={<ProfileFeedView />} />
 					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
 					<Route path="/businesscard/setting" element={<CardSettingView />} />
 					<Route path="/businesscard/setting/image" element={<ImageSettingView />} />
 				</Routes>

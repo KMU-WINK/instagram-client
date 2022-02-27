@@ -7,13 +7,14 @@ interface ThemeType {
 	};
 	pointColor: string;
 	fontColor: string[];
+	name: `${Mode}-${BgColor}-${PointColor}`;
 }
 
-type Mode = "light" | "dark";
+export type Mode = "light" | "dark";
 
-type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
+export type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
 
-type PointColor =
+export type PointColor =
 	| "Original"
 	| "Pink"
 	| "Red"
@@ -199,6 +200,7 @@ const generateTheme = () => {
 					},
 					pointColor: points[pointColor][mode],
 					fontColor: fonts[mode],
+					name: `${mode}-${bgColor}-${pointColor}`,
 				};
 			});
 		});
