@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // @ts-ignore
 import ViewedBorder from "../../img/storyViewed.png";
 // @ts-ignore
-import Border from "../../img/profileBorder.svg";
+import border from "../../img/profileBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 
@@ -48,7 +48,7 @@ export default function Story(props: StoryProps) {
 		<>
 			<StoryContainer>
 				<ImgProfileContainer onClick={storyClick}>
-					<Border src={isView ? ViewedBorder : Border} />
+					<Border src={isView ? ViewedBorder : border} />
 					<Img src={testImg} />
 				</ImgProfileContainer>
 

@@ -22,7 +22,7 @@ import {
 	Font2_18px_Light,
 } from "../style/Font";
 import { ThemeContext } from "../../contexts/ThemeContext";
-
+import FeedButton from "./FeedButton";
 
 interface ButtonProps {
 	width: string;
@@ -122,10 +122,10 @@ const LinkImg = styled.img`
 
 export default function LeftProfile() {
 	const { theme } = useContext(ThemeContext);
-	
+
 	return (
 		<>
-			<LeftContainer style={{backgroundColor: theme?.bgColor.profile}}>
+			<LeftContainer style={{ backgroundColor: theme?.bgColor.profile }}>
 				<BackgroundImg src={background} />
 				<Profile>
 					<ProfileImg src={profileImg} />
@@ -133,9 +133,9 @@ export default function LeftProfile() {
 					<ProfileName>_SSunho_97</ProfileName>
 				</Profile>
 				<EditContainer>
-					<Button width="141px" height={40}>
+					<FeedButton width="141px" height="40px">
 						프로필 편집
-					</Button>
+					</FeedButton>
 					<SettingIcon src={CardImg} />
 				</EditContainer>
 				<InfoContainer>
@@ -159,12 +159,12 @@ export default function LeftProfile() {
 						<Font2_18px_Light>예술가</Font2_18px_Light>
 					</ProfileContainer>
 					<ProfileContent>안녕하세요 예술가 김선호 입니다.</ProfileContent>
-					<Button width="100%" height={60}>
+					<FeedButton width="100%" height="60px">
 						<FlexContainer>
 							<ProfileCardImg src={CardChange} />
 							<Font2_16px_Light>프로필카드</Font2_16px_Light>
 						</FlexContainer>
-					</Button>
+					</FeedButton>
 					<ProfileContainer>
 						<Font2_16px_Bold>LinkTree</Font2_16px_Bold>
 						<LinkContainer>
