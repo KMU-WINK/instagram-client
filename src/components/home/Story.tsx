@@ -51,6 +51,7 @@ export default function Story(props: StoryProps) {
 					<Border src={isView ? ViewedBorder : border} />
 					<Img src={testImg} />
 				</ImgProfileContainer>
+
 				<StoryName>{props.id}</StoryName>
 			</StoryContainer>
 		</>
