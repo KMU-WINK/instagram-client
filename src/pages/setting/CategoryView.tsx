@@ -38,7 +38,6 @@ const menuList = {
 };
 
 export default function CategoryView() {
-
 	return (
 		<>
 			<SettingsModal>
@@ -47,7 +46,8 @@ export default function CategoryView() {
 				</ModalHeader>
 				<ModalBody>
 					<SideNavigationBar />
-					<EditProfileView></EditProfileView>
+					{/*<EditProfileView />*/}
+					<EditFeedView />
 				</ModalBody>
 			</SettingsModal>
 		</>
