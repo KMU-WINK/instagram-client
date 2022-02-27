@@ -3,6 +3,10 @@ import styled from "styled-components";
 // @ts-ignore
 import TestImg from "../../../img/CateTestImg.png";
 
+interface CategoryBoxProps {
+	state: boolean;
+}
+
 const CategoryBoxContainer = styled.div`
   width: 170px;
   height: 200px;
@@ -34,7 +38,20 @@ const CategoryImg = styled.img`
   height: 72px;
 `;
 
-export default function CategoryBox() {
+const DeleteBtn = styled.button<{state:boolean}>`
+	color: #3796F0;
+	font-size: 14px;
+	line-height: 16px;
+	background-color: #ffffff;
+	border: 0;
+  visibility: ${props => props.state ? "visible" : "hidden"}
+`;
+
+export default function CategoryBox(props:CategoryBoxProps) {
+	const handleDeleteBtn = (e:any) => {
+		alert('지운다')
+	}
+
 	return (
 		<>
 			<CategoryBoxContainer>
@@ -45,6 +62,7 @@ export default function CategoryBox() {
 					<CategoryImg src={TestImg} />
 					<CategoryImg src={TestImg} />
 				</Box>
+				<DeleteBtn state={props.state} onClick={handleDeleteBtn}>삭제</DeleteBtn>
 			</CategoryBoxContainer>
 		</>
 	);

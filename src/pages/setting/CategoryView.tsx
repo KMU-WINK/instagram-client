@@ -47,7 +47,7 @@ export default function CategoryView() {
 				<ModalBody>
 					<SideNavigationBar />
 					{/*<EditProfileView />*/}
-					{/*<EditFeedView />*/}
+					<EditFeedView />
 				</ModalBody>
 			</SettingsModal>
 		</>

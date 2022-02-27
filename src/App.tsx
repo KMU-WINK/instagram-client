@@ -8,7 +8,7 @@ import ProfileFeedView from "./pages/ProfileFeedView";
 import EditFeedView from "./pages/setting/EditFeedView";
 import EditProfileView from "./pages/setting/EditProfileView";
 import CardSettingView from "./pages/businessCard/CardSettingVeiw";
-import ImageSettingView from "./pages/businessCard/ImageSettingView";
+import CardEditView from "./pages/businessCard/CardEditView";
 import LoginPage from "./pages/auth/LoginPage";
 import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
@@ -32,7 +32,7 @@ export default function App() {
 					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 					<Route path="/businesscard/setting" element={<CardSettingView />} />
-          <Route path="/businesscard/setting/image" element={<ImageSettingView />} />
+          <Route path="/businesscard/setting/image" element={<CardEditView />} />
 				</Routes>
 			</BrowserRouter>
 		</>
