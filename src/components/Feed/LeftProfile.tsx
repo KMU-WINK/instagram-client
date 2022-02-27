@@ -22,6 +22,7 @@ import {
 	Font2_18px_Light,
 } from "../style/Font";
 
+
 interface ButtonProps {
 	width: string;
 	height: number;
