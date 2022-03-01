@@ -9,10 +9,10 @@ import CategoryBox from "./CategoryBox";
 import AddCategoryBox from "./AddCategoryBox";
 
 const InnerContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 35px;
-  width: 775px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-top: 35px;
+	width: 775px;
 `;
 
 const DetailInfo = styled.div`

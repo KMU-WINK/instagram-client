@@ -40,7 +40,7 @@ export default function CardEditView() {
 						<CardFront color={state} />
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar getPalette={getPalette} />
+					<SideBar page={"편집"} getPalette={getPalette} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

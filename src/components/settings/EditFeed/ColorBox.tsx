@@ -12,7 +12,7 @@ const InnerContainer = styled.div`
 
 const PreviewBtn = styled.button`
   margin-left: 645px;
-  color: #0095F6;
+  color: #0095f6;
   font-size: 16px;
   line-height: 28px;
   background-color: #ffffff;
@@ -37,14 +37,14 @@ const Default = styled.img<{ state: boolean }>`
   border: ${(props) => (props.state ? "5px #3796F0 solid" : "0")};
 `;
 
-const Palette = styled.div<{ state: boolean, index:number }>`
+const Palette = styled.div<{ state: boolean, index: number }>`
   width: 48px;
   height: 48px;
   border-radius: 50%;
   margin-right: 22px;
   margin-bottom: 10px;
   border: ${(props) => (props.state ? "5px #3796F0 solid" : "0")};
-	margin-left: ${(props) => (props.index === 7 ? "32px" : "0")};
+  margin-left: ${(props) => (props.index === 7 ? "32px" : "0")};
 `;
 
 export default function ColorBox() {
@@ -130,8 +130,8 @@ export default function ColorBox() {
 		{
 			color: "#8400EA",
 			state: false
-		},
-	])
+		}
+	]);
 
 	const handleBackgroundOnChange = (pos: number) => {
 		const newArr: { color: string; state: boolean; }[] = [];
@@ -151,7 +151,7 @@ export default function ColorBox() {
 				newArr.push({ color: item.color, state: true }) :
 				newArr.push({ color: item.color, state: false });
 		});
-		console.log(newArr)
+		console.log(newArr);
 
 		setSymbolColor(newArr);
 	};
@@ -164,8 +164,9 @@ export default function ColorBox() {
 					<PreviewBtn>미리보기</PreviewBtn>
 					<PaletteBox>
 						{backgroundColor.map((item, index) => {
-							return index >= 1 ? <Palette onClick={() => handleBackgroundOnChange(index)} style={{ backgroundColor: item.color }}
-																					 state={item.state} index={index} /> :
+							return index >= 1 ?
+								<Palette onClick={() => handleBackgroundOnChange(index)} style={{ backgroundColor: item.color }}
+												 state={item.state} index={index} /> :
 								<Default onClick={() => handleBackgroundOnChange(index)} src={None} state={item.state} />;
 						})}
 					</PaletteBox>
@@ -174,8 +175,9 @@ export default function ColorBox() {
 					<Title content="심볼 색상" />
 					<PaletteBox style={{ marginTop: "60px" }}>
 						{symbolColor.map((item, index) => {
-							return index >= 1 ? <Palette onClick={() => handleSymbolOnChange(index)} style={{ backgroundColor: item.color }}
-																					 state={item.state} index={index}/> :
+							return index >= 1 ?
+								<Palette onClick={() => handleSymbolOnChange(index)} style={{ backgroundColor: item.color }}
+												 state={item.state} index={index} /> :
 								<Default onClick={() => handleSymbolOnChange(index)} src={None} state={item.state} />;
 						})}
 					</PaletteBox>

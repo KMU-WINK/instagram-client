@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useContext } from "react";
 // @ts-ignore
 import background from "../../img/sea.jpg";
 // @ts-ignore
@@ -21,6 +21,8 @@ import {
 	Font2_18px_Bold,
 	Font2_18px_Light,
 } from "../style/Font";
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 
 interface ButtonProps {
 	width: string;
@@ -119,9 +121,11 @@ const LinkImg = styled.img`
 `;
 
 export default function LeftProfile() {
+	const { theme } = useContext(ThemeContext);
+	
 	return (
 		<>
-			<LeftContainer>
+			<LeftContainer style={{backgroundColor: theme?.bgColor.profile}}>
 				<BackgroundImg src={background} />
 				<Profile>
 					<ProfileImg src={profileImg} />

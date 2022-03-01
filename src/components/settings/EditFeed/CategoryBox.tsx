@@ -8,34 +8,34 @@ interface CategoryBoxProps {
 }
 
 const CategoryBoxContainer = styled.div`
-  width: 170px;
-  height: 200px;
-  text-align: center;
-  margin-right: 20px;
-  margin-bottom: 40px;
+	width: 170px;
+	height: 200px;
+	text-align: center;
+	margin-right: 20px;
+	margin-bottom: 40px;
 `;
 
 const CategoryLabel = styled.label`
-  font-size: 14px;
-  margin-bottom: 9px;
+	font-size: 14px;
+	margin-bottom: 9px;
 `;
 
 const Box = styled.div`
-  width: 100%;
-  height: 170px;
-  border-radius: 8px;
-  background-color: #F2F2F2;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 6px;
-  grid-row-gap: 6px;
-  place-items: center;
-  padding: 10px;
+	width: 100%;
+	height: 170px;
+	border-radius: 8px;
+	background-color: #f2f2f2;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 6px;
+	grid-row-gap: 6px;
+	place-items: center;
+	padding: 10px;
 `;
 
 const CategoryImg = styled.img`
-  width: 72px;
-  height: 72px;
+	width: 72px;
+	height: 72px;
 `;
 
 const DeleteBtn = styled.button<{state:boolean}>`

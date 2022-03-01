@@ -4,33 +4,37 @@ import CheckBox from "./CheckBox";
 
 
 export default function TestBox() {
-	const [options, setOptions] = useState([
-			{id: '라이트모드', state: true},
-			{id: '다크모드', state: false}
-		]);
-	const [checked, setChecked] = useState(0);
-
-	const array = ['라이트모드', '다크모드'	];
-	const [checkedState, setCheckedState] = useState(
-		new Array(array.length).fill(false)
+	const [item, setItem] = useState([
+			{
+				label: "화이트 모드",
+				value: true
+			},
+			{
+				label: "다크 모드",
+				value: false
+			}
+		]
 	);
-
-	const handleOnChange = (position:number) => {
-		console.log('왜 안되 씨발라마')
-		// const updatedCheckedState = checkedState.map((item, index) =>
-		// 	index === position ? !item : item
-		// const updateOptions = options.map((item, i) => {
-		// 	(i === position ? { ...options, state: true } : { ...options, state: false });
-		// })
-		// console.log(updateOptions)
-	}
-
+	const [value, setCheckbox] = useState(true);
 
 	return (
 		<>
-
-			{array.map((item, index) => {
-				return <CheckBox className={`checkbox_${index}`} onChange={() => handleOnChange(index)} checked={checkedState[index]} label={item}/>})}
+			{/*{item.map((v, i) => <CheckBox value={v.value} checked={v.value} onChange={({ target: any}) => {...v, value:  }} label={} disabled={})}*/}
+			<CheckBox
+				label="value"
+				value={value}
+				checked={value}
+				onChange={({ target: any }) => setCheckbox(!value)}
+				disabled={false}
+			/>
+			<CheckBox
+				label="!value"
+				value={!value}
+				checked={!value}
+				onChange={({ target: any }) => setCheckbox(!value)}
+				disabled={false}
+			/>
 		</>
+
 	);
 }

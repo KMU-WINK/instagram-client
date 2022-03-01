@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -56,8 +57,17 @@ const LoginFormContainer: React.FC<LoginFormContainerProps> = ({ children }) => 
 
 		if (isActive) {
 			console.log(form);
+			axios
+				.post("/api/auth/login", {
+					email: form.id,
+					password: form.password,
+				})
+				.then((res) => {
+					console.log(res);
 
-			navigate("/home");
+					// navigate("/home");
+				})
+				.catch((err) => console.error(err));
 		} else {
 			console.log("NO AUTH");
 		}

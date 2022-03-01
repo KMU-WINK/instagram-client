@@ -48,9 +48,10 @@ export default function Story(props: StoryProps) {
 		<>
 			<StoryContainer>
 				<ImgProfileContainer onClick={storyClick}>
-					<Border src={isView ? ViewedBorder : border} />
+					<Border src={isView ? ViewedBorder : Border} />
 					<Img src={testImg} />
 				</ImgProfileContainer>
+
 				<StoryName>{props.id}</StoryName>
 			</StoryContainer>
 		</>

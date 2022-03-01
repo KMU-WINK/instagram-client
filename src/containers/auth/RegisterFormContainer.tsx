@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AuthBlock from "../../components/auth/AuthBlock";
@@ -41,7 +42,14 @@ const RegisterFormContainer: React.FC<RegisterFormContainerProps> = ({ children 
 		e.preventDefault();
 
 		if (isActive) {
-			console.log(form);
+			axios
+				.post("/api/auth/signup", {
+					email: form.id,
+					userName: form.name,
+					nickName: form.username,
+					password: form.password,
+				})
+				.then((res) => console.log(res));
 		} else {
 			console.log("NO AUTH");
 		}

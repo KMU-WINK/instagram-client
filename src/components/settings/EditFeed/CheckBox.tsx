@@ -1,58 +1,95 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import CheckIcon from "./CheckIcon";
-
+import React from "react";
+import styled, { keyframes } from "styled-components";
 interface CheckBoxProps {
-	className: string;
+	value: any;
 	checked: boolean;
+	onChange: (e:any) => void;
+	name?: any;
+	id?: any;
 	label: string;
-	onChange: () => void;
+	disabled: boolean;
 }
-
-const CategoryBoxContainer = styled.div`
-  width: 150px;
-  height: 25px;
-  display: inline-block;
-  vertical-align: middle;
+const Input = styled.input`
+  height: 0;
+  width: 0;
+  opacity: 0;
+  z-index: -1;
 `;
 
-const StyledCheckBox = styled.div<{checked: boolean}>`
+const Label = styled.label<{disabled: boolean}>`
+  position: relative;
   display: inline-block;
-  border: 1px #858585 solid;
-  background-color: #ffffff;
-  border-radius: 5px;
-  width: 22px;
-  height: 22px;
+  cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
+  margin: 0.6em 1em;
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+const rotate = keyframes`
+ from {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+`;
+
+const Indicator = styled.div`
+  width: 1.2em;
+  height: 1.2em;
+  background: #ffffff;
   position: absolute;
-  white-space: nowrap;
-  width: 1px;
+  top: 0em;
+  left: -1.6em;
+  border: 1px solid #757575;
+  border-radius: 0.2em;
+
+  ${Input}:not(:disabled):checked & {
+    background: #d1d1d1;
+  }
+
+  ${Label}:hover & {
+    background: #ccc;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  ${Input}:checked + &::after {
+    display: block;
+    top: 0.1em;
+    left: 0.35em;
+    width: 35%;
+    height: 70%;
+    border: solid #263238;
+    border-width: 0 0.2em 0.2em 0;
+    animation-name: ${rotate};
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
-const Label = styled.span`
-  font-size: 16px;
-`;
-
-export default function CheckBox(props:CheckBoxProps) {
-
+export default function CheckBox(props: CheckBoxProps) {
 	return (
-		<CategoryBoxContainer className={props.className}>
-			<HiddenCheckbox checked={props.checked} onChange={() => props.onChange} />
-			<StyledCheckBox checked={props.checked}/>
-			<CheckIcon checked={props.checked} />
-			<Label>{props.label}</Label>
-		</CategoryBoxContainer>
-
+		<Label htmlFor={props.id} disabled={props.disabled}>
+			{props.label}
+			<Input
+				id={props.id}
+				type="checkbox"
+				name={props.name}
+				value={props.value}
+				disabled={props.disabled}
+				checked={props.checked}
+				onChange={props.onChange}
+			/>
+			<Indicator />
+		</Label>
 	);
 }
-
-
-

@@ -37,6 +37,11 @@ export const Font3_Light = styled.div`
 	color: #b3b3b3;
 `;
 
+export const Font1_16px_Bold = styled(Font1_Light)`
+	font-size: 16px;
+	font-weight: bold;
+`;
+
 export const Font2_16px_Bold = styled(Font2_Light)`
 	font-size: 16px;
 	font-weight: bold;
