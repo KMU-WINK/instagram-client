@@ -20,7 +20,7 @@ const Label = styled.label<{disabled: boolean}>`
   position: relative;
   display: inline-block;
   cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
-  margin: 0.6em 1em;
+  margin: 0.6em 30px;
 `;
 
 const rotate = keyframes`
@@ -35,17 +35,17 @@ const rotate = keyframes`
 `;
 
 const Indicator = styled.div`
-  width: 1.2em;
-  height: 1.2em;
+  width: 22px;
+  height: 22px;
   background: #ffffff;
   position: absolute;
   top: 0em;
-  left: -1.6em;
-  border: 1px solid #757575;
+  left: -1.9em;
+  border: 1px solid #858585;
   border-radius: 0.2em;
 
   ${Input}:not(:disabled):checked & {
-    background: #d1d1d1;
+    background: #ffffff;
   }
 
   ${Label}:hover & {
@@ -64,7 +64,7 @@ const Indicator = styled.div`
     left: 0.35em;
     width: 35%;
     height: 70%;
-    border: solid #263238;
+    border: solid #000000;
     border-width: 0 0.2em 0.2em 0;
     animation-name: ${rotate};
     animation-duration: 0.3s;

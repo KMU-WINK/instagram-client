@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Container from "./Container";
 import Title from "./Title";
-import BlueButton from "../../common/BlueButton";
 // @ts-ignore
 import TestImg from "../../../img/CateTestImg.png";
 import CategoryBox from "./CategoryBox";

@@ -5,6 +5,7 @@ import Title from "./Title";
 import BlueButton from "../../common/BlueButton";
 // @ts-ignore
 import None from "../../../img/None.png";
+import CheckBox from "./CheckBox";
 
 const InnerContainer = styled.div`
   width: 100%;
@@ -47,7 +48,25 @@ const Palette = styled.div<{ state: boolean, index: number }>`
   margin-left: ${(props) => (props.index === 7 ? "32px" : "0")};
 `;
 
+const CheckBoxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+	margin-top: 33px;
+`;
+
 export default function ColorBox() {
+	const [item, setItem] = useState([
+			{
+				label: "스토리",
+				value: true
+			},
+			{
+				label: "활성화 컬러",
+				value: false
+			}
+		]
+	);
+
 	const [backgroundColor, setBackgroundColor] = useState([
 		{
 			color: "None",
@@ -133,6 +152,17 @@ export default function ColorBox() {
 		}
 	]);
 
+	const handleCheckboxOnClick = (e: any) => {
+		console.log(e.target.id);
+		const newArr: { label: string; value: boolean; }[] = [];
+		item.map((i, index) => {
+			e.target.id === i.label ?
+				newArr.push({ label: i.label, value: !i.value }) :
+				newArr.push({ label: i.label, value: i.value });
+		});
+		setItem(newArr);
+	};
+
 	const handleBackgroundOnChange = (pos: number) => {
 		const newArr: { color: string; state: boolean; }[] = [];
 		backgroundColor.map((item, index) => {
@@ -158,7 +188,7 @@ export default function ColorBox() {
 
 	return (
 		<>
-			<Container style={{ borderBottom: "#C4C4C4 1px solid" }} topMargin={30} height={490}>
+			<Container style={{ borderBottom: "#C4C4C4 1px solid" }} topMargin={30} height={520}>
 				<InnerContainer>
 					<Title content="배경" />
 					<PreviewBtn>미리보기</PreviewBtn>
@@ -181,6 +211,13 @@ export default function ColorBox() {
 								<Default onClick={() => handleSymbolOnChange(index)} src={None} state={item.state} />;
 						})}
 					</PaletteBox>
+				</InnerContainer>
+				<InnerContainer>
+					<CheckBoxContainer>
+						{item.map((v, i) => <CheckBox id={v.label} value={v.value} checked={v.value} onChange={handleCheckboxOnClick}
+																					label={v.label}
+																					disabled={false} />)}
+					</CheckBoxContainer>
 				</InnerContainer>
 				<BlueButton height={36} width={115} style={{ marginLeft: "625px" }}>적용하기</BlueButton>
 			</Container>
