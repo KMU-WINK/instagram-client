@@ -22,6 +22,7 @@ export default function RightFeed() {
 			<RightContainer>
 				<Highlights />
 				<RightNav />
+				<RightCategory /> 
 				<FeedMain />
 			</RightContainer>
 		</div>
