@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import HighlightCardContainer from "./HighlightCardContainer";
 
 const HighlightDetailBackground = styled.div`
-    width: 100wh;
+	width: 100wh;
 	height: 100vh;
 	z-index: 100;
 	background: rgba(0, 0, 0, 0.8);

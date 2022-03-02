@@ -10,33 +10,32 @@ interface CategoryProps {
 }
 
 const CategoryContainer = styled.li`
-  width: 100%;
-  height: 60px;
+	width: 100%;
+	height: 60px;
 `;
 
-
 const CategoryLink = styled.a`
-  width: 100%;
-  height: 100%;
-  display: block;
-  font-size: 18px;
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-size: 18px;
 
-  &:visited,
-  &:link,
-  &:hover {
-    text-decoration: none;
-    outline: none;
-  }
+	&:visited,
+	&:link,
+	&:hover {
+		text-decoration: none;
+		outline: none;
+	}
 
-  &:hover {
-    background-color: #f8f8f8;
-  }
+	&:hover {
+		background-color: #f8f8f8;
+	}
 `;
 
 const CategoryName = styled.div`
-  position: relative;
-  top: 17px;
-  left: 41px;
+	position: relative;
+	top: 17px;
+	left: 41px;
 `;
 
 export default function Category(props: CategoryProps) {
@@ -46,7 +45,6 @@ export default function Category(props: CategoryProps) {
 		console.log(e.target);
 		// setActiveTab(e.target.className.slice(-1)[0]);
 	};
-
 
 	return (
 		<>

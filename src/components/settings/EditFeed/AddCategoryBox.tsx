@@ -4,23 +4,23 @@ import styled from "styled-components";
 import Add from "../../../img/AddBtn.png";
 
 const CategoryBoxContainer = styled.div`
-  width: 170px;
-  height: 200px;
-  text-align: center;
-  margin-right: 20px;
-  margin-bottom: 40px;
+	width: 170px;
+	height: 200px;
+	text-align: center;
+	margin-right: 20px;
+	margin-bottom: 40px;
 `;
 
 const CategoryLabel = styled.label`
-  font-size: 14px;
-  margin-bottom: 9px;
+	font-size: 14px;
+	margin-bottom: 9px;
 `;
 
 const Box = styled.div`
-  width: 100%;
-  height: 170px;
-  border-radius: 8px;
-  border: 2px #E0E0E0 solid;
+	width: 100%;
+	height: 170px;
+	border-radius: 8px;
+	border: 2px #e0e0e0 solid;
 	text-align: center;
 `;
 
@@ -29,7 +29,6 @@ const AddBtn = styled.img`
 	height: 68px;
 	margin-top: 28%;
 `;
-
 
 export default function AddCategoryBox() {
 	return (

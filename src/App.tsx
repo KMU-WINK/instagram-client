@@ -18,7 +18,6 @@ import HighlightView from "./pages/HighlightView";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
 
-
 type Mode = "light" | "dark";
 
 type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
@@ -51,24 +50,24 @@ export default function App() {
 		// 	<SettingsWrapper></SettingsWrapper>
 		// </div>
 
-			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
-				<GlobalStyles />
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<LoginPage />} />
-						<Route path="/register" element={<RegisterPage />} />
-						<Route path="/home" element={<HomeView />} />
-						<Route path="/setting/category" element={<CategoryView />} />
-						<Route path="/feed/:id" element={<ProfileFeedView />} />
-						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-						<Route path="/businesscard/setting" element={<CardSettingView />} />
-						<Route path="/businesscard/setting/image" element={<CardEditView />} />
-						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-            <Route path="/highlight" element={<HighlightView />} />
-					</Routes>
-				</BrowserRouter>
-			</ThemeContext.Provider>
-			);
-			}
+		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
+			<GlobalStyles />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<LoginPage />} />
+					<Route path="/register" element={<RegisterPage />} />
+					<Route path="/home" element={<HomeView />} />
+					<Route path="/setting/category" element={<CategoryView />} />
+					<Route path="/feed/:id" element={<ProfileFeedView />} />
+					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+					<Route path="/businesscard/setting" element={<CardSettingView />} />
+					<Route path="/businesscard/setting/image" element={<CardEditView />} />
+					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+					<Route path="/highlight" element={<HighlightView />} />
+				</Routes>
+			</BrowserRouter>
+		</ThemeContext.Provider>
+	);
+}

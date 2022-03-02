@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const EditCardContaienr = styled.div`
 	width: 360px;
 	height: 100%;
@@ -17,9 +16,7 @@ const EditCardContaienr = styled.div`
 export default function EditCard() {
 	return (
 		<>
-			< EditCardContaienr>
-
-			</EditCardContaienr>
+			<EditCardContaienr></EditCardContaienr>
 		</>
 	);
 }

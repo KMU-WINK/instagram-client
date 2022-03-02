@@ -23,20 +23,27 @@ const CategoriesContainer = styled.ul`
 	width: 100%;
 `;
 
-export default function Categories({getMenu} : {getMenu : any}) {
-
+export default function Categories({ getMenu }: { getMenu: any }) {
 	const onClickMenu = (index: number) => {
 		getMenu(index);
-	}
+	};
 
 	return (
 		<>
 			<CategoriesContainer>
-				{menuArr.map((item, index) => (
-					index !== 9 ? <Category onClickMenu={onClickMenu} children={""} color={"#00000"} id={item} index={index} /> :
-						<Category onClickMenu={onClickMenu} children={""} color={"#3796F0"} id="프로페셔널 계정으로 전환" index={index} />
-				))}
-
+				{menuArr.map((item, index) =>
+					index !== 9 ? (
+						<Category onClickMenu={onClickMenu} children={""} color={"#00000"} id={item} index={index} />
+					) : (
+						<Category
+							onClickMenu={onClickMenu}
+							children={""}
+							color={"#3796F0"}
+							id="프로페셔널 계정으로 전환"
+							index={index}
+						/>
+					)
+				)}
 			</CategoriesContainer>
 		</>
 	);
