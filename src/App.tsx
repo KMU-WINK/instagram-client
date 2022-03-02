@@ -14,8 +14,10 @@ import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
 import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
+import HighlightView from "./pages/HighlightView";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
+
 
 type Mode = "light" | "dark";
 
@@ -48,6 +50,7 @@ export default function App() {
 		// 	<Button primary>Button</Button>
 		// 	<SettingsWrapper></SettingsWrapper>
 		// </div>
+
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />
 				<BrowserRouter>
@@ -63,6 +66,7 @@ export default function App() {
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
 						<Route path="/businesscard/setting/image" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+            <Route path="/highlight" element={<HighlightView />} />
 					</Routes>
 				</BrowserRouter>
 			</ThemeContext.Provider>

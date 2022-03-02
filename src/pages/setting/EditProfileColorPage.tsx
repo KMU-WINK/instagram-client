@@ -11,12 +11,12 @@ const FeedContainer = styled.div`
 `;
 
 const EditProfileColorPage = () => {
-    const { theme, setTheme } = useContext(ThemeContext);
+	const { theme, setTheme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		console.log(theme);
 	}, [theme]);
-    
+
 	return (
 		<>
 			<Header></Header>
