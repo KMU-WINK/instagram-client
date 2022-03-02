@@ -14,6 +14,7 @@ import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
 import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
+import HighlightView from "./pages/HighlightView";
 
 type Mode = "light" | "dark";
 
@@ -61,6 +62,7 @@ export default function App() {
 					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
 					<Route path="/businesscard/setting" element={<CardSettingView />} />
 					<Route path="/businesscard/setting/image" element={<ImageSettingView />} />
+					<Route path="/highlight" element={<HighlightView />} />
 				</Routes>
 			</BrowserRouter>
 		</ThemeContext.Provider>
