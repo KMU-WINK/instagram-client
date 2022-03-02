@@ -7,9 +7,9 @@ interface CardContainerProps {
 
 const CardContainer = styled.div<CardContainerProps>`
 	display: inline-block;
-	width: 295px;
+	width: 300px;
 	height: 518px;
-	padding: 12px;
+	padding: 10px;
 	margin: 20px;
 	//background-color: #f2e8e8;
 	background-color: ${(props) => props.color || "#f2e8e8"};
