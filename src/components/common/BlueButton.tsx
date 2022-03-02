@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface BlueButtonProps {
 	width: number;
 	height: number;
+	onClick?: () => void;
 }
 
 const BlueButton = styled.button<BlueButtonProps>`
