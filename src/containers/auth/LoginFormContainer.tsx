@@ -8,6 +8,7 @@ import AuthForm from "../../components/auth/AuthForm";
 import AuthHr from "../../components/auth/AuthHr";
 import AuthImg from "../../components/auth/AuthImg";
 import AuthInput from "../../components/auth/AuthInput";
+import apiClient from "../../lib/apiClient";
 
 interface LoginFormContainerProps {}
 
@@ -57,7 +58,7 @@ const LoginFormContainer: React.FC<LoginFormContainerProps> = ({ children }) => 
 
 		if (isActive) {
 			console.log(form);
-			axios
+			apiClient
 				.post("/api/auth/login", {
 					email: form.id,
 					password: form.password,

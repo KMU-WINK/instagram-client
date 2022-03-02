@@ -44,12 +44,6 @@ export default function App() {
 
 	console.log(theme);
 	return (
-		// <div>
-		// 	<Input defaultValue="@probablyup" type="text" />
-		// 	<Button primary>Button</Button>
-		// 	<SettingsWrapper></SettingsWrapper>
-		// </div>
-
 		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 			<GlobalStyles />
 			<BrowserRouter>
