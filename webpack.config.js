@@ -78,7 +78,7 @@ const config = ({ isDev }) => ({
 		hot: true,
 		proxy: {
 			"/api": {
-				target: "http://localhost:3001",
+				target: "http://localhost:3000",
 				pathRewrite: { "^/api": "/" },
 			}, // 프론트 단에서 CORS 에러 해결하는 방법,
 		},
