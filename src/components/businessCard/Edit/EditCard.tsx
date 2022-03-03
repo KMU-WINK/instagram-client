@@ -1,5 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import AlignBox from "./AlignBox";
+import SizeBox from "./SizeBox";
+import StyleBox from "./StyleBox";
+import ColorBox from "./ColorBox";
 
 const EditCardContaienr = styled.div`
 	width: 360px;
@@ -16,7 +20,12 @@ const EditCardContaienr = styled.div`
 export default function EditCard() {
 	return (
 		<>
-			<EditCardContaienr></EditCardContaienr>
+			<EditCardContaienr>
+				<AlignBox />
+				<SizeBox />
+				<StyleBox />
+				<ColorBox />
+			</EditCardContaienr>
 		</>
 	);
 }

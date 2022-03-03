@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Templates from "./Templates";
 import ColorPalettes from "./ColorPalettes";
 import EditCard from "./Edit/EditCard";
 
@@ -55,10 +54,6 @@ export default function SideBar({ getPalette, page }: { getPalette: any; page: s
 
 	const styleTab = [
 		{
-			id: "템플릿",
-			component: <Templates />,
-		},
-		{
 			id: "배경 색",
 			component: <ColorPalettes onClickPalette={onClickPalette} />,
 		},
@@ -68,10 +63,6 @@ export default function SideBar({ getPalette, page }: { getPalette: any; page: s
 		{
 			id: "수정하기",
 			component: <EditCard />,
-		},
-		{
-			id: "템플릿",
-			component: <Templates />,
 		},
 		{
 			id: "배경 색",
