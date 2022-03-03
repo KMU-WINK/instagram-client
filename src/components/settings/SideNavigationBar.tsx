@@ -15,16 +15,16 @@ const NavigationBarTop = styled.div`
 	border-bottom: #b4b4b4 1px solid;
 `;
 
-export default function SideNavigationBar({getMenuId} : {getMenuId : any}) {
-	const getMenu = (index:number) => {
+export default function SideNavigationBar({ getMenuId }: { getMenuId: any }) {
+	const getMenu = (index: number) => {
 		getMenuId(index);
-	}
+	};
 
 	return (
 		<>
 			<NavigationBarContainer>
 				<NavigationBarTop>
-					<Categories getMenu={getMenu}/>
+					<Categories getMenu={getMenu} />
 				</NavigationBarTop>
 				<NavigationBarBottom></NavigationBarBottom>
 			</NavigationBarContainer>

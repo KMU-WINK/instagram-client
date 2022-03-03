@@ -37,7 +37,7 @@ export default function CardSelectView() {
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"사진 선택"} />
 				<ModalBody>
-					<DrawableBox/>
+					<DrawableBox />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

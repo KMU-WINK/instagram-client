@@ -42,19 +42,19 @@ const CategoryImg = styled.img`
 	height: 100%;
 `;
 
-const DeleteBtn = styled.button<{state:boolean}>`
-	color: #3796F0;
+const DeleteBtn = styled.button<{ state: boolean }>`
+	color: #3796f0;
 	font-size: 14px;
 	line-height: 16px;
 	background-color: #ffffff;
 	border: 0;
-  visibility: ${props => props.state ? "visible" : "hidden"}
+	visibility: ${(props) => (props.state ? "visible" : "hidden")};
 `;
 
-export default function CategoryBox(props:CategoryBoxProps) {
-	const handleDeleteBtn = (e:any) => {
-		alert('지운다')
-	}
+export default function CategoryBox(props: CategoryBoxProps) {
+	const handleDeleteBtn = (e: any) => {
+		alert("지운다");
+	};
 
 	return (
 		<>
@@ -66,7 +66,9 @@ export default function CategoryBox(props:CategoryBoxProps) {
 					<CategoryImg src={TestImg} />
 					<CategoryImg src={TestImg} />
 				</Box>
-				<DeleteBtn state={props.state} onClick={handleDeleteBtn}>삭제</DeleteBtn>
+				<DeleteBtn state={props.state} onClick={handleDeleteBtn}>
+					삭제
+				</DeleteBtn>
 			</CategoryBoxContainer>
 		</>
 	);

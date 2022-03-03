@@ -5,52 +5,50 @@ import ScrollContainer from "../../components/settings/ScrollContainer";
 import BoxContainer from "../../components/settings/BoxContainer";
 import CategoryBox from "../../components/settings/EditFeed/CategoryBox";
 import AddCategoryBox from "../../components/settings/EditFeed/AddCategoryBox";
+import PopupHeader from "../../components/settings/EditFeed/AddPopup/PopupHeader";
+import { useNavigate } from "react-router-dom";
 
 const SettingsModal = styled.div`
   position: fixed;
   top: 40px;
   left: 363px;
-  width: 1200px;
-  height: 960px;
+  width: 840px;
+  height: 800px;
   border-radius: 16px;
   border: 1px solid beige;
 `;
 
-const ModalHeader = styled.div`
+const PopupBodyContainer = styled.div`
   width: 100%;
-  height: 60px;
-  border-bottom: 1px solid #858585;
-`;
 
-const HeaderText = styled.div`
-  position: relative;
-  top: 14px;
-  left: 578px;
-  font-weight: bold;
-  font-size: 24px;
 `;
 
 export default function CategoryEditPopupView() {
-	const handleOnClick = (e:any) => {
-		alert('디자인 창');
-	}
+	const navigate = useNavigate();
+
+	const handleOnClick = (e: any) => {
+		navigate("/setting/category/addcategory");
+	};
 	return (
 		<>
 			<SettingsModal>
-				<ModalHeader>
-					<HeaderText>카테고리 편집</HeaderText>
-				</ModalHeader>
-				<ModalBodyContainer>
+				<PopupHeader />
+				<PopupBodyContainer>
 					<ScrollContainer>
-						<BoxContainer style={{padding:"40px 60px", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridColumnGap:"38px"}}>
-							<CategoryBox width={215} height={251} state={false}/>
-							<CategoryBox width={215} height={251} state={false}/>
-							<CategoryBox width={215} height={251} state={false}/>
-							<CategoryBox width={215} height={251} state={false}/>
+						<BoxContainer style={{
+							padding: "40px 60px",
+							display: "grid",
+							gridTemplateColumns: "repeat(3, 1fr)",
+							gridColumnGap: "38px"
+						}}>
+							<CategoryBox width={215} height={251} state={false} />
+							<CategoryBox width={215} height={251} state={false} />
+							<CategoryBox width={215} height={251} state={false} />
+							<CategoryBox width={215} height={251} state={false} />
 							<AddCategoryBox width={215} height={251} onClick={handleOnClick} />
 						</BoxContainer>
 					</ScrollContainer>
-				</ModalBodyContainer>
+				</PopupBodyContainer>
 			</SettingsModal>
 
 		</>

@@ -17,6 +17,8 @@ import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
 import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
+import HighlightView from "./pages/HighlightView";
+import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
 
 type Mode = "light" | "dark";
 
@@ -44,11 +46,6 @@ export default function App() {
 
 	console.log(theme);
 	return (
-		// <div>
-		// 	<Input defaultValue="@probablyup" type="text" />
-		// 	<Button primary>Button</Button>
-		// 	<SettingsWrapper></SettingsWrapper>
-		// </div>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />
 				<BrowserRouter>
@@ -59,12 +56,14 @@ export default function App() {
 						<Route path="/setting/category" element={<CategoryView />} />
 						<Route path="/feed/:id" element={<ProfileFeedView />} />
 						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-						<Route path="/setting/category/editfeed/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
 						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
 						<Route path="/businesscard/setting/image" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+						<Route path="/highlight" element={<HighlightView />} />
 					</Routes>
 				</BrowserRouter>
 			</ThemeContext.Provider>
