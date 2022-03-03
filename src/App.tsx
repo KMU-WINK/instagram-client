@@ -16,9 +16,15 @@ import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
+
+import CardView from "./pages/businessCard/CardView";
+import CardWalletView from "./pages/businessCard/CardWalletView";
+import SubCardView from "./pages/businessCard/SubCardView";
+
 import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
 import HighlightView from "./pages/HighlightView";
 import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
+
 
 type Mode = "light" | "dark";
 
@@ -62,7 +68,12 @@ export default function App() {
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
 						<Route path="/businesscard/setting/image" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-						<Route path="/highlight" element={<HighlightView />} />
+
+            <Route path="/highlight" element={<HighlightView />} />
+						<Route path="/businesscard/view" element={<CardView />} />
+						<Route path="/businesscard/wallet" element={<CardWalletView />} />
+						<Route path="/businesscard/subCard" element={<SubCardView />} />
+
 					</Routes>
 				</BrowserRouter>
 			</ThemeContext.Provider>
