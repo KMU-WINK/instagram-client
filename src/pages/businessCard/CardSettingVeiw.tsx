@@ -5,8 +5,6 @@ import ModalHeader from "../../components/businessCard/ModalHeader";
 import CardMain from "../../components/businessCard/CardMain";
 import CardFront from "../../components/businessCard/CardFront";
 import CardBack from "../../components/businessCard/CardBack";
-import Templates from "../../components/businessCard/Templates";
-import ColorPalettes from "../../components/businessCard/ColorPalettes";
 
 const CardSettingsModal = styled.div`
 	position: fixed;
