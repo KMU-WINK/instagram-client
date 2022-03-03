@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const BoxContainer = styled.div`
-	width: 760px;
+	margin-left: 20px;
+	width: 850px;
 `;
 
 export default BoxContainer;

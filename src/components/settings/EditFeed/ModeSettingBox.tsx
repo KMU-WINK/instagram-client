@@ -79,17 +79,6 @@ export default function ModeSettingBox() {
 						/>
 					))}
 				</CheckBoxContainer>
-
-				{/*<CheckContainer>*/}
-				{/*	<LabelContainer>*/}
-				{/*		<CheckBox checked />*/}
-				{/*		<LabelText>화이트 모드</LabelText>*/}
-				{/*	</LabelContainer>*/}
-				{/*	<LabelContainer>*/}
-				{/*		<CheckBox />*/}
-				{/*		<LabelText>다크 모드</LabelText>*/}
-				{/*	</LabelContainer>*/}
-				{/*</CheckContainer>*/}
 				<BlueButton style={{ marginLeft: "625px" }} height={36} width={115}>
 					적용하기
 				</BlueButton>

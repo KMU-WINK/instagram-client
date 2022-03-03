@@ -3,12 +3,15 @@ import styled from "styled-components";
 import SideNavigationBar from "../../components/settings/SideNavigationBar";
 import EditProfileView from "./EditProfileView";
 import EditFeedView from "./EditFeedView";
+import CategoryEditPopupView from "./CategoryEditPopupView";
+import CategoryAddPopupView from "./CategoryAddPopupView";
+import SettingModalHeader from "../../components/settings/SettingModalHeader";
 
 const SettingsModal = styled.div`
 	position: fixed;
 	top: 40px;
 	left: 363px;
-	width: 1200px;
+	width: 1250px;
 	height: 960px;
 	border-radius: 16px;
 	border: 1px solid beige;
@@ -17,7 +20,7 @@ const SettingsModal = styled.div`
 const ModalHeader = styled.div`
 	width: 100%;
 	height: 60px;
-	border-bottom: 1px solid #858585;
+	border-bottom: 1px solid #b4b4b4;
 `;
 
 const HeaderText = styled.div`
@@ -47,7 +50,7 @@ const menuList = [
 	},
 	{
 		id: "앱 및 웹사이트",
-		content: <EditFeedView />,
+		content: <EditProfileView />,
 	},
 	{
 		id: "이메일 및 SMS",
@@ -84,9 +87,7 @@ export default function CategoryView() {
 	return (
 		<>
 			<SettingsModal>
-				<ModalHeader>
-					<HeaderText>설정</HeaderText>
-				</ModalHeader>
+				<SettingModalHeader />
 				<ModalBody>
 					<SideNavigationBar getMenuId={getMenuId} />
 					{menuList[activeTab].content}

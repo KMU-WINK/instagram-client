@@ -11,9 +11,9 @@ export default function AfterInput() {
 	return (
 		<>
 			<AfterContainer>
-				<Box sx={{ width: 300 }}>
-					<Slider aria-label="zoom" defaultValue={30} color="secondary" />
-				</Box>
+				{/*<Box sx={{ width: 300 }}>*/}
+				{/*	<Slider aria-label="zoom" defaultValue={30} color="secondary" />*/}
+				{/*</Box>*/}
 			</AfterContainer>
 		</>
 	);

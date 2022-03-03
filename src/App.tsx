@@ -14,9 +14,11 @@ import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
 import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
-import HighlightView from "./pages/HighlightView";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
+import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
+import HighlightView from "./pages/HighlightView";
+import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
 
 type Mode = "light" | "dark";
 
@@ -44,24 +46,26 @@ export default function App() {
 
 	console.log(theme);
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
-			<GlobalStyles />
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/home" element={<HomeView />} />
-					<Route path="/setting/category" element={<CategoryView />} />
-					<Route path="/feed/:id" element={<ProfileFeedView />} />
-					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-					<Route path="/businesscard/setting" element={<CardSettingView />} />
-					<Route path="/businesscard/setting/image" element={<CardEditView />} />
-					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-					<Route path="/highlight" element={<HighlightView />} />
-				</Routes>
-			</BrowserRouter>
-		</ThemeContext.Provider>
-	);
-}
+			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
+				<GlobalStyles />
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/home" element={<HomeView />} />
+						<Route path="/setting/category" element={<CategoryView />} />
+						<Route path="/feed/:id" element={<ProfileFeedView />} />
+						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+						<Route path="/businesscard/setting" element={<CardSettingView />} />
+						<Route path="/businesscard/setting/image" element={<CardEditView />} />
+						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+						<Route path="/highlight" element={<HighlightView />} />
+					</Routes>
+				</BrowserRouter>
+			</ThemeContext.Provider>
+			);
+			}

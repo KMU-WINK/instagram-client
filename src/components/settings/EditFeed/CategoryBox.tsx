@@ -5,24 +5,28 @@ import TestImg from "../../../img/CateTestImg.png";
 
 interface CategoryBoxProps {
 	state: boolean;
+	width: number;
+	height: number;
 }
 
-const CategoryBoxContainer = styled.div`
-	width: 170px;
-	height: 200px;
+const CategoryBoxContainer = styled.div<{width: number, height: number}>`
+	width: ${(props) => props.width}px;
+	height: ${(props) => props.height}px;
 	text-align: center;
 	margin-right: 20px;
 	margin-bottom: 40px;
 `;
 
 const CategoryLabel = styled.label`
+	display: inline-block;
+	height: 10%;
 	font-size: 14px;
 	margin-bottom: 9px;
 `;
 
 const Box = styled.div`
 	width: 100%;
-	height: 170px;
+	height: 90%;
 	border-radius: 8px;
 	background-color: #f2f2f2;
 	display: grid;
@@ -34,8 +38,8 @@ const Box = styled.div`
 `;
 
 const CategoryImg = styled.img`
-	width: 72px;
-	height: 72px;
+	width: 100%;
+	height: 100%;
 `;
 
 const DeleteBtn = styled.button<{ state: boolean }>`
@@ -54,7 +58,7 @@ export default function CategoryBox(props: CategoryBoxProps) {
 
 	return (
 		<>
-			<CategoryBoxContainer>
+			<CategoryBoxContainer width={props.width} height={props.height}>
 				<CategoryLabel>제목</CategoryLabel>
 				<Box>
 					<CategoryImg src={TestImg} />

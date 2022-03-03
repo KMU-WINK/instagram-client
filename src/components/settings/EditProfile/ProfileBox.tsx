@@ -1,12 +1,20 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import Title from "./Title";
-import { Avatar } from "@mui/material";
 import Container from "./Container";
 
 const ProfileContainer = styled.div`
 	width: 520px;
 `;
+
+const ProfileImg = styled.img`
+  display: block;
+  width: 88px;
+	height: 88px;
+	border-radius: 24px;
+	margin-left: 205px;
+	
+`
 
 const EditBtn = styled.div`
 	color: #0095f6;
@@ -51,9 +59,8 @@ export default function ProfileBox() {
 					>
 						수정
 					</EditBtn>
-					<Avatar
+					<ProfileImg
 						src={image}
-						style={{ width: "88px", height: "88px", display: "block", marginLeft: "205px" }}
 					/>
 					<UploadProfile
 						accept="image/jpg,impge/png,image/jpeg"
