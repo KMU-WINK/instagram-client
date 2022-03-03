@@ -11,6 +11,10 @@ interface CardBackProps {
 	color: string;
 }
 
+const isAlpha = function (ch: string) {
+	return /^[A-Z]$/i.test(ch);
+};
+
 const QRArea = styled.div`
 	position: relative;
 	left: 56px;
@@ -32,7 +36,6 @@ const Name = styled.div`
 	top: 130px;
 	font-weight: bold;
 	font-size: 28px;
-	color: #000000;
 `;
 
 const TagsContainer = styled.div`
@@ -53,7 +56,11 @@ export default function CardBack(props: CardBackProps) {
 			<CardContainer color={props.color}>
 				<CardBorder>
 					<QRArea>
-						<QR value="http://facebook.github.io/react/" bgColor={"transparent"} />
+						<QR
+							value="http://facebook.github.io/react/"
+							bgColor={"transparent"}
+							fgColor={isAlpha(props.color[1]) ? "#000000" : "#FFFFFF"}
+						/>
 					</QRArea>
 					<Name>{name}</Name>
 					<TagsContainer>

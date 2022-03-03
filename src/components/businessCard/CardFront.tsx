@@ -104,7 +104,7 @@ export default function CardFront(props: CardFrontProps) {
 					</ImageContainer>
 					<CenterContainer>
 						<Name>{name}</Name>
-						<Position>{position}</Position>
+						<Position contentEditable={true}>{position}</Position>
 						<Line />
 						<TagsContainer>
 							{tags.map((item) => (
@@ -114,13 +114,13 @@ export default function CardFront(props: CardFrontProps) {
 					</CenterContainer>
 					<PersonalInfoContainer>
 						<IconImage src={Kakao} />
-						<PersonalInfo>{kakaoID}</PersonalInfo>
+						<PersonalInfo contentEditable={true}>{kakaoID}</PersonalInfo>
 						<IconImage src={Mobile} />
-						<PersonalInfo>{mobile}</PersonalInfo>
+						<PersonalInfo contentEditable={true}>{mobile}</PersonalInfo>
 						<IconImage src={Email} />
-						<PersonalInfo>{email}</PersonalInfo>
+						<PersonalInfo contentEditable={true}>{email}</PersonalInfo>
 						<IconImage src={Address} />
-						<PersonalInfo>{address}</PersonalInfo>
+						<PersonalInfo contentEditable={true}>{address}</PersonalInfo>
 					</PersonalInfoContainer>
 				</CardBorder>
 			</CardContainer>
