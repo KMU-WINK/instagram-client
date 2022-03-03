@@ -3,6 +3,8 @@ import styled from "styled-components";
 import SideNavigationBar from "../../components/settings/SideNavigationBar";
 import EditProfileView from "./EditProfileView";
 import EditFeedView from "./EditFeedView";
+import CategoryEditPopupView from "./CategoryEditPopupView";
+import CategoryAddPopupView from "./CategoryAddPopupView";
 
 const SettingsModal = styled.div`
   position: fixed;
@@ -43,11 +45,11 @@ const menuList = [
 	},
 	{
 		id: "비밀번호 변경",
-		content: <EditFeedView />
+		content: <EditProfileView />
 	},
 	{
 		id: "앱 및 웹사이트",
-		content: <EditFeedView />
+		content: <CategoryAddPopupView />
 	},
 	{
 		id: "이메일 및 SMS",

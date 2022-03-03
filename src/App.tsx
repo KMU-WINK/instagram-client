@@ -16,6 +16,7 @@ import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
+import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
 
 type Mode = "light" | "dark";
 
@@ -58,6 +59,7 @@ export default function App() {
 						<Route path="/setting/category" element={<CategoryView />} />
 						<Route path="/feed/:id" element={<ProfileFeedView />} />
 						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+						<Route path="/setting/category/editfeed/editcategory" element={<CategoryEditPopupView />} />
 						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
