@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // @ts-ignore
 import categoryArrow from "../../img/categoryArrow.svg";
 // @ts-ignore
 import more from "../../img/more.svg";
 import { Font1_16px_Bold } from "../style/Font";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 interface ArrowProps {
 	open: boolean;
@@ -82,6 +83,8 @@ export default function RightCategory() {
 	const [categoryOpen, setCategoryOpen] = useState(true);
 	const [moreOpen, setMoreOpen] = useState(false);
 
+	const { theme } = useContext(ThemeContext);
+
 	const IsCategoryOpen = () => {
 		if (categoryOpen) setCategoryOpen(false);
 		else setCategoryOpen(true);
@@ -108,7 +111,12 @@ export default function RightCategory() {
 			</CategoryHeader>
 			<CategoryMain open={categoryOpen}>
 				{categorys.map((category) => (
-					<CategoryButton clicked={false}>{"# " + category}</CategoryButton>
+					<CategoryButton
+						style={{ borderColor: theme?.pointColor, color: theme?.pointColor }}
+						clicked={false}
+					>
+						{"# " + category}
+					</CategoryButton>
 				))}
 			</CategoryMain>
 		</>

@@ -7,7 +7,7 @@ interface ModalHeaderProps {
 	headerTitle: string;
 }
 const HeaderContainer = styled.div`
-	width: 1250px;
+	width: 100%;
 	height: 60px;
 	text-align: center;
 	border-bottom: 1px #c4c4c4 solid;

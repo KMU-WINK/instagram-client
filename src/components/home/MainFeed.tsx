@@ -4,6 +4,7 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FeedHeader from "./FeedHeader";
 import FeedFooter from "./FeedFooter";
+import Slider from "../common/Slider";
 // @ts-ignore
 import Sea from "../../img/sea.jpg";
 
@@ -22,11 +23,7 @@ export default function MainFeed() {
 		<>
 			<FeedContainer>
 				<FeedHeader />
-				<Swiper modules={[Pagination]} slidesPerView={1} pagination={{ clickable: true }}>
-					<SwiperSlide>
-						<FeedImg src={Sea} />
-					</SwiperSlide>
-				</Swiper>
+				<Slider/>
 				<FeedFooter />
 			</FeedContainer>
 		</>
