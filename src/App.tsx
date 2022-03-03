@@ -44,7 +44,6 @@ export default function App() {
 
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
 
-	console.log(theme);
 	return (
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />

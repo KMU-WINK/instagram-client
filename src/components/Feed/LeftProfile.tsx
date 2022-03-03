@@ -125,7 +125,7 @@ export default function LeftProfile() {
 
 	return (
 		<>
-			<LeftContainer style={{ backgroundColor: theme?.bgColor.profile }}>
+			<LeftContainer style={{ backgroundColor: theme?.bgColor.profile, color: theme?.fontColor[0] }}>
 				<BackgroundImg src={background} />
 				<Profile>
 					<ProfileImg src={profileImg} />
