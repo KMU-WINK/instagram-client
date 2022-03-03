@@ -7,7 +7,7 @@ import Card from "../components/home/Card";
 import Recommend from "../components/home/Recommend";
 
 const HomeContainer = styled.div`
-	margin: 0 auto;
+	margin-left: 600px;
 	margin-top: 122px;
 	max-width: 828px;
 	height: 1019px;
