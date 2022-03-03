@@ -8,7 +8,7 @@ import Recommend from "../components/home/Recommend";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 const HomeContainer = styled.div`
-	margin: 0 auto;
+	margin-left: 500px;
 	margin-top: 122px;
 	max-width: 828px;
 	height: 1019px;

@@ -4,9 +4,9 @@ import FeedHeader from "./FeedHeader";
 // @ts-ignore
 import profile from "../../img/sea.jpg";
 // @ts-ignore
-import StoryPrev from "../../img/StoryPrev.png";
+import StoryPrev from "../../img/Prev.svg";
 // @ts-ignore
-import StoryNext from "../../img/StoryNext.png";
+import StoryNext from "../../img/Next.svg";
 import Story from "./Story";
 
 const StorysContainer = styled.div`
