@@ -40,6 +40,7 @@ const generateTheme = () => {
 	const bgColors: BgColor[] = ["Original", "Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 	const pointColors: PointColor[] = [
 		"Original",
+		"Pink",
 		"Red",
 		"Orange",
 		"Yellow",
