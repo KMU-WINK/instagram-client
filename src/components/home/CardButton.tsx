@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CardButtonContainer = styled.div`
 	width: 100%;
@@ -12,11 +13,13 @@ const CardButtonContainer = styled.div`
 	margin-top: 20px;
 	text-align: center;
 	line-height: 60px;
+	cursor:pointer;
 `;
 export default function CardButton() {
+	const navigate = useNavigate();
 	return (
 		<>
-			<CardButtonContainer>프로필 카드</CardButtonContainer>
+			<CardButtonContainer onClick={()=>navigate("/businesscard/view")}>프로필 카드</CardButtonContainer>
 		</>
 	);
 }

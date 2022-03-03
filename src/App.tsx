@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
@@ -8,33 +8,74 @@ import ProfileFeedView from "./pages/ProfileFeedView";
 import EditFeedView from "./pages/setting/EditFeedView";
 import EditProfileView from "./pages/setting/EditProfileView";
 import CardSettingView from "./pages/businessCard/CardSettingVeiw";
-import ImageSettingView from "./pages/businessCard/ImageSettingView";
+import ImageSettingView from "./pages/businessCard/CardEditView";
 import LoginPage from "./pages/auth/LoginPage";
 import GlobalStyles from "./global";
 import RegisterPage from "./pages/auth/RegisterPage";
+import { ThemeContext, themes } from "./contexts/ThemeContext";
+import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
+import CardEditView from "./pages/businessCard/CardEditView";
+import CardSelectView from "./pages/businessCard/CardSelectView";
+
+import CardView from "./pages/businessCard/CardView";
+import CardWalletView from "./pages/businessCard/CardWalletView";
+import SubCardView from "./pages/businessCard/SubCardView";
+
+import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
+import HighlightView from "./pages/HighlightView";
+import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
+
+
+type Mode = "light" | "dark";
+
+type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
+
+type PointColor =
+	| "Original"
+	| "Pink"
+	| "Red"
+	| "Orange"
+	| "Yellow"
+	| "Green"
+	| "Aqua Green"
+	| "Mint"
+	| "Blue"
+	| "Navy"
+	| "Rose"
+	| "Purple"
+	| "Light Purple";
 
 export default function App() {
+	const [theme, setTheme] = useState(themes["light-Original-Original"]);
+
+	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
+
 	return (
-		// <div>
-		// 	<Input defaultValue="@probablyup" type="text" />
-		// 	<Button primary>Button</Button>
-		// 	<SettingsWrapper></SettingsWrapper>
-		// </div>
-		<>
-			<GlobalStyles />
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/home" element={<HomeView />} />
-					<Route path="/setting/category" element={<CategoryView />} />
-					<Route path="/feed/:id" element={<ProfileFeedView />} />
-					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-					<Route path="/businesscard/setting" element={<CardSettingView />} />
-          <Route path="/businesscard/setting/image" element={<ImageSettingView />} />
-				</Routes>
-			</BrowserRouter>
-		</>
-	);
-}
+			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
+				<GlobalStyles />
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/home" element={<HomeView />} />
+						<Route path="/setting/category" element={<CategoryView />} />
+						<Route path="/feed/:id" element={<ProfileFeedView />} />
+						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+						<Route path="/businesscard/setting" element={<CardSettingView />} />
+						<Route path="/businesscard/setting/image" element={<CardEditView />} />
+						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+
+            <Route path="/highlight" element={<HighlightView />} />
+						<Route path="/businesscard/view" element={<CardView />} />
+						<Route path="/businesscard/wallet" element={<CardWalletView />} />
+						<Route path="/businesscard/subCard" element={<SubCardView />} />
+
+					</Routes>
+				</BrowserRouter>
+			</ThemeContext.Provider>
+			);
+			}

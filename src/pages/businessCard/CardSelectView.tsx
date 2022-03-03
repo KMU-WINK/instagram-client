@@ -3,6 +3,9 @@ import styled from "styled-components";
 import SideBar from "../../components/businessCard/SideBar";
 import ModalHeader from "../../components/businessCard/ModalHeader";
 import CardMain from "../../components/businessCard/CardMain";
+import CardFront from "../../components/businessCard/CardFront";
+import CardBack from "../../components/businessCard/CardBack";
+import DrawableBox from "../../components/businessCard/ImageSelect/DrawableBox";
 
 const CardSettingsModal = styled.div`
 	position: fixed;
@@ -21,7 +24,7 @@ const ModalBody = styled.div`
 	height: 740px;
 `;
 
-export default function ImageSettingView() {
+export default function CardSelectView() {
 	const [state, setState] = useState("");
 
 	const getPalette = (color: string) => {
@@ -34,9 +37,7 @@ export default function ImageSettingView() {
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"사진 선택"} />
 				<ModalBody>
-					<CardMain>
-					</CardMain>
-					<SideBar getPalette={getPalette}/>
+					<DrawableBox />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

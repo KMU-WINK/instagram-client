@@ -13,7 +13,6 @@ import RecommendBox from "../../components/settings/EditProfile/RecommendBox";
 import ModalBodyContainer from "../../components/settings/ModalBodyContainer";
 import ScrollContainer from "../../components/settings/ScrollContainer";
 import BoxContainer from "../../components/settings/BoxContainer";
-import BlueButton from "../../components/common/BlueButton";
 import FooterBox from "../../components/settings/EditProfile/FooterBox";
 
 export default function EditProfileView() {

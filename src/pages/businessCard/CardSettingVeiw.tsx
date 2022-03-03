@@ -42,7 +42,7 @@ export default function CardSettingView() {
 						<CardFront color={state} />
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar getPalette={getPalette} />
+					<SideBar page={"스타일"} getPalette={getPalette} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

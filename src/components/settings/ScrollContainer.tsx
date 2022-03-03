@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ScrollContainer = styled.div`
-	width: 891px;
+	width: 100%;
 	margin-top: 20px;
 	height: 860px;
 	overflow-y: scroll;

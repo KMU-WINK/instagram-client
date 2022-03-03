@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 // @ts-ignore
 import Post from "../../img/post.svg";
 // @ts-ignore
@@ -7,6 +7,7 @@ import Video from "../../img/video.svg";
 // @ts-ignore
 import Tag from "../../img/tag.svg";
 import { Font2_16px_Bold, FontBold_16px } from "../style/Font";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 const RightNavContainer = styled.div`
 	display: flex;
@@ -41,15 +42,28 @@ const RightFeedImg = styled.img`
 `;
 
 export default function RightNav() {
+	const { theme } = useContext(ThemeContext);
+
+	const [mode, setMode] = useState("light");
+
+	useEffect(() => {
+		if (theme) {
+			const currentMode = theme.name.split("-")[0];
+			setMode(currentMode);
+		}
+	}, [theme]);
+
 	return (
 		<>
 			<Border />
 			<RightNavContainer>
 				<TitleContainer>
-					<Bar></Bar>
+					<Bar style={{ borderColor: mode === "light" ? "#000000" : "#FFFFFF" }}></Bar>
 					<Title>
 						<RightFeedImg src={Post} />
-						<FontBold_16px>게시물</FontBold_16px>
+						<FontBold_16px style={{ color: mode === "light" ? "#000000" : "#FFFFFF" }}>
+							게시물
+						</FontBold_16px>
 					</Title>
 				</TitleContainer>
 				<TitleContainer>

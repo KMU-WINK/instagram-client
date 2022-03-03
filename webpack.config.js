@@ -44,6 +44,21 @@ const config = ({ isDev }) => ({
 					plugins: [isDev && "react-refresh/babel"].filter(Boolean),
 				},
 			},
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					// Creates `style` nodes from JS strings
+					"style-loader",
+					// Translates CSS into CommonJS
+					"css-loader",
+					// Compiles Sass to CSS
+					"sass-loader",
+				],
+			},
 		],
 	},
 	plugins: [
@@ -62,7 +77,10 @@ const config = ({ isDev }) => ({
 		open: true,
 		hot: true,
 		proxy: {
-			"/api": "http://localhost:8080", // 프론트 단에서 CORS 에러 해결하는 방법
+			"/api": {
+				target: "http://localhost:3000",
+				pathRewrite: { "^/api": "/" },
+			}, // 프론트 단에서 CORS 에러 해결하는 방법,
 		},
 	},
 });

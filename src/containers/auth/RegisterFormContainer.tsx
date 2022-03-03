@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AuthBlock from "../../components/auth/AuthBlock";
@@ -5,6 +6,7 @@ import AuthButton from "../../components/auth/AuthButton";
 import AuthForm from "../../components/auth/AuthForm";
 import AuthImg from "../../components/auth/AuthImg";
 import AuthInput from "../../components/auth/AuthInput";
+import apiClient from "../../lib/apiClient";
 
 interface RegisterFormContainerProps {}
 
@@ -41,7 +43,14 @@ const RegisterFormContainer: React.FC<RegisterFormContainerProps> = ({ children 
 		e.preventDefault();
 
 		if (isActive) {
-			console.log(form);
+			apiClient
+				.post("/api/auth/signup", {
+					email: form.id,
+					userName: form.name,
+					nickName: form.username,
+					password: form.password,
+				})
+				.then((res) => console.log(res));
 		} else {
 			console.log("NO AUTH");
 		}

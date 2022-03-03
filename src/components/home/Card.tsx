@@ -4,6 +4,7 @@ import React from "react";
 import Border from "../../img/profileBorder.png";
 import CardButton from "./CardButton";
 import { FontBlue, Font2_Light, Font1_Light, FontNormal } from "../style/Font";
+import {useNavigate} from "react-router-dom";
 
 const CardContainer = styled.div`
 	position: fixed;
@@ -25,6 +26,7 @@ const CardTop = styled.div`
 const CardProfile = styled.img`
 	width: 100px;
 	height: 100px;
+	cursor:pointer;
 `;
 
 const CardInfo = styled.div``;
@@ -32,6 +34,7 @@ const CardInfo = styled.div``;
 const CardId = styled(FontNormal)`
 	margin-bottom: 8px;
 	font-size: 24px;
+	cursor:pointer;
 `;
 
 const CardFont = styled.div`
@@ -51,13 +54,20 @@ const CardCount = styled.div`
 `;
 
 export default function Card() {
+	
+	/*
+		need axios code (get my id)
+	*/
+	
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<CardContainer>
 				<CardTop>
-					<CardProfile src={Border} />
+					<CardProfile src={Border} onClick={()=>{navigate("/feed/1")}}/>
 					<CardInfo>
-						<CardId>insta_123</CardId>
+						<CardId onClick={()=>{navigate("/feed/1")}}>insta_123</CardId>
 						<FontNormal>김선호</FontNormal>
 						<Font2_Light>예술가</Font2_Light>
 					</CardInfo>

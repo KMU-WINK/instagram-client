@@ -5,6 +5,8 @@ import ViewedBorder from "../../img/storyViewed.png";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 import { Font2_Light } from "../style/Font";
+import HighlightDetail from "./HighlightDetail";
+import { useNavigate } from "react-router-dom";
 
 interface HighLightProps {
 	name: string;
@@ -34,9 +36,16 @@ const StoryName = styled(Font2_Light)`
 `;
 
 export default function Highlight(props: HighLightProps) {
+	const navigate = useNavigate();
+
+	const [isDetailOpen, setIsDetailOpen] = useState(false);
+
+	const onHighlightDetail = (isOpen: boolean) => {
+		setIsDetailOpen(isOpen);
+	};
 	return (
 		<>
-			<StoryContainer>
+			<StoryContainer onClick={() => navigate("/highlight")}>
 				<ImgProfileContainer>
 					<Border src={ViewedBorder} />
 					<Img src={testImg} />
