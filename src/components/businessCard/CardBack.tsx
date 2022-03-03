@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // @ts-ignore
 import QRcode from "../../img/QRcode.png";
 import CardContainer from "./CardContainer";
 import CardBorder from "./CardBorder";
 
+import QRCode from "qrcode.react";
+
 interface CardBackProps {
 	color: string;
 }
 
-const QR = styled.img`
+const QRArea = styled.div`
 	position: relative;
 	left: 56px;
 	top: 128px;
 	width: 176px;
 	height: 176px;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const QR = styled(QRCode)`
+	width: 176px;
+	height: 176px;
 `;
 
 const Name = styled.div`
@@ -43,7 +52,9 @@ export default function CardBack(props: CardBackProps) {
 		<>
 			<CardContainer color={props.color}>
 				<CardBorder>
-					<QR src={QRcode} />
+					<QRArea>
+						<QR value="http://facebook.github.io/react/" bgColor={"transparent"} />
+					</QRArea>
 					<Name>{name}</Name>
 					<TagsContainer>
 						{tags.map((item) => (
