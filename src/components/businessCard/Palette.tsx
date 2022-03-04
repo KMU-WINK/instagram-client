@@ -10,7 +10,6 @@ const Palette = styled.div<PaletteProps>`
 	width: 50px;
 	height: 50px;
 	border: 1px #8f8f8f solid;
-	margin: 18px;
 `;
 
 export default Palette;

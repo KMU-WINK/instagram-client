@@ -4,7 +4,7 @@ import ColorPalettes from "./ColorPalettes";
 import EditCard from "./Edit/EditCard";
 
 const SideBarContainer = styled.div`
-	width: 400px;
+	width: 100%;
 	height: 100%;
 `;
 
@@ -17,13 +17,13 @@ const SideBarTop = styled.ul`
 	border-bottom: 1px #e9e9e9 solid;
 	display: grid;
 	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
 `;
 
 const TabMenu = styled.li`
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
-	//width: 200px;
 	height: 70px;
 	text-align: center;
 	line-height: 4;

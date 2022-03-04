@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import BoxContainer from "./BoxContainer";
 import Title from "./Title";
+import RangeSlider from "../../common/RangeSlider";
 
 const InnerContainer = styled.div`
   width: 100%;
@@ -16,6 +17,7 @@ export default function SizeBox() {
 			<BoxContainer style={{ height: "53px" }}>
 				<Title content={"크기"} />
 				<InnerContainer>
+					<RangeSlider />
 				</InnerContainer>
 			</BoxContainer>
 

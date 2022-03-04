@@ -6,7 +6,7 @@ import StyleBox from "./StyleBox";
 import ColorBox from "./ColorBox";
 
 const EditCardContaienr = styled.div`
-	width: 360px;
+	width: 480px;
 	height: 100%;
 	margin-right: 20px;
 	margin-left: 20px;
