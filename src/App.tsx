@@ -24,6 +24,7 @@ import SubCardView from "./pages/businessCard/SubCardView";
 import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
 import HighlightView from "./pages/HighlightView";
 import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
+import PostingView from "./pages/PostingView";
 
 
 type Mode = "light" | "dark";
@@ -60,6 +61,7 @@ export default function App() {
 						<Route path="/home" element={<HomeView />} />
 						<Route path="/setting/category" element={<CategoryView />} />
 						<Route path="/feed/:id" element={<ProfileFeedView />} />
+						<Route path="/posting/:id/" element={<PostingView/>}/>
 						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
 						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />

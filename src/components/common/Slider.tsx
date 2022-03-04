@@ -7,6 +7,11 @@ import Prev from "../../img/Prev.svg";
 // @ts-ignore
 import Next from "../../img/Next.svg";
 
+interface SlideProps {
+	width: string;
+	height: string;
+};
+
 const Container = styled.div`
   margin: auto;
   overflow: hidden;
@@ -19,30 +24,31 @@ const Slide = styled.img`
   height: 100%;
 `;
 
-const SlideDiv = styled.div`
-  width: 828px;
-	height: 828px;
-`;
-
 const SliderContainer = styled.div`
   margin: 0 auto;
   display: flex; // 이미지들을 가로로 나열합니다.
 `;
 
-const Center = styled.div`
+const TOTAL_SLIDES = 2; // 전체 슬라이드 개수
+
+export default function Slider(props : SlideProps) {
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const slideRef = React.useRef<any>();
+
+	//styled component
+	const SlideDiv = styled.div`
+  width: ${props.width};
+	height: ${props.height};
+	`;
+
+	const Center = styled.div`
   position: relative;
 	display:flex;
 	justify-content: space-between;
 	z-index: 2;
-	top:414px;
+	top:${parseInt(props.height)/2}${(props.height).replace(/[0-9]/g, "")};
   opacity:0.5;
-`;
-
-const TOTAL_SLIDES = 2; // 전체 슬라이드 개수
-
-export default function Slider() {
-	const [currentSlide, setCurrentSlide] = useState(0);
-	const slideRef = React.useRef<any>();
+	`;
 
 	// Next 버튼 클릭 시
 	const NextSlide = () => {

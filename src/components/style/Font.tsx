@@ -69,3 +69,9 @@ export const FontBlue = styled.div`
 	font-size: 14px;
 	color: #3796f0;
 `;
+
+export const FontBlue_Bold = styled.div`
+	font-size: 14px;
+	font-weight: bold;
+	color: #3796f0;
+`;
