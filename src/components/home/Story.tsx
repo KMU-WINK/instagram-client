@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // @ts-ignore
 import ViewedBorder from "../../img/storyViewed.png";
 // @ts-ignore
-import border from "../../img/profileBorder.svg";
+import border from "../../img/storyBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 
@@ -31,9 +31,9 @@ const Border = styled.img`
 `;
 
 const Img = styled.img`
-	margin: 4px 0 0 4px;
-	width: 72px;
-	height: 72px;
+	margin: 6px 0 0 6px;
+	width: 68px;
+	height: 68px;
 	border-radius: 100%;
 `;
 

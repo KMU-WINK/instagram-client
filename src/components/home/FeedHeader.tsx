@@ -7,6 +7,7 @@ import more from "../../img/more.png";
 import Border from "../../img/profileBorder.png";
 // @ts-ignore
 import dot from "../../img/dot.svg";
+import ImgProfile from "../common/ImgProfile";
 import { useNavigate } from "react-router-dom";
 
 interface FeedHeaderProps {
@@ -18,15 +19,8 @@ const HeaderContainer = styled.div`
 	display: flex;
 	border: 1px solid #e0e0e0;
 	border-radius: 3px 3px 0px 0px;
+	padding: 0 20px;
 	align-items: center;
-`;
-
-const FeedProfile = styled.img`
-	width: 40px;
-	height: 40px;
-	border-radius: 100%;
-	margin: 0 0 0 16px;
-	cursor:pointer;
 `;
 
 const ProfileRight = styled.div`
@@ -35,7 +29,6 @@ const ProfileRight = styled.div`
 `;
 const More = styled.img`
 	margin-left: auto;
-	margin-right: 23px;
 `;
 
 const Dot = styled.img`
@@ -57,7 +50,7 @@ export default function FeedHeader(props : FeedHeaderProps) {
 	return (
 		<>
 			<HeaderContainer>
-				<FeedProfile src={Border} onClick={()=>{navigate("/feed/1")}}/>
+				<ImgProfile width={40} height={40} margin={4} url={"/feed/1"}/>
 				<ProfileRight>
 					<FontBold onClick={()=>{navigate("/feed/1")}}>Insta_123</FontBold>
 					{/*<Font1_Light>place</Font1_Light>*/}

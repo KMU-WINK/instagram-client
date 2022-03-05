@@ -1,40 +1,45 @@
 import styled from "styled-components";
 import React from "react";
 // @ts-ignore
-import border from "../../img/profileBorder.svg";
+import border from "../../img/storyBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
+import { useNavigate } from "react-router-dom";
 
 interface imgProfileProps {
 	margin: number;
 	width: number;
 	height: number;
+	url: string;
 }
 
 const ImgProfileContainer = styled.div``;
 
-const Border = styled.img<imgProfileProps>`
-	position: absolute;
-	width: ${(props) => props.width || 40}px;
-	height: ${(props) => props.height || 40}px;
-	border-radius: 100%;
-`;
-
-const Img = styled.img<imgProfileProps>`
-	overflow: hidden;
-	margin-top: ${(props) => props.margin}px;
-	margin-left: ${(props) => props.margin}px;
-	width: ${(props) => `calc(${props.width} - ${props.margin} * 2)`}px;
-	height: ${(props) => `calc(${props.height} - ${props.margin} * 2)`}px;
-	border-radius: 100%;
-`;
-
 export default function ImgProfile(props: imgProfileProps) {
+
+	const navigate = useNavigate();
+
+	const Border = styled.img`
+	position: absolute;
+	width: ${props.width}px;
+	height: ${props.height}px;
+	border-radius: 100%;
+`;
+
+	const Img = styled.img`
+	overflow: hidden;
+	margin-top: ${props.margin}px;
+	margin-left: ${props.margin}px;
+	width: ${(props.width - props.margin * 2)}px;
+	height: ${(props.height - props.margin * 2)}px;
+	border-radius: 100%;
+`;
+
 	return (
 		<>
-			<ImgProfileContainer>
-				<Border src={border} width={props.width} height={props.height} margin={props.margin} />
-				<Img src={testImg} width={props.width} height={props.height} margin={props.margin} />
+			<ImgProfileContainer onClick={()=>{navigate(props.url)}}>
+				<Border src={border} />
+				<Img src={testImg} />
 			</ImgProfileContainer>
 		</>
 	);
