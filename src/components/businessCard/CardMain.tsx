@@ -7,6 +7,8 @@ const CardMain = styled.div`
 	background-color: #fafafa;
 	border-bottom-left-radius: 16px;
 	padding: 70px 60px 70px 60px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 `;
 
 export default CardMain;

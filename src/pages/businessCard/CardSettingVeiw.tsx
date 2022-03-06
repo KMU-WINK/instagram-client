@@ -5,8 +5,6 @@ import ModalHeader from "../../components/businessCard/ModalHeader";
 import CardMain from "../../components/businessCard/CardMain";
 import CardFront from "../../components/businessCard/CardFront";
 import CardBack from "../../components/businessCard/CardBack";
-import Templates from "../../components/businessCard/Templates";
-import ColorPalettes from "../../components/businessCard/ColorPalettes";
 
 const CardSettingsModal = styled.div`
 	position: fixed;
@@ -33,16 +31,19 @@ export default function CardSettingView() {
 		setState(color);
 	};
 
+	const getAlign = (value: string) => {
+	}
+
 	return (
 		<>
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"명함 스타일 설정"} />
 				<ModalBody>
 					<CardMain>
-						<CardFront color={state} />
+						<CardFront color={state} alignValue={"left"}/>
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar page={"스타일"} getPalette={getPalette} />
+					<SideBar page={"스타일"} getPalette={getPalette} getAlign={getAlign}/>
 				</ModalBody>
 			</CardSettingsModal>
 		</>

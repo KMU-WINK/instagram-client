@@ -57,7 +57,7 @@ export default function CardView() {
 					<CardMain 
 						style={{background:"white", padding:"0", width:"auto", height:"auto", marginTop:"-20px"}}
 					>
-						<CardFront color={state} />
+						<CardFront color={state} alignValue={"left"}/>
 						<CardBack color={state} />
 					</CardMain>
 				</ModalBody>

@@ -3,10 +3,14 @@ import styled from "styled-components";
 import Palette from "./Palette";
 
 const Container = styled.div`
-	width: 340px;
+	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	margin: 15px 30px 15px 30px;
+	grid-template-columns: 60px 60px 60px 60px;
+	grid-column-gap: 36px;
+	grid-row-gap: 36px;
+	padding: 30px 40px 0px 40px;
+	justify-content: center;
+	align-content: center;
 `;
 
 export default function ColorPalettes({ onClickPalette }: { onClickPalette: any }) {
