@@ -5,13 +5,12 @@ import AddCategoryBox from "../AddCategoryBox";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
-  width: 100%;
+	width: 100%;
 	padding-left: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 38px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 38px;
 `;
-
 
 export default function EditBodySection() {
 	const navigate = useNavigate();

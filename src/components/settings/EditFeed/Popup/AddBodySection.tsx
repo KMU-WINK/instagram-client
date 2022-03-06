@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ContentBox from "./ContentBox";
 
 const Container = styled.div`
-  width: 100%;
+	width: 100%;
 	margin-top: 38px;
 	padding-left: 55px;
 	display: grid;
@@ -11,9 +11,7 @@ const Container = styled.div`
 	grid-column-gap: 18px;
 `;
 
-
 export default function AddBodySection() {
-
 	return (
 		<>
 			<Container>

@@ -26,7 +26,6 @@ import HighlightView from "./pages/HighlightView";
 import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
 import PostingView from "./pages/PostingView";
 
-
 type Mode = "light" | "dark";
 
 type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
@@ -52,32 +51,31 @@ export default function App() {
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
 
 	return (
-			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
-				<GlobalStyles />
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<LoginPage />} />
-						<Route path="/register" element={<RegisterPage />} />
-						<Route path="/home" element={<HomeView />} />
-						<Route path="/setting/category" element={<CategoryView />} />
-						<Route path="/feed/:id" element={<ProfileFeedView />} />
-						<Route path="/posting/:id/" element={<PostingView/>}/>
-						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
-						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
-						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-						<Route path="/businesscard/setting" element={<CardSettingView />} />
-						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
-						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
+			<GlobalStyles />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<LoginPage />} />
+					<Route path="/register" element={<RegisterPage />} />
+					<Route path="/home" element={<HomeView />} />
+					<Route path="/setting/category" element={<CategoryView />} />
+					<Route path="/feed/:id" element={<ProfileFeedView />} />
+					<Route path="/posting/:id/" element={<PostingView />} />
+					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+					<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+					<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+					<Route path="/businesscard/setting" element={<CardSettingView />} />
+					<Route path="/businesscard/setting/edit" element={<CardEditView />} />
+					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
 
-            <Route path="/highlight" element={<HighlightView />} />
-						<Route path="/businesscard/view" element={<CardView />} />
-						<Route path="/businesscard/wallet" element={<CardWalletView />} />
-						<Route path="/businesscard/subCard" element={<SubCardView />} />
-
-					</Routes>
-				</BrowserRouter>
-			</ThemeContext.Provider>
-			);
-			}
+					<Route path="/highlight" element={<HighlightView />} />
+					<Route path="/businesscard/view" element={<CardView />} />
+					<Route path="/businesscard/wallet" element={<CardWalletView />} />
+					<Route path="/businesscard/subCard" element={<SubCardView />} />
+				</Routes>
+			</BrowserRouter>
+		</ThemeContext.Provider>
+	);
+}

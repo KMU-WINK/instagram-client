@@ -5,10 +5,10 @@ import Title from "./Title";
 import RangeSlider from "../../common/RangeSlider";
 
 const InnerContainer = styled.div`
-  width: 100%;
-  height: 20px;
-  clear: both;
-  padding-top: 20px;
+	width: 100%;
+	height: 20px;
+	clear: both;
+	padding-top: 20px;
 `;
 
 export default function SizeBox() {
@@ -20,7 +20,6 @@ export default function SizeBox() {
 					<RangeSlider />
 				</InnerContainer>
 			</BoxContainer>
-
 		</>
 	);
 }

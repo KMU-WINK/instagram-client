@@ -6,15 +6,13 @@ import CheckBox from "../CheckBox";
 
 const Content = styled.img`
 	width: 230px;
-	height: 230px;  
+	height: 230px;
 `;
 
-
 export default function ContentBox() {
-
 	return (
 		<>
-			<Content src={contentImg}/>
+			<Content src={contentImg} />
 			{/*<CheckBox value={""} checked={false} onChange={} label={} disabled={}*/}
 		</>
 	);

@@ -4,27 +4,26 @@ import BoxContainer from "./BoxContainer";
 import Title from "./Title";
 
 const InnerContainer = styled.div`
-  width: 100%;
-  height: 30px;
-  clear: both;
-  padding-top: 20px;
+	width: 100%;
+	height: 30px;
+	clear: both;
+	padding-top: 20px;
 `;
 
 const ColorContainer = styled.div`
-  width: 388px;
-  height: 24px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+	width: 388px;
+	height: 24px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
 `;
 
-const Color = styled.div<{color: string}>`
+const Color = styled.div<{ color: string }>`
 	background-color: ${(props) => props.color};
-  width: 25px;
+	width: 25px;
 	height: 25px;
 	border-radius: 50%;
 `;
-
 
 export default function ColorBox() {
 	const [colors, setColors] = useState([
@@ -72,8 +71,8 @@ export default function ColorBox() {
 			id: "#b4b4b4",
 			state: false,
 		},
-	])
-	console.log(colors)
+	]);
+	console.log(colors);
 	return (
 		<>
 			<BoxContainer style={{ height: "57px" }}>
@@ -81,7 +80,7 @@ export default function ColorBox() {
 				<InnerContainer>
 					<ColorContainer>
 						{colors.map((item, index) => {
-							return <Color color={item.id} />
+							return <Color color={item.id} />;
 						})}
 					</ColorContainer>
 				</InnerContainer>

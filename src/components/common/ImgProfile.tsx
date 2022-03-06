@@ -16,28 +16,31 @@ interface imgProfileProps {
 const ImgProfileContainer = styled.div``;
 
 export default function ImgProfile(props: imgProfileProps) {
-
 	const navigate = useNavigate();
 
 	const Border = styled.img`
-	position: absolute;
-	width: ${props.width}px;
-	height: ${props.height}px;
-	border-radius: 100%;
-`;
+		position: absolute;
+		width: ${props.width}px;
+		height: ${props.height}px;
+		border-radius: 100%;
+	`;
 
 	const Img = styled.img`
-	overflow: hidden;
-	margin-top: ${props.margin}px;
-	margin-left: ${props.margin}px;
-	width: ${(props.width - props.margin * 2)}px;
-	height: ${(props.height - props.margin * 2)}px;
-	border-radius: 100%;
-`;
+		overflow: hidden;
+		margin-top: ${props.margin}px;
+		margin-left: ${props.margin}px;
+		width: ${props.width - props.margin * 2}px;
+		height: ${props.height - props.margin * 2}px;
+		border-radius: 100%;
+	`;
 
 	return (
 		<>
-			<ImgProfileContainer onClick={()=>{navigate(props.url)}}>
+			<ImgProfileContainer
+				onClick={() => {
+					navigate(props.url);
+				}}
+			>
 				<Border src={border} />
 				<Img src={testImg} />
 			</ImgProfileContainer>

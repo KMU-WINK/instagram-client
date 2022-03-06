@@ -23,7 +23,7 @@ export default function MainFeed() {
 		<>
 			<FeedContainer>
 				<FeedHeader />
-				<Slider width="828px" height="828px"/>
+				<Slider width="828px" height="828px" />
 				<FeedFooter />
 			</FeedContainer>
 		</>

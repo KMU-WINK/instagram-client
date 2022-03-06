@@ -18,15 +18,15 @@ const EditCardContaienr = styled.div`
 		display: none;
 	}
 `;
-export default function EditCard({onClickAlign}: {onClickAlign: any}) {
+export default function EditCard({ onClickAlign }: { onClickAlign: any }) {
 	const handleAlign = (value: string) => {
 		// console.log(value);
-		onClickAlign(value)
-	}
+		onClickAlign(value);
+	};
 	return (
 		<>
 			<EditCardContaienr>
-				<AlignBox handleAlign={handleAlign}/>
+				<AlignBox handleAlign={handleAlign} />
 				<SizeBox />
 				<StyleBox />
 				<ColorBox />

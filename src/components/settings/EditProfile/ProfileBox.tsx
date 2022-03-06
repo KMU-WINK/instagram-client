@@ -8,13 +8,12 @@ const ProfileContainer = styled.div`
 `;
 
 const ProfileImg = styled.img`
-  display: block;
-  width: 88px;
+	display: block;
+	width: 88px;
 	height: 88px;
 	border-radius: 24px;
 	margin-left: 205px;
-	
-`
+`;
 
 const EditBtn = styled.div`
 	color: #0095f6;
@@ -59,9 +58,7 @@ export default function ProfileBox() {
 					>
 						수정
 					</EditBtn>
-					<ProfileImg
-						src={image}
-					/>
+					<ProfileImg src={image} />
 					<UploadProfile
 						accept="image/jpg,impge/png,image/jpeg"
 						name="profile_img"

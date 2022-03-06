@@ -10,11 +10,9 @@ const FeedContainer = styled.div`
 `;
 
 export default function ProfileFeedView() {
-
 	/*
 		get id code please please...
 	*/
-
 
 	return (
 		<>

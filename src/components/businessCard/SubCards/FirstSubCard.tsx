@@ -14,19 +14,19 @@ import Address from "../../../img/address.png";
 import { useNavigate } from "react-router-dom";
 
 const CardContainer = styled.div`
-	position:relative;
+	position: relative;
 	left: 40px;
-	z-index:3;
+	z-index: 3;
 	display: inline-block;
 	width: 300px;
 	height: 518px;
 	padding: 10px;
 	margin: 20px;
-	background: #E8E8F2;	
-	box-shadow:10px 0px 20px -10px rgba(0, 0, 0, 0.25);
+	background: #e8e8f2;
+	box-shadow: 10px 0px 20px -10px rgba(0, 0, 0, 0.25);
 	text-align: center;
 	vertical-align: middle;
-	cursor:pointer;
+	cursor: pointer;
 `;
 
 const ImageContainer = styled.div`

@@ -13,13 +13,13 @@ const CardButtonContainer = styled.div`
 	margin-top: 20px;
 	text-align: center;
 	line-height: 60px;
-	cursor:pointer;
+	cursor: pointer;
 `;
 export default function CardButton() {
 	const navigate = useNavigate();
 	return (
 		<>
-			<CardButtonContainer onClick={()=>navigate("/businesscard/view")}>프로필 카드</CardButtonContainer>
+			<CardButtonContainer onClick={() => navigate("/businesscard/view")}>프로필 카드</CardButtonContainer>
 		</>
 	);
 }

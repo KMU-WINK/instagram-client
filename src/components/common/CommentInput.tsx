@@ -16,23 +16,25 @@ const Comment = styled.input`
 `;
 
 export default function CommentInput() {
-	const [comment, setComment] = useState('');
+	const [comment, setComment] = useState("");
 
-	const onChange = (e : React.FormEvent<HTMLInputElement>) => {
+	const onChange = (e: React.FormEvent<HTMLInputElement>) => {
 		setComment(e.currentTarget.value);
-	}
+	};
 
 	const PostingBtn = styled(FontBlue)`
-	opacity: ${comment ? 1 : 0.5};
-	margin-left: auto;
-	margin-top:6px;
+		opacity: ${comment ? 1 : 0.5};
+		margin-left: auto;
+		margin-top: 6px;
 	`;
 
-	return <>
-		<CommentContainer>
-			<img src={Smile} />
-			<Comment placeholder="댓글 달기..." onChange={onChange}/>
-			<PostingBtn>게시</PostingBtn>
-		</CommentContainer>
-	</>
+	return (
+		<>
+			<CommentContainer>
+				<img src={Smile} />
+				<Comment placeholder="댓글 달기..." onChange={onChange} />
+				<PostingBtn>게시</PostingBtn>
+			</CommentContainer>
+		</>
+	);
 }

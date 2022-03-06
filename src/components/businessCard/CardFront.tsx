@@ -75,9 +75,9 @@ const PersonalInfoContainer = styled.div`
 	grid-row-gap: 5px;
 `;
 
-const InnerContainer = styled.div<{align: string}>`
+const InnerContainer = styled.div<{ align: string }>`
 	width: 210px;
-	text-align: ${(props) => props.align ? props.align : "left"};
+	text-align: ${(props) => (props.align ? props.align : "left")};
 `;
 
 const IconImage = styled.img`
@@ -90,7 +90,6 @@ const PersonalInfo = styled.div`
 	margin-left: 5px;
 	font-size: 9px;
 	text-align: left;
-	
 `;
 
 export default function CardFront(props: CardFrontProps) {
@@ -102,7 +101,7 @@ export default function CardFront(props: CardFrontProps) {
 	const position = "일러스터 / 대표";
 	const tags = ["몽환적인", "여자일러", "메이크업", "외주"];
 
-	console.log(typeof(props.alignValue))
+	console.log(typeof props.alignValue);
 
 	return (
 		<>

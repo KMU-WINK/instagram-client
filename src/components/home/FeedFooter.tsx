@@ -30,11 +30,10 @@ const PostTime = styled(Font3_Light)`
 `;
 
 export default function FeedFooter() {
-
 	return (
 		<>
 			<FooterContainer>
-				<PostingIcons/>
+				<PostingIcons />
 				<FontNormal>여러 명이 좋아합니다</FontNormal>
 				<Comment id="insta_123" content="test" />
 				<ViewAll>댓글 5개 모두 보기</ViewAll>
@@ -42,7 +41,7 @@ export default function FeedFooter() {
 				<Comment id="insta_222" content="hello" />
 				<PostTime>10시간전</PostTime>
 			</FooterContainer>
-			<CommentInput/>
+			<CommentInput />
 		</>
 	);
 }

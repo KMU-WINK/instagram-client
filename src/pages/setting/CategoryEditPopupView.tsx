@@ -6,17 +6,17 @@ import { useNavigate } from "react-router-dom";
 import EditBodySection from "../../components/settings/EditFeed/Popup/EditBodySection";
 
 const SettingsModal = styled.div`
-  position: fixed;
-  top: 40px;
-  left: 363px;
-  width: 840px;
-  height: 800px;
-  border-radius: 16px;
-  border: 1px solid beige;
+	position: fixed;
+	top: 40px;
+	left: 363px;
+	width: 840px;
+	height: 800px;
+	border-radius: 16px;
+	border: 1px solid beige;
 `;
 
 const PopupBodyContainer = styled.div`
-  width: 100%;
+	width: 100%;
 `;
 
 export default function CategoryEditPopupView() {
@@ -35,7 +35,6 @@ export default function CategoryEditPopupView() {
 					</ScrollContainer>
 				</PopupBodyContainer>
 			</SettingsModal>
-
 		</>
 	);
 }

@@ -26,12 +26,11 @@ const CancelBtn = styled.img`
 `;
 
 export default function SettingModalHeader() {
-
 	return (
 		<>
 			<ModalHeader>
 				<HeaderText>설정</HeaderText>
-				<CancelBtn src={close}/>
+				<CancelBtn src={close} />
 			</ModalHeader>
 		</>
 	);

@@ -5,7 +5,7 @@ const Slider = styled.input.attrs({
 	type: "range",
 })`
 	width: 350px;
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 	&:focus {
 		outline: none;
 	}

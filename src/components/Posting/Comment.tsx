@@ -9,37 +9,35 @@ import Heart_on from "../../img/Heart_on.png";
 import Heart_off from "../../img/Heart_off.svg";
 
 const Container = styled.div`
-	display:flex;
-	padding:20px;
+	display: flex;
+	padding: 20px;
 `;
 
 const Profile = styled.img`
-	height:32px;
+	height: 32px;
 	margin-right: 20px;
 `;
 
-const MiddleContainer = styled.div`
-
-`;
+const MiddleContainer = styled.div``;
 
 const CommentContainer = styled.div`
-	display:flex;
+	display: flex;
 	gap: 5px;
 `;
 
 const SubDiscriptionContainer = styled.div`
-	display:flex;
+	display: flex;
 	gap: 20px;
-	margin-top:16px;
+	margin-top: 16px;
 `;
 
 const SubDiscription = styled.div`
 	font-size: 12px;
-	color: #8F8F8F;
+	color: #8f8f8f;
 `;
 
 const Heart = styled.img`
-	height:14px;
+	height: 14px;
 	margin-left: auto;
 `;
 
@@ -51,25 +49,27 @@ export default function Comment() {
 		else setHeart(true);
 	};
 
-	return <>
-		<Container>
-			<Profile src={profile}/>
-			<MiddleContainer>
-				<CommentContainer>
-					<FontBold>insta_123</FontBold>
-					<FontNormal>오오 괜찮은데?</FontNormal>
-				</CommentContainer>
-				<SubDiscriptionContainer>
-					<SubDiscription>1주</SubDiscription>
-					<SubDiscription>좋아요{1}개</SubDiscription>
-					<SubDiscription>답글달기</SubDiscription>
-				</SubDiscriptionContainer>
-				<SubDiscriptionContainer>
-					<SubDiscription>---</SubDiscription>
-					<SubDiscription>답글보기({1}개)</SubDiscription>
-				</SubDiscriptionContainer>
-			</MiddleContainer>
-			<Heart src={heart ? Heart_on : Heart_off} onClick={heartClick}/>
-		</Container>
-	</>
-};
+	return (
+		<>
+			<Container>
+				<Profile src={profile} />
+				<MiddleContainer>
+					<CommentContainer>
+						<FontBold>insta_123</FontBold>
+						<FontNormal>오오 괜찮은데?</FontNormal>
+					</CommentContainer>
+					<SubDiscriptionContainer>
+						<SubDiscription>1주</SubDiscription>
+						<SubDiscription>좋아요{1}개</SubDiscription>
+						<SubDiscription>답글달기</SubDiscription>
+					</SubDiscriptionContainer>
+					<SubDiscriptionContainer>
+						<SubDiscription>---</SubDiscription>
+						<SubDiscription>답글보기({1}개)</SubDiscription>
+					</SubDiscriptionContainer>
+				</MiddleContainer>
+				<Heart src={heart ? Heart_on : Heart_off} onClick={heartClick} />
+			</Container>
+		</>
+	);
+}

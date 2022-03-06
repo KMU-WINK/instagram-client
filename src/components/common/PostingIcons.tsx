@@ -13,11 +13,11 @@ import bookmark from "../../img/Bookmark.svg";
 
 interface PostingIconsProps {
 	bookmark?: boolean;
-};
+}
 
 const IconContainer = styled.div`
 	display: flex;
-	gap:16px;
+	gap: 16px;
 	margin-bottom: 20px;
 `;
 
@@ -26,12 +26,11 @@ const Icon = styled.img`
 	height: 21px;
 `;
 
-export default function PostingIcons(props : PostingIconsProps) {
-
+export default function PostingIcons(props: PostingIconsProps) {
 	const Bookmark = styled.img`
-	display:${props.bookmark ? 'block' : 'none'};
-	margin-left: auto;
-`;
+		display: ${props.bookmark ? "block" : "none"};
+		margin-left: auto;
+	`;
 
 	const [heart, setHeart] = useState(false);
 
@@ -40,12 +39,14 @@ export default function PostingIcons(props : PostingIconsProps) {
 		else setHeart(true);
 	};
 
-	return <>
-		<IconContainer>
-			<Icon src={heart ? Heart_on : Heart_off} onClick={heartClick} />
-			<img src={comment} width="21px" height="21px" />
-			<Icon src={Share} />
-			<Bookmark src={bookmark}/>
-		</IconContainer>
-	</>
+	return (
+		<>
+			<IconContainer>
+				<Icon src={heart ? Heart_on : Heart_off} onClick={heartClick} />
+				<img src={comment} width="21px" height="21px" />
+				<Icon src={Share} />
+				<Bookmark src={bookmark} />
+			</IconContainer>
+		</>
+	);
 }

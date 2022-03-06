@@ -26,12 +26,12 @@ export default function RecommendProfile(props: RecommendProps) {
 	const [isFollow, setIsFollow] = useState(false);
 
 	const FollowBtn = () => {
-		if(isFollow) {
+		if (isFollow) {
 			setIsFollow(false);
-		}else{
+		} else {
 			setIsFollow(true);
 		}
-	}
+	};
 
 	return (
 		<>
@@ -41,7 +41,11 @@ export default function RecommendProfile(props: RecommendProps) {
 					<FontBold>{props.id}</FontBold>
 					<Font2_Light>insta_111님 외 5명이 팔로우 합..</Font2_Light>
 				</ProfileList>
-				{isFollow ? <Font2_Light onClick={FollowBtn}>팔로잉</Font2_Light> : <FontBlue onClick={FollowBtn}>팔로우</FontBlue> }
+				{isFollow ? (
+					<Font2_Light onClick={FollowBtn}>팔로잉</Font2_Light>
+				) : (
+					<FontBlue onClick={FollowBtn}>팔로우</FontBlue>
+				)}
 			</ProfileContainer>
 		</>
 	);

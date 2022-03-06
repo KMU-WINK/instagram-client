@@ -22,7 +22,7 @@ const Logo = styled.img`
 	width: 104px;
 	height: 30px;
 	margin-left: 26px;
-	cursor:pointer;
+	cursor: pointer;
 `;
 
 const HeaderContainer = styled.div`
@@ -75,7 +75,7 @@ export default function Header() {
 	return (
 		<>
 			<HeaderContainer>
-				<Logo src={logo} onClick={() => navigate("/home")}/>
+				<Logo src={logo} onClick={() => navigate("/home")} />
 				<SearchContainer>
 					<SearchIcon src={searchIcon} />
 					<SearchInput placeholder="검색"></SearchInput>
@@ -86,7 +86,7 @@ export default function Header() {
 					<Icon src={plus} />
 					<Icon src={compass} />
 					<Icon src={Heart} />
-					<Icon style={{cursor:"pointer"}} src={profile} onClick={() => navigate("/feed/:id")} />
+					<Icon style={{ cursor: "pointer" }} src={profile} onClick={() => navigate("/feed/:id")} />
 				</IconContainer>
 			</HeaderContainer>
 		</>

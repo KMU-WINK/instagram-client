@@ -37,7 +37,7 @@ export default function CardEditView() {
 
 	const getAlign = (value: string) => {
 		setAlignValue(value);
-	}
+	};
 
 	const onCapture = () => {
 		if (mainRef.current) {
@@ -56,17 +56,16 @@ export default function CardEditView() {
 		document.body.removeChild(link);
 	};
 
-
 	return (
 		<>
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"명함 편집하기"} />
 				<ModalBody>
-					<CardMain style={{width: "770px", paddingLeft: "45px"}} ref={mainRef}>
-						<CardFront color={state} alignValue={alignValue}/>
+					<CardMain style={{ width: "770px", paddingLeft: "45px" }} ref={mainRef}>
+						<CardFront color={state} alignValue={alignValue} />
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar page={"편집"} getPalette={getPalette} getAlign={getAlign}/>
+					<SideBar page={"편집"} getPalette={getPalette} getAlign={getAlign} />
 				</ModalBody>
 			</CardSettingsModal>
 			<button onClick={() => onCapture()}>BYTTT</button>

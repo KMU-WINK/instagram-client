@@ -31,8 +31,7 @@ export default function CardSettingView() {
 		setState(color);
 	};
 
-	const getAlign = (value: string) => {
-	}
+	const getAlign = (value: string) => {};
 
 	return (
 		<>
@@ -40,10 +39,10 @@ export default function CardSettingView() {
 				<ModalHeader headerTitle={"명함 스타일 설정"} />
 				<ModalBody>
 					<CardMain>
-						<CardFront color={state} alignValue={"left"}/>
+						<CardFront color={state} alignValue={"left"} />
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar page={"스타일"} getPalette={getPalette} getAlign={getAlign}/>
+					<SideBar page={"스타일"} getPalette={getPalette} getAlign={getAlign} />
 				</ModalBody>
 			</CardSettingsModal>
 		</>

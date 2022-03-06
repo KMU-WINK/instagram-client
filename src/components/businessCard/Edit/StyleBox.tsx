@@ -16,56 +16,55 @@ import style5 from "../../../img/style5.png";
 import style6 from "../../../img/style6.png";
 
 const InnerContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  clear: both;
-  padding-top: 20px;
+	width: 100%;
+	height: 50px;
+	clear: both;
+	padding-top: 20px;
 `;
 
 const StyleContainer = styled.div`
-  width: 364px;
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  gap: 17px;
+	width: 364px;
+	height: 44px;
+	display: flex;
+	flex-direction: row;
+	gap: 17px;
 `;
 
 const Style = styled.img<{ state: boolean }>`
-  width: 44px;
-  height: 44px;
-  padding: 7px;
-  object-fit: none;
-  border-radius: 50%;
-  border: ${(props) => props.state ? "1px #3796f0 solid" : "1px #dcdbdb solid"};
-
+	width: 44px;
+	height: 44px;
+	padding: 7px;
+	object-fit: none;
+	border-radius: 50%;
+	border: ${(props) => (props.state ? "1px #3796f0 solid" : "1px #dcdbdb solid")};
 `;
 
 export default function StyleBox() {
 	const [style, setStyle] = useState([
 		{
 			id: "1",
-			state: true
+			state: true,
 		},
 		{
 			id: "2",
-			state: false
+			state: false,
 		},
 		{
 			id: "3",
-			state: false
+			state: false,
 		},
 		{
 			id: "4",
-			state: false
+			state: false,
 		},
 		{
 			id: "5",
-			state: false
+			state: false,
 		},
 		{
 			id: "6",
-			state: false
-		}
+			state: false,
+		},
 	]);
 
 	const handleOnClick = (e: any) => {
@@ -78,8 +77,6 @@ export default function StyleBox() {
 		console.log(newArr);
 
 		setStyle(newArr);
-
-
 	};
 	return (
 		<>
@@ -96,7 +93,6 @@ export default function StyleBox() {
 					</StyleContainer>
 				</InnerContainer>
 			</BoxContainer>
-
 		</>
 	);
 }
