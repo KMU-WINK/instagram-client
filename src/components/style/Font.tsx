@@ -32,6 +32,10 @@ export const Font2_Light = styled.div`
 	color: #767676;
 `;
 
+export const Font2_Light_Bold = styled(Font2_Light)`
+	font-weight: bold;
+`;
+
 export const Font3_Light = styled.div`
 	font-size: 14px;
 	color: #b3b3b3;
@@ -67,5 +71,11 @@ export const Font3_16px_Bold = styled(Font3_Light)`
 
 export const FontBlue = styled.div`
 	font-size: 14px;
+	color: #3796f0;
+`;
+
+export const FontBlue_Bold = styled.div`
+	font-size: 14px;
+	font-weight: bold;
 	color: #3796f0;
 `;

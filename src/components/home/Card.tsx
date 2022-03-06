@@ -5,6 +5,7 @@ import Border from "../../img/profileBorder.png";
 import CardButton from "./CardButton";
 import { FontBlue, Font2_Light, Font1_Light, FontNormal } from "../style/Font";
 import {useNavigate} from "react-router-dom";
+import ImgProfile from "../common/ImgProfile";
 
 const CardContainer = styled.div`
 	position: fixed;
@@ -65,7 +66,7 @@ export default function Card() {
 		<>
 			<CardContainer>
 				<CardTop>
-					<CardProfile src={Border} onClick={()=>{navigate("/feed/1")}}/>
+					<ImgProfile width={100} height={100} margin={8} url={"/feed/1"}/>
 					<CardInfo>
 						<CardId onClick={()=>{navigate("/feed/1")}}>insta_123</CardId>
 						<FontNormal>김선호</FontNormal>

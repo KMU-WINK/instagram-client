@@ -13,7 +13,7 @@ import plus from "../../img/plus.png";
 // @ts-ignore
 import compass from "../../img/compass.png";
 // @ts-ignore
-import Heart from "../../img/Heart.png";
+import Heart from "../../img/Heart_off.svg";
 // @ts-ignore
 import profile from "../../img/profile.svg";
 import { useNavigate } from "react-router-dom";
