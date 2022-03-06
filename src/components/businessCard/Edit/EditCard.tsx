@@ -4,6 +4,7 @@ import AlignBox from "./AlignBox";
 import SizeBox from "./SizeBox";
 import StyleBox from "./StyleBox";
 import ColorBox from "./ColorBox";
+import AddBox from "./AddBox";
 
 const EditCardContaienr = styled.div`
 	width: 480px;
@@ -17,14 +18,19 @@ const EditCardContaienr = styled.div`
 		display: none;
 	}
 `;
-export default function EditCard() {
+export default function EditCard({onClickAlign}: {onClickAlign: any}) {
+	const handleAlign = (value: string) => {
+		// console.log(value);
+		onClickAlign(value)
+	}
 	return (
 		<>
 			<EditCardContaienr>
-				<AlignBox />
+				<AlignBox handleAlign={handleAlign}/>
 				<SizeBox />
 				<StyleBox />
 				<ColorBox />
+				<AddBox />
 			</EditCardContaienr>
 		</>
 	);

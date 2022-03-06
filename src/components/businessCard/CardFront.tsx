@@ -15,6 +15,7 @@ import Address from "../../img/address.png";
 
 interface CardFrontProps {
 	color: string;
+	alignValue: string;
 }
 
 const ImageContainer = styled.div`
@@ -69,10 +70,14 @@ const Tag = styled.span`
 const PersonalInfoContainer = styled.div`
 	position: relative;
 	top: 170px;
-	left: 30px;
+	margin-left: 30px;
 	display: grid;
-	grid-template-columns: 25px 230px;
 	grid-row-gap: 5px;
+`;
+
+const InnerContainer = styled.div<{align: string}>`
+	width: 210px;
+	text-align: ${(props) => props.align ? props.align : "left"};
 `;
 
 const IconImage = styled.img`
@@ -82,8 +87,10 @@ const IconImage = styled.img`
 
 const PersonalInfo = styled.div`
 	display: inline-block;
+	margin-left: 5px;
 	font-size: 9px;
 	text-align: left;
+	
 `;
 
 export default function CardFront(props: CardFrontProps) {
@@ -94,6 +101,8 @@ export default function CardFront(props: CardFrontProps) {
 	const address = "서울시 송파구 잠실2동 89단지 1호";
 	const position = "일러스터 / 대표";
 	const tags = ["몽환적인", "여자일러", "메이크업", "외주"];
+
+	console.log(typeof(props.alignValue))
 
 	return (
 		<>
@@ -113,14 +122,22 @@ export default function CardFront(props: CardFrontProps) {
 						</TagsContainer>
 					</CenterContainer>
 					<PersonalInfoContainer>
-						<IconImage src={Kakao} />
-						<PersonalInfo contentEditable={true}>{kakaoID}</PersonalInfo>
-						<IconImage src={Mobile} />
-						<PersonalInfo contentEditable={true}>{mobile}</PersonalInfo>
-						<IconImage src={Email} />
-						<PersonalInfo contentEditable={true}>{email}</PersonalInfo>
-						<IconImage src={Address} />
-						<PersonalInfo contentEditable={true}>{address}</PersonalInfo>
+						<InnerContainer align={props.alignValue}>
+							<IconImage src={Kakao} />
+							<PersonalInfo contentEditable={true}>{kakaoID}</PersonalInfo>
+						</InnerContainer>
+						<InnerContainer align={props.alignValue}>
+							<IconImage src={Mobile} />
+							<PersonalInfo contentEditable={true}>{mobile}</PersonalInfo>
+						</InnerContainer>
+						<InnerContainer align={props.alignValue}>
+							<IconImage src={Email} />
+							<PersonalInfo contentEditable={true}>{email}</PersonalInfo>
+						</InnerContainer>
+						<InnerContainer align={props.alignValue}>
+							<IconImage src={Address} />
+							<PersonalInfo contentEditable={true}>{address}</PersonalInfo>
+						</InnerContainer>
 					</PersonalInfoContainer>
 				</CardBorder>
 			</CardContainer>

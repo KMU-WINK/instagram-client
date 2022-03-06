@@ -66,7 +66,7 @@ export default function App() {
 						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
 						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
-						<Route path="/businesscard/setting/image" element={<CardEditView />} />
+						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
 
             <Route path="/highlight" element={<HighlightView />} />

@@ -24,51 +24,55 @@ const AlignImg = styled.img<{ id: string, state: boolean }>`
   height: 34px;
   margin-right: 30px;
   padding: 5px;
-	border: ${(props) => props.state ? "1px #3796f0 solid" : "0"};
-	border-radius: 4px;
+  border: ${(props) => props.state ? "1px #3796f0 solid" : "0"};
+  border-radius: 4px;
 `;
 
-export default function AlignBox() {
+export default function AlignBox({ handleAlign }: { handleAlign: any }) {;
 	const [selected, setSelected] = useState([
 		{
-			id: "0",
+			id: "center",
+			state: false,
+		},
+		{
+			id: "left",
 			state: true,
 		},
 		{
-			id: "1",
+			id: "right",
 			state: false,
 		},
 		{
-			id: "2",
+			id: "justify",
 			state: false,
-		},
-		{
-			id: "3",
-			state: false,
-		},
+		}
 	]);
 
 	const handleOnClick = (e: any) => {
 		const newArr: { id: string; state: boolean }[] = [];
 		selected.map((item, index) => {
-			e.target.id == item.id
+			e.target.id === item.id
 				? newArr.push({ id: item.id, state: true })
 				: newArr.push({ id: item.id, state: false });
 		});
 		console.log(newArr);
 
 		setSelected(newArr);
-
-	}
+		handleAlign(e.target.id);
+	};
 	return (
 		<>
 			<BoxContainer style={{ height: "80px" }}>
 				<Title content={"정렬"} />
 				<InnerContainer>
-					<AlignImg src={alignCenter} id={"0"} state={selected[0].state} onClick={handleOnClick}/>
-					<AlignImg src={alignLeft} id={"1"} state={selected[1].state} onClick={handleOnClick}/>
-					<AlignImg src={alignRight} id={"2"} state={selected[2].state} onClick={handleOnClick}/>
-					<AlignImg src={justify} id={"3"} state={selected[3].state} onClick={handleOnClick}/>
+					<AlignImg src={alignCenter} id={"center"} state={selected[0].state}
+										onClick={handleOnClick} />
+					<AlignImg src={alignLeft} id={"left"} state={selected[1].state}
+										onClick={handleOnClick} />
+					<AlignImg src={alignRight} id={"right"} state={selected[2].state}
+										onClick={handleOnClick} />
+					<AlignImg src={justify} id={"justify"} state={selected[3].state}
+										onClick={handleOnClick} />
 				</InnerContainer>
 			</BoxContainer>
 

@@ -15,12 +15,12 @@ const SideBarTop = styled.ul`
 	margin: 0;
 	padding: 0;
 	border-bottom: 1px #e9e9e9 solid;
-	display: grid;
-	grid-auto-flow: column;
-	grid-auto-columns: 1fr;
+	display: flex;
+	flex-direction: row;
 `;
 
 const TabMenu = styled.li`
+	width: 100%;
 	display: inline-block;
 	font-size: 18px;
 	font-weight: bold;
@@ -38,7 +38,7 @@ const SideBarBottom = styled.div`
 	height: 630px;
 `;
 
-export default function SideBar({ getPalette, page }: { getPalette: any; page: string }) {
+export default function SideBar({ getPalette, page, getAlign }: { getPalette: any; page: string, getAlign: any }) {
 	const [state, setState] = useState({ activeTab: 0 });
 	const [color, setColor] = useState("");
 
@@ -52,6 +52,11 @@ export default function SideBar({ getPalette, page }: { getPalette: any; page: s
 		getPalette(color);
 	};
 
+	const onClickAlign = (value: string) => {
+		console.log(value)
+		getAlign(value);
+	}
+
 	const styleTab = [
 		{
 			id: "배경 색",
@@ -62,7 +67,7 @@ export default function SideBar({ getPalette, page }: { getPalette: any; page: s
 	const editTab = [
 		{
 			id: "수정하기",
-			component: <EditCard />,
+			component: <EditCard onClickAlign={onClickAlign}/>,
 		},
 		{
 			id: "배경 색",
