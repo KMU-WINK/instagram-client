@@ -44,7 +44,7 @@ const RegisterFormContainer: React.FC<RegisterFormContainerProps> = ({ children 
 
 		if (isActive) {
 			apiClient
-				.post("/api/auth/signup", {
+				.post("/auth/signup", {
 					email: form.id,
 					userName: form.name,
 					nickName: form.username,
