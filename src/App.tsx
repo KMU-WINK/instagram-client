@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
@@ -57,6 +58,7 @@ export default function App() {
 
 	let state = location.state as { backgroundLocation?: Location };
 
+	// @ts-ignore
 	return (
 		<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
@@ -68,26 +70,27 @@ export default function App() {
 					</Routes>
 				)}
 
-				<Routes location={state?.backgroundLocation || location}>
-					<Route path="/" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/home" element={<HomeView />} />
-					<Route path="/setting/category" element={<CategoryView />} />
-					<Route path="/feed/:id" element={<ProfileFeedView />} />
-					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-					<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
-					<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
-					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-					<Route path="/businesscard/setting" element={<CardSettingView />} />
-					<Route path="/businesscard/setting/edit" element={<CardEditView />} />
-					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-					<Route path="/highlight" element={<HighlightView />} />
-					<Route path="/businesscard/view" element={<CardView />} />
-					<Route path="/businesscard/wallet" element={<CardWalletView />} />
-					<Route path="/businesscard/subCard" element={<SubCardView />} />
-				</Routes>
-			</ThemeContext.Provider>
+					<Routes location={state?.backgroundLocation || location}>
+						<Route path="/" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/home" element={<HomeView />} />
+						<Route path="/setting/category" element={<CategoryView />} />
+						<Route path="/feed/:id" element={<ProfileFeedView />} />
+						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+						<Route path="/businesscard/setting" element={<CardSettingView />} />
+						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
+						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+						<Route path="/highlight" element={<HighlightView />} />
+						<Route path="/businesscard/view" element={<CardView />} />
+						<Route path="/businesscard/wallet" element={<CardWalletView />} />
+						<Route path="/businesscard/subCard" element={<SubCardView />} />
+          </Routes>
+          </ThemeContext.Provider>
+
 		</CookiesProvider>
 	);
 }

@@ -72,32 +72,31 @@ export default function PostingView() {
 	}
 
 	const testUrl = async () => {
-		const res = await apiClient.get("/auth/test");
+		const res = await apiClient.get('/category/1');
+		console.log(res);
+
 		return res;
 	};
 
 	const res = testUrl();
-	console.log(res);
 
-	// todo: apiClient baseURL 적용, accessToken 인증
-
-	const getPostingByPostingId = async (postingId: string | undefined) => {
-		// apiClient.defaults.headers.common['Authorization'] = accessToken;
-		const res = await apiClient.get(`/article/${postingId}`);
-		console.log(res);
-		return res;
-	};
-	const posting = getPostingByPostingId(params.id);
-
-	// const posting = {
-	// 	"id": 1,
-	// 	"thumbnail": "string",
-	// 	"location": "string",
-	// 	"content": "test content",
-	// 	"createdAt": "20220307",
-	// 	"updatedAt": "string",
-	// 	"user_id": 1
+	// const getPostingByPostingId = async(postingId : string | undefined) => {
+	// 	// apiClient.defaults.headers.common['Authorization'] = accessToken;
+	// 	const res = await apiClient.get(`/article/${postingId}`, );
+	// 	console.log(res);
+	// 	return res;
 	// }
+	// const posting = getPostingByPostingId(params.id);
+
+	const posting = {
+		"id": 1,
+		"thumbnail": "string",
+		"location": "string",
+		"content": "test content",
+		"createdAt": "20220307",
+		"updatedAt": "string",
+		"user_id": 1
+	}
 
 	return (
 		<PostingContainer>
