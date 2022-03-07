@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../components/common/Header";
 import MainFeed from "../components/home/MainFeed";
@@ -9,6 +9,22 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import apiClient from "../lib/apiClient";
 import { useCookies } from "react-cookie";
 
+interface MyDataProps {
+	id: number,
+	email: string,
+	password: string,
+	userName: string,
+	profileImg: string,
+	nickName: string,
+	description: string,
+	private: boolean,
+	backgroundImage: string,
+	themaColor: string,
+	selectedCategory: null,
+	createdAt: string,
+	updatedAt: string
+};
+
 const HomeContainer = styled.div`
 	margin-left: 500px;
 	margin-top: 122px;
@@ -17,20 +33,27 @@ const HomeContainer = styled.div`
 `;
 export default function HomeView() {
 	const [cookies, setCookie] = useCookies(["user"]);
+	const [articlesAll, setArticlesAll] = useState([]);
+	const [myData, setMyData] = useState<MyDataProps | null>(null);
 
-	useEffect(() => {
-		console.log(cookies.user);
-		apiClient.get("/article/users/1").then((res) => console.log(res));
-	}, []);
+	// useEffect(() => {
+	// 	apiClient.get("/article/users/1").then((res) => console.log(res));
+	// }, []);
+
+
+	useEffect(()=> {
+		apiClient.get("/article").then((res)=> setArticlesAll(res.data.articles));
+		apiClient.get("/auth/get/me").then((res)=> setMyData(res.data.user));
+	},[])
 
 	return (
 		<>
-			<Header></Header>
-			<Card />
+			<Header profileImg={myData?.profileImg} userId={myData?.id}></Header>
+			<Card userName={myData?.userName} userId={myData?.id} profileImg={myData?.profileImg} description={myData?.description} nickName={myData?.nickName}/>
 			<Recommend />
 			<HomeContainer>
 				<Storys />
-				<MainFeed></MainFeed>
+				{articlesAll.map(article => <MainFeed article={article}></MainFeed>)}
 			</HomeContainer>
 		</>
 	);

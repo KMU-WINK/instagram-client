@@ -12,6 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 interface FeedHeaderProps {
 	isFollowingBtn?: boolean;
+	userId?: number;
+	userName?: string;
+	profileImg?: string;
 }
 
 const HeaderContainer = styled.div`
@@ -36,26 +39,24 @@ const Dot = styled.img`
 `;
 
 export default function FeedHeader(props: FeedHeaderProps) {
+
 	const FollowingBtn = styled.div`
 		display: ${props.isFollowingBtn ? "flex" : "none"};
 	`;
 
-	/* 
-		need axios code (for get user's id)
-	*/
 
 	const navigate = useNavigate();
 	return (
 		<>
 			<HeaderContainer>
-				<ImgProfile width={40} height={40} margin={4} url={"/feed/1"} />
+				<ImgProfile width={40} height={40} margin={4} url={`/feed/${props.userId}`} img={props.profileImg}/>
 				<ProfileRight>
 					<FontBold
 						onClick={() => {
-							navigate("/feed/1");
+							navigate(`/feed/${props.userId}`);
 						}}
 					>
-						Insta_123
+						{props.userName}
 					</FontBold>
 					{/*<Font1_Light>place</Font1_Light>*/}
 				</ProfileRight>

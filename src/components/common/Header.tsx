@@ -18,6 +18,11 @@ import Heart from "../../img/Heart_off.svg";
 import profile from "../../img/profile.svg";
 import { useNavigate } from "react-router-dom";
 
+interface HeaderProps {
+	profileImg?:string;
+	userId?:number;
+};
+
 const Logo = styled.img`
 	width: 104px;
 	height: 30px;
@@ -61,6 +66,12 @@ const SearchIcon = styled.img`
 
 const Icon = styled.img``;
 
+const MyProfile = styled.img`
+  border-radius: 100%;
+	width: 22px;
+	height: 22px;
+`;
+
 const IconContainer = styled.div`
 	width: 252px;
 	height: 22px;
@@ -69,7 +80,7 @@ const IconContainer = styled.div`
 	margin-right: 40px;
 `;
 
-export default function Header() {
+export default function Header(props : HeaderProps) {
 	const navigate = useNavigate();
 	return (
 		<>
@@ -85,7 +96,7 @@ export default function Header() {
 					<Icon src={plus} />
 					<Icon src={compass} />
 					<Icon src={Heart} />
-					<Icon style={{ cursor: "pointer" }} src={profile} onClick={() => navigate("/feed/:id")} />
+					<MyProfile style={{ cursor: "pointer" }} src={props.profileImg ? props.profileImg : profile} onClick={() => navigate(`/feed/${props.userId}`)} />
 				</IconContainer>
 			</HeaderContainer>
 		</>

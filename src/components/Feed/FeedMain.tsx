@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
+import apiClient from "../../lib/apiClient";
 
 const FeedMainContainer = styled.div`
 	display: grid;
@@ -20,6 +21,7 @@ const FeedImg = styled.img`
 	position: absolute;
 `;
 export default function FeedMain() {
+
 	return (
 		<>
 			<FeedMainContainer>

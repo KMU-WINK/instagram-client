@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "../components/common/Slider";
@@ -10,8 +10,33 @@ import { FontBold, FontNormal } from "../components/style/Font";
 import FeedHeader from "../components/home/FeedHeader";
 import Comment from "../components/Posting/Comment";
 import apiClient from "../lib/apiClient";
+import {remakeDate} from "../hooks/useRegex";
 
-import axios from "axios";
+interface PostingDataProps {
+	id: number,
+	thumbnail: string,
+	location: string,
+	content: string,
+	createdAt: string,
+	updatedAt: string,
+	user_id: number,
+}
+
+interface UserDataProps {
+	id: number,
+	email: string,
+	password: string,
+	userName: string,
+	profileImg: string,
+	nickName: string,
+	description: string,
+	private: boolean,
+	backgroundImage: string,
+	themaColor: string,
+	selectedCategory: null,
+	createdAt: string,
+	updatedAt: string
+};
 
 const PostingContainer = styled.div`
 	display: flex;
@@ -71,32 +96,29 @@ export default function PostingView() {
 		navigate(-1);
 	}
 
-	const testUrl = async () => {
-		const res = await apiClient.get("/category/1");
-		console.log(res);
+	const [postingData, setPostingData] = useState<PostingDataProps | null>(null);
+	const [userData, setUserData] = useState<UserDataProps | null>(null);
 
-		return res;
+	const getUserDataById = (userId : number | undefined) => {
+		apiClient.get(`/auth/${userId}`, ).then(response => {
+			if(response.data.user) {
+				setUserData(response.data.user);
+			};
+		});
+	}
+
+	const getPostingByPostingId = (postingId : string | undefined) => {
+		apiClient.get(`/article/${postingId}`).then(response => {
+			setPostingData(response.data);
+			getUserDataById(response.data?.user_id);
+		});
 	};
 
-	const res = testUrl();
+	useEffect(()=> {
+		getPostingByPostingId(params.id);
+	},[])
 
-	// const getPostingByPostingId = async(postingId : string | undefined) => {
-	// 	// apiClient.defaults.headers.common['Authorization'] = accessToken;
-	// 	const res = await apiClient.get(`/article/${postingId}`, );
-	// 	console.log(res);
-	// 	return res;
-	// }
-	// const posting = getPostingByPostingId(params.id);
-
-	const posting = {
-		id: 1,
-		thumbnail: "string",
-		location: "string",
-		content: "test content",
-		createdAt: "20220307",
-		updatedAt: "string",
-		user_id: 1,
-	};
+	const postingDate = remakeDate(postingData?.createdAt);
 
 	return (
 		<PostingContainer>
@@ -107,8 +129,8 @@ export default function PostingView() {
 				</ImgContainer>
 			</LeftContainer>
 			<RightContainer>
-				<FeedHeader isFollowingBtn={true} />
-				{/*<Comment isMainContent={true} content={posting.content} user={"insta_123"} date={posting.createdAt} />*/}
+				<FeedHeader isFollowingBtn={true} userId={postingData?.user_id} profileImg={userData?.profileImg} userName={userData?.userName} />
+				<Comment isMainContent={true} content={postingData?.content} user={userData?.userName} date={postingDate ? postingDate : ''} />
 				{/*<Comment />*/}
 				{/*<Comment />*/}
 				<RightFooter>
@@ -117,7 +139,7 @@ export default function PostingView() {
 						<FontBold>insta_123</FontBold>
 						<FontNormal>님 외 여러명이 좋아합니다</FontNormal>
 					</LikeDescription>
-					<Date>2월22일</Date>
+					<Date>{postingDate ? postingDate : ''}</Date>
 				</RightFooter>
 				<CommentInput />
 			</RightContainer>

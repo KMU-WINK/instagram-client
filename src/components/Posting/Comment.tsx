@@ -10,9 +10,9 @@ import Heart_off from "../../img/Heart_off.svg";
 
 interface CommentProps {
 	isMainContent?: boolean;
-	user: string;
-	content: string;
-	date: string;
+	user?: string;
+	content?: string;
+	date?: string;
 }
 
 const Container = styled.div`

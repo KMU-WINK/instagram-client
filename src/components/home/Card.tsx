@@ -7,6 +7,13 @@ import { FontBlue, Font2_Light, Font1_Light, FontNormal } from "../style/Font";
 import { useNavigate } from "react-router-dom";
 import ImgProfile from "../common/ImgProfile";
 
+interface CardProps {
+	userId?: number;
+	userName?: string;
+	nickName?: string;
+	description?: string;
+	profileImg?: string;
+}
 const CardContainer = styled.div`
 	position: fixed;
 	width: 320px;
@@ -54,7 +61,7 @@ const CardCount = styled.div`
 	justify-content: space-between;
 `;
 
-export default function Card() {
+export default function Card(props : CardProps) {
 	/*
 		need axios code (get my id)
 	*/
@@ -65,17 +72,17 @@ export default function Card() {
 		<>
 			<CardContainer>
 				<CardTop>
-					<ImgProfile width={100} height={100} margin={8} url={"/feed/1"} />
+					<ImgProfile width={100} height={100} margin={8} url={`/feed/${props.userId}`} img={props.profileImg} />
 					<CardInfo>
 						<CardId
 							onClick={() => {
-								navigate("/feed/1");
+								navigate(`/feed/${props.userId}`);
 							}}
 						>
-							insta_123
+							{props.userName}
 						</CardId>
-						<FontNormal>김선호</FontNormal>
-						<Font2_Light>예술가</Font2_Light>
+						<FontNormal>{props.nickName}</FontNormal>
+						<Font2_Light>{props.description}</Font2_Light>
 					</CardInfo>
 					<FontBlue>전환</FontBlue>
 				</CardTop>
