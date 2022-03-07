@@ -8,6 +8,13 @@ import Heart_on from "../../img/Heart_on.png";
 // @ts-ignore
 import Heart_off from "../../img/Heart_off.svg";
 
+interface CommentProps {
+	isMainContent?: boolean;
+	user: string;
+	content: string;
+	date: string;
+};
+
 const Container = styled.div`
 	display: flex;
 	padding: 20px;
@@ -41,7 +48,7 @@ const Heart = styled.img`
 	margin-left: auto;
 `;
 
-export default function Comment() {
+export default function Comment(props : CommentProps) {
 	const [heart, setHeart] = useState(false);
 
 	const heartClick = () => {
@@ -49,26 +56,35 @@ export default function Comment() {
 		else setHeart(true);
 	};
 
+	// todo: location없앴는데 걍 다시 넣을까요? 업로드 할 때 location 넣음?
+
 	return (
 		<>
 			<Container>
 				<Profile src={profile} />
 				<MiddleContainer>
 					<CommentContainer>
-						<FontBold>insta_123</FontBold>
-						<FontNormal>오오 괜찮은데?</FontNormal>
+						<FontBold>{props.user}</FontBold>
+						<FontNormal>{props.content}</FontNormal>
 					</CommentContainer>
-					<SubDiscriptionContainer>
-						<SubDiscription>1주</SubDiscription>
-						<SubDiscription>좋아요{1}개</SubDiscription>
-						<SubDiscription>답글달기</SubDiscription>
-					</SubDiscriptionContainer>
-					<SubDiscriptionContainer>
-						<SubDiscription>---</SubDiscription>
-						<SubDiscription>답글보기({1}개)</SubDiscription>
-					</SubDiscriptionContainer>
+					{props.isMainContent ?
+						<SubDiscriptionContainer>
+							<SubDiscription>{props.date}</SubDiscription>
+						</SubDiscriptionContainer>:
+						<>
+							<SubDiscriptionContainer>
+								<SubDiscription>{props.date}</SubDiscription>
+								<SubDiscription>좋아요{1}개</SubDiscription>
+								<SubDiscription>답글달기</SubDiscription>
+							</SubDiscriptionContainer>
+							<SubDiscriptionContainer>
+								<SubDiscription>---</SubDiscription>
+								<SubDiscription>답글보기({1}개)</SubDiscription>
+							</SubDiscriptionContainer>
+						</>
+						}
 				</MiddleContainer>
-				<Heart src={heart ? Heart_on : Heart_off} onClick={heartClick} />
+				{props.isMainContent ? '' : <Heart src={heart ? Heart_on : Heart_off} onClick={heartClick} /> }
 			</Container>
 		</>
 	);
