@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 import Slider from "../components/common/Slider";
 // @ts-ignore
 import exit from "../img/x.svg";
@@ -16,10 +16,10 @@ import axios from "axios";
 const PostingContainer = styled.div`
 	display: flex;
 	position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	z-index: 999;
 `;
 
@@ -64,7 +64,6 @@ const Date = styled.div`
 `;
 
 export default function PostingView() {
-
 	const params = useParams();
 	let navigate = useNavigate();
 
@@ -73,21 +72,21 @@ export default function PostingView() {
 	}
 
 	const testUrl = async () => {
-		const res = await apiClient.get('/auth/test');
+		const res = await apiClient.get("/auth/test");
 		return res;
-	}
+	};
 
 	const res = testUrl();
 	console.log(res);
 
 	// todo: apiClient baseURL 적용, accessToken 인증
 
-	const getPostingByPostingId = async(postingId : string | undefined) => {
+	const getPostingByPostingId = async (postingId: string | undefined) => {
 		// apiClient.defaults.headers.common['Authorization'] = accessToken;
-		const res = await apiClient.get(`/article/${postingId}`, );
+		const res = await apiClient.get(`/article/${postingId}`);
 		console.log(res);
 		return res;
-	}
+	};
 	const posting = getPostingByPostingId(params.id);
 
 	// const posting = {
@@ -103,7 +102,7 @@ export default function PostingView() {
 	return (
 		<PostingContainer>
 			<LeftContainer>
-				<Exit src={exit} onClick={onDismiss}/>
+				<Exit src={exit} onClick={onDismiss} />
 				<ImgContainer>
 					<Slider width="40vw" height="40vw" />
 				</ImgContainer>

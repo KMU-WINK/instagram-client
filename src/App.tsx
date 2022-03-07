@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-
 
 import HomeView from "./pages/HomeView";
 import MainView from "./pages/MainView";
@@ -53,12 +52,12 @@ export default function App() {
 	const [theme, setTheme] = useState(themes["light-Original-Original"]);
 
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
-  
+
 	let location = useLocation();
 
 	let state = location.state as { backgroundLocation?: Location };
-  
-  const [token, setToken] = useLocalStorage<string>("token", "");
+
+	const [token, setToken] = useLocalStorage<string>("token", "");
 
 	useEffect(() => {
 		// TODO: Token을 통해서 로그인 상태 확인할 수 있음.
@@ -66,37 +65,36 @@ export default function App() {
 	}, []);
 
 	return (
-<CookiesProvider>
+		<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />
-					{/* Show the modal when a `backgroundLocation` is set */}
-					{state?.backgroundLocation && (
-						<Routes>
-							<Route path="/article/:id/" element={<PostingView />} />
-						</Routes>
-					)}
+				{/* Show the modal when a `backgroundLocation` is set */}
+				{state?.backgroundLocation && (
+					<Routes>
+						<Route path="/article/:id/" element={<PostingView />} />
+					</Routes>
+				)}
 
-					<Routes location={state?.backgroundLocation || location}>
-						<Route path="/" element={<LoginPage />} />
-						<Route path="/register" element={<RegisterPage />} />
-						<Route path="/home" element={<HomeView />} />
-						<Route path="/setting/category" element={<CategoryView />} />
-						<Route path="/feed/:id" element={<ProfileFeedView />} />
-						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
-						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
-						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-						<Route path="/businesscard/setting" element={<CardSettingView />} />
-						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
-						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-<Route path="/highlight" element={<HighlightView />} />
-						<Route path="/businesscard/view" element={<CardView />} />
-						<Route path="/businesscard/wallet" element={<CardWalletView />} />
-						<Route path="/businesscard/subCard" element={<SubCardView />} />
-          <Routes/>
-          </ThemeContext.Provider>
+				<Routes location={state?.backgroundLocation || location}>
+					<Route path="/" element={<LoginPage />} />
+					<Route path="/register" element={<RegisterPage />} />
+					<Route path="/home" element={<HomeView />} />
+					<Route path="/setting/category" element={<CategoryView />} />
+					<Route path="/feed/:id" element={<ProfileFeedView />} />
+					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+					<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+					<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+					<Route path="/businesscard/setting" element={<CardSettingView />} />
+					<Route path="/businesscard/setting/edit" element={<CardEditView />} />
+					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+					<Route path="/highlight" element={<HighlightView />} />
+					<Route path="/businesscard/view" element={<CardView />} />
+					<Route path="/businesscard/wallet" element={<CardWalletView />} />
+					<Route path="/businesscard/subCard" element={<SubCardView />} />
+				</Routes>
+			</ThemeContext.Provider>
 		</CookiesProvider>
-    	);
+	);
 }
-
