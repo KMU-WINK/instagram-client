@@ -10,6 +10,7 @@ import comment from "../../img/Comment.svg";
 import Share from "../../img/Share.svg";
 // @ts-ignore
 import bookmark from "../../img/Bookmark.svg";
+import { useLocation, Link } from "react-router-dom";
 
 interface PostingIconsProps {
 	bookmark?: boolean;
@@ -27,6 +28,8 @@ const Icon = styled.img`
 `;
 
 export default function PostingIcons(props: PostingIconsProps) {
+	const location = useLocation();
+
 	const Bookmark = styled.img`
 		display: ${props.bookmark ? "block" : "none"};
 		margin-left: auto;
@@ -43,7 +46,7 @@ export default function PostingIcons(props: PostingIconsProps) {
 		<>
 			<IconContainer>
 				<Icon src={heart ? Heart_on : Heart_off} onClick={heartClick} />
-				<img src={comment} width="21px" height="21px" />
+				<Link to={`/article/${1}`} state={{ backgroundLocation: location } }><img src={comment} width="21px" height="21px" /></Link>
 				<Icon src={Share} />
 				<Bookmark src={bookmark} />
 			</IconContainer>

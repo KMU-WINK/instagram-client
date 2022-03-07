@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
 import MainView from "./pages/MainView";
@@ -50,32 +50,40 @@ export default function App() {
 
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
 
-	return (
-		<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
-			<GlobalStyles />
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/home" element={<HomeView />} />
-					<Route path="/setting/category" element={<CategoryView />} />
-					<Route path="/feed/:id" element={<ProfileFeedView />} />
-					<Route path="/posting/:id/" element={<PostingView />} />
-					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
-					<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
-					<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
-					<Route path="/setting/category/editprofile" element={<EditProfileView />} />
-					<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
-					<Route path="/businesscard/setting" element={<CardSettingView />} />
-					<Route path="/businesscard/setting/edit" element={<CardEditView />} />
-					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+	let location = useLocation();
 
-					<Route path="/highlight" element={<HighlightView />} />
-					<Route path="/businesscard/view" element={<CardView />} />
-					<Route path="/businesscard/wallet" element={<CardWalletView />} />
-					<Route path="/businesscard/subCard" element={<SubCardView />} />
-				</Routes>
-			</BrowserRouter>
-		</ThemeContext.Provider>
+	let state = location.state as { backgroundLocation?: Location };
+
+	return (
+			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
+				<GlobalStyles />
+					{/* Show the modal when a `backgroundLocation` is set */}
+					{state?.backgroundLocation && (
+						<Routes>
+							<Route path="/article/:id/" element={<PostingView />} />
+						</Routes>
+					)}
+
+					<Routes location={state?.backgroundLocation || location}>
+						<Route path="/" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/home" element={<HomeView />} />
+						<Route path="/setting/category" element={<CategoryView />} />
+						<Route path="/feed/:id" element={<ProfileFeedView />} />
+						<Route path="/setting/category/editfeed" element={<EditFeedView />} />
+						<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
+						<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
+						<Route path="/setting/category/editprofile" element={<EditProfileView />} />
+						<Route path="/setting/category/editprofile/color" element={<EditProfileColorPage />} />
+						<Route path="/businesscard/setting" element={<CardSettingView />} />
+						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
+						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
+
+						<Route path="/highlight" element={<HighlightView />} />
+						<Route path="/businesscard/view" element={<CardView />} />
+						<Route path="/businesscard/wallet" element={<CardWalletView />} />
+						<Route path="/businesscard/subCard" element={<SubCardView />} />
+					</Routes>
+			</ThemeContext.Provider>
 	);
 }

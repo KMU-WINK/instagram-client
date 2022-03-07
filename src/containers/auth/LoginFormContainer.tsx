@@ -59,13 +59,12 @@ const LoginFormContainer: React.FC<LoginFormContainerProps> = ({ children }) => 
 		if (isActive) {
 			console.log(form);
 			apiClient
-				.post("/api/auth/login", {
+				.post("/auth/login", {
 					email: form.id,
 					password: form.password,
 				})
 				.then((res) => {
 					console.log(res);
-
 					// navigate("/home");
 				})
 				.catch((err) => console.error(err));
