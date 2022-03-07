@@ -6,6 +6,7 @@ import CardMain from "../../components/businessCard/CardMain";
 import CardFront from "../../components/businessCard/CardFront";
 import CardBack from "../../components/businessCard/CardBack";
 import html2canvas from "html2canvas";
+import apiClient from "../../lib/apiClient";
 
 const CardSettingsModal = styled.div`
 	position: fixed;
@@ -39,10 +40,29 @@ export default function CardEditView() {
 		setAlignValue(value);
 	};
 
+	const dataURLtoFile = (dataurl: string, filename: string) => {
+		const arr = dataurl.split(",");
+		const mime = arr[0].match(/:(.*?);/)[1];
+		const bstr = atob(arr[1]);
+		let n = bstr.length;
+		const u8arr = new Uint8Array(n);
+		while (n) {
+			u8arr[n - 1] = bstr.charCodeAt(n - 1);
+			n -= 1; // to make eslint happy
+		}
+		return new File([u8arr], filename, { type: mime });
+	};
+
 	const onCapture = () => {
 		if (mainRef.current) {
 			html2canvas(mainRef.current).then((canvas) => {
 				onSaveAs(canvas.toDataURL("image/png"), "download.png");
+
+				const data = new FormData();
+				const file = dataURLtoFile(canvas.toDataURL("image/png"), "xxxx.png");
+				data.append("recfile", file, file.name);
+
+				apiClient.post("/businessCard/1", data).then((res) => console.log(res.data));
 			});
 		}
 	};
@@ -59,7 +79,7 @@ export default function CardEditView() {
 	return (
 		<>
 			<CardSettingsModal>
-				<ModalHeader headerTitle={"명함 편집하기"} />
+				<ModalHeader onClick={() => onCapture()} headerTitle={"명함 편집하기"} />
 				<ModalBody>
 					<CardMain style={{ paddingLeft: "45px" }} ref={mainRef}>
 						<CardFront color={state} alignValue={alignValue} />
