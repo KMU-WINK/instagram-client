@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import HighlightDetail from "../components/home/StoryDetail";
+import StoryDetail from "../components/home/StoryDetail";
+
 const HomeContainer = styled.div``;
-export default function HighlightView() {
+
+export default function StoryView() {
 	return (
 		<HomeContainer>
-			<HighlightDetail />
+			<StoryDetail />
 		</HomeContainer>
 	);
 }

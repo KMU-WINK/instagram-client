@@ -20,7 +20,6 @@ const Slide = styled(Swiper)`
 	.swiper-slide {
 		transition: all 200ms linear;
 	}
-
 	.swiper-slide-active {
 		margin:0 100px 0 130px;
 		transform-origin: center center;
