@@ -13,7 +13,7 @@ interface CommentProps {
 	user: string;
 	content: string;
 	date: string;
-};
+}
 
 const Container = styled.div`
 	display: flex;
@@ -48,7 +48,7 @@ const Heart = styled.img`
 	margin-left: auto;
 `;
 
-export default function Comment(props : CommentProps) {
+export default function Comment(props: CommentProps) {
 	const [heart, setHeart] = useState(false);
 
 	const heartClick = () => {
@@ -67,10 +67,11 @@ export default function Comment(props : CommentProps) {
 						<FontBold>{props.user}</FontBold>
 						<FontNormal>{props.content}</FontNormal>
 					</CommentContainer>
-					{props.isMainContent ?
+					{props.isMainContent ? (
 						<SubDiscriptionContainer>
 							<SubDiscription>{props.date}</SubDiscription>
-						</SubDiscriptionContainer>:
+						</SubDiscriptionContainer>
+					) : (
 						<>
 							<SubDiscriptionContainer>
 								<SubDiscription>{props.date}</SubDiscription>
@@ -82,9 +83,9 @@ export default function Comment(props : CommentProps) {
 								<SubDiscription>답글보기({1}개)</SubDiscription>
 							</SubDiscriptionContainer>
 						</>
-						}
+					)}
 				</MiddleContainer>
-				{props.isMainContent ? '' : <Heart src={heart ? Heart_on : Heart_off} onClick={heartClick} /> }
+				{props.isMainContent ? "" : <Heart src={heart ? Heart_on : Heart_off} onClick={heartClick} />}
 			</Container>
 		</>
 	);

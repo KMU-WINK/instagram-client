@@ -46,7 +46,9 @@ export default function PostingIcons(props: PostingIconsProps) {
 		<>
 			<IconContainer>
 				<Icon src={heart ? Heart_on : Heart_off} onClick={heartClick} />
-				<Link to={`/article/${1}`} state={{ backgroundLocation: location } }><img src={comment} width="21px" height="21px" /></Link>
+				<Link to={`/article/${1}`} state={{ backgroundLocation: location }}>
+					<img src={comment} width="21px" height="21px" />
+				</Link>
 				<Icon src={Share} />
 				<Bookmark src={bookmark} />
 			</IconContainer>

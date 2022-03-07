@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
 import MainView from "./pages/MainView";
@@ -53,29 +53,22 @@ export default function App() {
 	const [theme, setTheme] = useState(themes["light-Original-Original"]);
 
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
-  
+
 	let location = useLocation();
 
 	let state = location.state as { backgroundLocation?: Location };
-  
-  const [token, setToken] = useLocalStorage<string>("token", "");
-
-	useEffect(() => {
-		// TODO: Token을 통해서 로그인 상태 확인할 수 있음.
-		console.log(token);
-	}, []);
 
 	// @ts-ignore
 	return (
-<CookiesProvider>
+		<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />
-					{/* Show the modal when a `backgroundLocation` is set */}
-					{state?.backgroundLocation && (
-						<Routes>
-							<Route path="/article/:id/" element={<PostingView />} />
-						</Routes>
-					)}
+				{/* Show the modal when a `backgroundLocation` is set */}
+				{state?.backgroundLocation && (
+					<Routes>
+						<Route path="/article/:id/" element={<PostingView />} />
+					</Routes>
+				)}
 
 					<Routes location={state?.backgroundLocation || location}>
 						<Route path="/" element={<LoginPage />} />
@@ -97,7 +90,7 @@ export default function App() {
 						<Route path="/businesscard/subCard" element={<SubCardView />} />
           </Routes>
           </ThemeContext.Provider>
-		</CookiesProvider>
-    	);
-}
 
+		</CookiesProvider>
+	);
+}

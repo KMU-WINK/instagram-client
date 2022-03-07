@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 import Slider from "../components/common/Slider";
 // @ts-ignore
 import exit from "../img/x.svg";
@@ -16,10 +16,10 @@ import axios from "axios";
 const PostingContainer = styled.div`
 	display: flex;
 	position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	z-index: 999;
 `;
 
@@ -64,7 +64,6 @@ const Date = styled.div`
 `;
 
 export default function PostingView() {
-
 	const params = useParams();
 	let navigate = useNavigate();
 
@@ -75,8 +74,9 @@ export default function PostingView() {
 	const testUrl = async () => {
 		const res = await apiClient.get('/category/1');
 		console.log(res);
+
 		return res;
-	}
+	};
 
 	const res = testUrl();
 
@@ -101,7 +101,7 @@ export default function PostingView() {
 	return (
 		<PostingContainer>
 			<LeftContainer>
-				<Exit src={exit} onClick={onDismiss}/>
+				<Exit src={exit} onClick={onDismiss} />
 				<ImgContainer>
 					<Slider width="40vw" height="40vw" />
 				</ImgContainer>
