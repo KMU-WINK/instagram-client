@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 import HomeView from "./pages/HomeView";
@@ -58,13 +59,7 @@ export default function App() {
 
 	let state = location.state as { backgroundLocation?: Location };
 
-	const [token, setToken] = useLocalStorage<string>("token", "");
-
-	useEffect(() => {
-		// TODO: Token을 통해서 로그인 상태 확인할 수 있음.
-		console.log(token);
-	}, []);
-
+	// @ts-ignore
 	return (
 		<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>

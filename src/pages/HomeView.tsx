@@ -6,6 +6,8 @@ import Storys from "../components/home/Storys";
 import Card from "../components/home/Card";
 import Recommend from "../components/home/Recommend";
 import { ThemeContext } from "../contexts/ThemeContext";
+import apiClient from "../lib/apiClient";
+import { useCookies } from "react-cookie";
 
 const HomeContainer = styled.div`
 	margin-left: 500px;
@@ -14,6 +16,13 @@ const HomeContainer = styled.div`
 	height: 1019px;
 `;
 export default function HomeView() {
+	const [cookies, setCookie] = useCookies(["user"]);
+
+	useEffect(() => {
+		console.log(cookies.user);
+		apiClient.get("/article/users/1").then((res) => console.log(res));
+	}, []);
+
 	return (
 		<>
 			<Header></Header>
