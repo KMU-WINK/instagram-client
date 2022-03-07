@@ -28,6 +28,7 @@ import PostingView from "./pages/PostingView";
 import useLocalStorage from "./hooks/useLocalStorage";
 import apiClient from "./lib/apiClient";
 import { CookiesProvider } from "react-cookie";
+import StoryView from "./pages/StoryView";
 
 type Mode = "light" | "dark";
 
@@ -90,6 +91,7 @@ export default function App() {
 					<Route path="/businesscard/setting/edit" element={<CardEditView />} />
 					<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
 					<Route path="/highlight" element={<HighlightView />} />
+					<Route path="/story" element={<StoryView />} />
 					<Route path="/businesscard/view" element={<CardView />} />
 					<Route path="/businesscard/wallet" element={<CardWalletView />} />
 					<Route path="/businesscard/subCard" element={<SubCardView />} />
