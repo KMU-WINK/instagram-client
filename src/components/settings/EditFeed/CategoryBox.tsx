@@ -9,7 +9,7 @@ interface CategoryBoxProps {
 	height: number;
 }
 
-const CategoryBoxContainer = styled.div<{width: number, height: number}>`
+const CategoryBoxContainer = styled.div<{ width: number; height: number }>`
 	width: ${(props) => props.width}px;
 	height: ${(props) => props.height}px;
 	text-align: center;

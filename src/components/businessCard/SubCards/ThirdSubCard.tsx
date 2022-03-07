@@ -17,7 +17,6 @@ interface CardFrontProps {
 	color: string;
 }
 
-
 const CardContainer = styled.div`
 	position:absolute;
 	z-index:1;

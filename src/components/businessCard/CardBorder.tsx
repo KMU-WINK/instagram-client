@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const CardBorder = styled.div`
-	width: 286px;
-	height: 505px;
+	margin: 12px;
+	width: 276px;
+	height: 494px;
 	border: 5px double rgb(0, 0, 0, 0.2);
 	border-radius: 5px;
 `;

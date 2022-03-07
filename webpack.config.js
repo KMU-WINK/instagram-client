@@ -77,9 +77,10 @@ const config = ({ isDev }) => ({
 		open: true,
 		hot: true,
 		proxy: {
-			"/api": {
-				target: "http://localhost:3000",
+			"/api/*": {
+				target: "http://api.redesigninsta.kro.kr",
 				pathRewrite: { "^/api": "/" },
+				changeOrigin: true,
 			}, // 프론트 단에서 CORS 에러 해결하는 방법,
 		},
 	},

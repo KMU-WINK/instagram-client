@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import AlignBox from "./AlignBox";
+import SizeBox from "./SizeBox";
+import StyleBox from "./StyleBox";
+import ColorBox from "./ColorBox";
+import AddBox from "./AddBox";
 
 const EditCardContaienr = styled.div`
-	width: 360px;
+	width: 480px;
 	height: 100%;
 	margin-right: 20px;
 	margin-left: 20px;
@@ -13,10 +18,20 @@ const EditCardContaienr = styled.div`
 		display: none;
 	}
 `;
-export default function EditCard() {
+export default function EditCard({ onClickAlign }: { onClickAlign: any }) {
+	const handleAlign = (value: string) => {
+		// console.log(value);
+		onClickAlign(value);
+	};
 	return (
 		<>
-			<EditCardContaienr></EditCardContaienr>
+			<EditCardContaienr>
+				<AlignBox handleAlign={handleAlign} />
+				<SizeBox />
+				<StyleBox />
+				<ColorBox />
+				<AddBox />
+			</EditCardContaienr>
 		</>
 	);
 }

@@ -36,11 +36,11 @@ export default function CategorySettingBox() {
 	const [editMode, setEditMode] = useState(false);
 	const handleOnClick = (e: any) => {
 		setEditMode(!editMode);
-	}
+	};
 
 	const handleCategoryEdit = (e: any) => {
-		navigate("/setting/category/editcategory")
-	}
+		navigate("/setting/category/editcategory");
+	};
 
 	return (
 		<>
@@ -51,13 +51,13 @@ export default function CategorySettingBox() {
 				</EditBtn>
 				<DetailInfo>카테고리 설정을 통해 다른 사용자에게 정돈된 게시물을 보여줄 수 있습니다.</DetailInfo>
 				<InnerContainer>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<CategoryBox width={170} height={200} state={editMode}/>
-					<AddCategoryBox width={170} height={200} onClick={handleCategoryEdit}/>
+					<CategoryBox width={170} height={200} state={editMode} />
+					<CategoryBox width={170} height={200} state={editMode} />
+					<CategoryBox width={170} height={200} state={editMode} />
+					<CategoryBox width={170} height={200} state={editMode} />
+					<CategoryBox width={170} height={200} state={editMode} />
+					<CategoryBox width={170} height={200} state={editMode} />
+					<AddCategoryBox width={170} height={200} onClick={handleCategoryEdit} />
 				</InnerContainer>
 			</Container>
 		</>

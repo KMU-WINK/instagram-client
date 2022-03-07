@@ -15,22 +15,28 @@ const CardSettingsModal = styled.div`
 	height: 800px;
 	border-radius: 16px;
 	border: 1px solid beige;
+	overflow: hidden;
 `;
 
 const ModalBody = styled.div`
 	display: flex;
 	flex-direction: row;
-	width: 1250px;
+	width: 100%;
 	height: 740px;
 `;
 
 export default function CardEditView() {
 	const mainRef = useRef<HTMLDivElement>(null);
 	const [state, setState] = useState("#F5F5F5");
+	const [alignValue, setAlignValue] = useState("left");
 
 	const getPalette = (color: string) => {
 		console.log(color);
 		setState(color);
+	};
+
+	const getAlign = (value: string) => {
+		setAlignValue(value);
 	};
 
 	const onCapture = () => {
@@ -55,11 +61,11 @@ export default function CardEditView() {
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"명함 편집하기"} />
 				<ModalBody>
-					<CardMain ref={mainRef}>
-						<CardFront color={state} />
+					<CardMain style={{ paddingLeft: "45px" }} ref={mainRef}>
+						<CardFront color={state} alignValue={alignValue} />
 						<CardBack color={state} />
 					</CardMain>
-					<SideBar page={"편집"} getPalette={getPalette} />
+					<SideBar page={"편집"} getPalette={getPalette} getAlign={getAlign} />
 				</ModalBody>
 			</CardSettingsModal>
 			<button onClick={() => onCapture()}>BYTTT</button>

@@ -17,21 +17,20 @@ interface CardFrontProps {
 	color: string;
 }
 
-
 const CardContainer = styled.div`
-	position:absolute;
-	z-index:2;
-	left:170px;
+	position: absolute;
+	z-index: 2;
+	left: 170px;
 	display: inline-block;
 	width: 300px;
 	height: 518px;
 	padding: 10px;
 	margin: 20px;
-	box-shadow:10px 0px 20px -10px rgba(0, 0, 0, 0.25);
-	background: #494949;	
+	box-shadow: 10px 0px 20px -10px rgba(0, 0, 0, 0.25);
+	background: #494949;
 	text-align: center;
 	vertical-align: middle;
-	cursor:pointer;
+	cursor: pointer;
 `;
 
 const ImageContainer = styled.div`
@@ -59,19 +58,19 @@ const CenterContainer = styled.div`
 `;
 
 const Name = styled.div`
-	color:white;
+	color: white;
 	font-size: 24px;
 	font-weight: bold;
 `;
 
 const Position = styled.div`
-	color:white;
+	color: white;
 	margin-top: 13px;
 	font-size: 12px;
 `;
 
 const Line = styled.div`
-	background-color: #FFFFFF33;
+	background-color: #ffffff33;
 	height: 2px;
 	width: 140px;
 	margin-top: 5px;
@@ -82,8 +81,7 @@ const TagsContainer = styled.div``;
 
 const Tag = styled.span`
 	font-size: 8px;
-	color: #FFFFFF66;
-
+	color: #ffffff66;
 `;
 
 const PersonalInfoContainer = styled.div`
@@ -101,7 +99,7 @@ const IconImage = styled.img`
 `;
 
 const PersonalInfo = styled.div`
-	color:white;
+	color: white;
 	display: inline-block;
 	font-size: 9px;
 	text-align: left;

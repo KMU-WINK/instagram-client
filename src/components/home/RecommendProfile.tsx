@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import React from "react";
-import { Font2_Light, FontBlue, FontBold } from "../style/Font";
+import React, { useState } from "react";
+import { Font2_Light, Font2_Light_Bold, FontBlue, FontBold } from "../style/Font";
 // @ts-ignore
 import basicProfile from "../../img/profile.svg";
 
@@ -23,6 +23,16 @@ const Profile = styled.img`
 	height: 40px;
 `;
 export default function RecommendProfile(props: RecommendProps) {
+	const [isFollow, setIsFollow] = useState(false);
+
+	const FollowBtn = () => {
+		if (isFollow) {
+			setIsFollow(false);
+		} else {
+			setIsFollow(true);
+		}
+	};
+
 	return (
 		<>
 			<ProfileContainer>
@@ -31,7 +41,11 @@ export default function RecommendProfile(props: RecommendProps) {
 					<FontBold>{props.id}</FontBold>
 					<Font2_Light>insta_111님 외 5명이 팔로우 합..</Font2_Light>
 				</ProfileList>
-				<FontBlue>팔로우</FontBlue>
+				{isFollow ? (
+					<Font2_Light onClick={FollowBtn}>팔로잉</Font2_Light>
+				) : (
+					<FontBlue onClick={FollowBtn}>팔로우</FontBlue>
+				)}
 			</ProfileContainer>
 		</>
 	);

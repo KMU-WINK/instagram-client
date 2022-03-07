@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AuthBlock from "../../components/auth/AuthBlock";
@@ -31,6 +32,8 @@ const LoginFormContainer: React.FC<LoginFormContainerProps> = ({ children }) => 
 	const navigate = useNavigate();
 	const [isActive, setActive] = useState(false);
 
+	const [cookies, setCookie] = useCookies(["user"]);
+
 	const [form, setForm] = useState({
 		id: "",
 		password: "",
@@ -59,14 +62,19 @@ const LoginFormContainer: React.FC<LoginFormContainerProps> = ({ children }) => 
 		if (isActive) {
 			console.log(form);
 			apiClient
-				.post("/api/auth/login", {
+				.post("/auth/login", {
 					email: form.id,
 					password: form.password,
 				})
 				.then((res) => {
 					console.log(res);
-
-					// navigate("/home");
+					if (res.data.status === 401) {
+					} else {
+						setCookie("user", res.data.token, {
+							maxAge: 432000,
+						});
+						navigate("/home");
+					}
 				})
 				.catch((err) => console.error(err));
 		} else {

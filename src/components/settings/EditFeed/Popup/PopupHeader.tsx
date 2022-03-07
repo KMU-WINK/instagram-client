@@ -37,15 +37,13 @@ const CancelBtn = styled.img`
 `;
 
 export default function PopupHeader() {
-
 	return (
 		<>
 			<PopupHeaderContainer>
-				<BackBtn src={BackImg}/>
+				<BackBtn src={BackImg} />
 				<HeaderText>카테고리 편집</HeaderText>
 				<CancelBtn src={close} />
 			</PopupHeaderContainer>
-
 		</>
 	);
 }

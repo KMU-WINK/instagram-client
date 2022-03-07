@@ -13,9 +13,9 @@ import CardImg from "../../img/Subtract.svg";
 // @ts-ignore
 import LinkImg from "../../img/facebook.svg";
 // @ts-ignore
-import UnderAllow from "../../img/UnderAllow.svg"
+import UnderAllow from "../../img/UnderAllow.svg";
 // @ts-ignore
-import More from "../../img/more.svg"
+import More from "../../img/more.svg";
 
 import {
 	Font2_Light,
@@ -126,7 +126,6 @@ const LinkImg = styled.img`
 `;
 
 export default function LeftProfileAnother() {
-
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -139,20 +138,20 @@ export default function LeftProfileAnother() {
 					<ProfileName>_SSunho_97</ProfileName>
 				</Profile>
 				<EditContainer>
-					<FeedButton width="152px" height="40px" style={{marginRight:"8px"}}>
+					<FeedButton width="152px" height="40px" style={{ marginRight: "8px" }}>
 						팔로우
 					</FeedButton>
-					<FeedButton width="152px" height="40px" style={{marginRight:"8px"}}>
+					<FeedButton width="152px" height="40px" style={{ marginRight: "8px" }}>
 						메시지 보내기
 					</FeedButton>
-					<FeedButton width="44px" height="40px" style={{marginRight:"8px"}}>
+					<FeedButton width="44px" height="40px" style={{ marginRight: "8px" }}>
 						<div>
 							<img src={UnderAllow}></img>
 						</div>
 					</FeedButton>
-						<div style={{display:"flex", alignItems:"center"}}>
-							<img width = "12px" height = "6px" src={More}></img>
-						</div>
+					<div style={{ display: "flex", alignItems: "center" }}>
+						<img width="12px" height="6px" src={More}></img>
+					</div>
 					<SettingIcon src={CardImg} />
 				</EditContainer>
 				<InfoContainer>

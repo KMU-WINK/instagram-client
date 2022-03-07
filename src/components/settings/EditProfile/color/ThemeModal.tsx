@@ -164,7 +164,7 @@ const ThemeModal: React.FC<ThemeModalProps> = () => {
 
 		const currentBg = theme?.name.split("-")[1];
 
-		console.log(`${currentMode as Mode}-${currentBg as BgColor}-${type}`)
+		console.log(`${currentMode as Mode}-${currentBg as BgColor}-${type}`);
 
 		setTheme(`${currentMode as Mode}-${currentBg as BgColor}-${type}`);
 	};
