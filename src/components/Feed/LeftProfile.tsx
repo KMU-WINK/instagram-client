@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // @ts-ignore
 import background from "../../img/sea.jpg";
 // @ts-ignore
@@ -23,6 +23,7 @@ import {
 } from "../style/Font";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import FeedButton from "./FeedButton";
+import apiClient from "../../lib/apiClient";
 
 interface ButtonProps {
 	width: string;
@@ -122,6 +123,27 @@ const LinkImg = styled.img`
 
 export default function LeftProfile() {
 	const { theme } = useContext(ThemeContext);
+	const [myInfo, setMyinfo] = useState({
+		id:1,
+		nickName:"kimkim",
+		userName:"김찬호",
+		descrtipion:"설명설명",
+
+	});
+
+	const [articles, setArticles] = useState([]);
+
+
+	useEffect(()=>{
+		apiClient.get("/auth/get/me").then((user)=>{
+			setMyinfo(user.data.user);
+			console.log(myInfo)
+		});
+		apiClient.get("/article/users/" + myInfo.id ).then(articles => {
+			setArticles(articles.data.articles)
+		});
+		
+	}, [])
 
 	return (
 		<>
@@ -130,7 +152,7 @@ export default function LeftProfile() {
 				<Profile>
 					<ProfileImg src={profileImg} />
 					<AddButton src={addBtn} />
-					<ProfileName>_SSunho_97</ProfileName>
+					<ProfileName>{myInfo.nickName}</ProfileName>
 				</Profile>
 				<EditContainer>
 					<FeedButton width="141px" height="40px">
@@ -142,23 +164,23 @@ export default function LeftProfile() {
 					<NumberContainer>
 						<FlexContainer>
 							<Font2_16px_Light>게시물:</Font2_16px_Light>
+							<Font2_16px_Bold>{articles.length}</Font2_16px_Bold>
+						</FlexContainer>
+						<FlexContainer>
+							<Font2_16px_Light>팔로워:</Font2_16px_Light>
 							<Font2_16px_Bold>120</Font2_16px_Bold>
 						</FlexContainer>
 						<FlexContainer>
-							<Font2_16px_Light>게시물:</Font2_16px_Light>
-							<Font2_16px_Bold>120</Font2_16px_Bold>
-						</FlexContainer>
-						<FlexContainer>
-							<Font2_16px_Light>게시물:</Font2_16px_Light>
+							<Font2_16px_Light>팔로우:</Font2_16px_Light>
 							<Font2_16px_Bold>120</Font2_16px_Bold>
 						</FlexContainer>
 					</NumberContainer>
 					<Font2_16px_Light>@Bright_Ocean 님이 팔로우합니다.</Font2_16px_Light>
 					<ProfileContainer>
-						<Font2_18px_Bold>김선호</Font2_18px_Bold>
+						<Font2_18px_Bold>{myInfo.userName}</Font2_18px_Bold>
 						<Font2_18px_Light>예술가</Font2_18px_Light>
 					</ProfileContainer>
-					<ProfileContent>안녕하세요 예술가 김선호 입니다.</ProfileContent>
+					<ProfileContent>{myInfo.descrtipion}</ProfileContent>
 					<FeedButton width="100%" height="60px">
 						<FlexContainer>
 							<ProfileCardImg src={CardChange} />
