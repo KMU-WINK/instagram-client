@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 
@@ -65,6 +65,7 @@ export default function App() {
 		console.log(token);
 	}, []);
 
+	// @ts-ignore
 	return (
 <CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
@@ -90,11 +91,11 @@ export default function App() {
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
 						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-<Route path="/highlight" element={<HighlightView />} />
+						<Route path="/highlight" element={<HighlightView />} />
 						<Route path="/businesscard/view" element={<CardView />} />
 						<Route path="/businesscard/wallet" element={<CardWalletView />} />
 						<Route path="/businesscard/subCard" element={<SubCardView />} />
-          <Routes/>
+          </Routes>
           </ThemeContext.Provider>
 		</CookiesProvider>
     	);
