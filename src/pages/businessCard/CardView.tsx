@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from 'axios';
+import {Buffer} from 'buffer';
 import ModalHeader from "../../components/businessCard/ModalHeader";
 import CardMain from "../../components/businessCard/CardMain";
 import CardFront from "../../components/businessCard/CardFront";
 import CardBack from "../../components/businessCard/CardBack";
 // @ts-ignore
 import CardWallet from "../../img/CardWallet.svg";
+// @ts-ignore
+import BusinessCardExaple from "../../img/BusinessCardExaple.png"
 import { useNavigate } from "react-router-dom";
 
 interface ButtonProps{
@@ -48,7 +52,11 @@ const Btton = styled.div<ButtonProps>`
 `;
 export default function CardView() {
 	const [state, setState] = useState("");
+	const [image, setImage] = useState(null);
 	const navigate = useNavigate();
+
+
+	
 	return (
 		<>
 			<CardViewModal>
@@ -57,10 +65,12 @@ export default function CardView() {
 					<CardMain 
 						style={{background:"white", padding:"0", width:"auto", height:"auto", marginTop:"-20px"}}
 					>
-						<CardFront color={state} />
-						<CardBack color={state} />
+						
+						<img src={"http://localhost:3000/businessCard/1"} />
+
 					</CardMain>
 				</ModalBody>
+				
 				<Btton backgroundColor={"#C6C6C6"} left={"486px"}>수정하기</Btton>
 				<Btton backgroundColor={"#3796f0"} left={"606px"}>저장하기</Btton>
 				<img onClick={() => navigate("/businesscard/wallet")}  src={CardWallet} style={{position:"absolute", left:"726px", top:"720px", cursor:"pointer"}}></img>
