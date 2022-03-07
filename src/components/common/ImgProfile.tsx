@@ -3,7 +3,7 @@ import React from "react";
 // @ts-ignore
 import border from "../../img/storyBorder.svg";
 // @ts-ignore
-import testImg from "../../img/sea.jpg";
+import noProfileImg from "../../img/profile.svg";
 import { useNavigate } from "react-router-dom";
 
 interface imgProfileProps {
@@ -11,6 +11,7 @@ interface imgProfileProps {
 	width: number;
 	height: number;
 	url: string;
+	img?: string;
 }
 
 const ImgProfileContainer = styled.div``;
@@ -42,7 +43,7 @@ export default function ImgProfile(props: imgProfileProps) {
 				}}
 			>
 				<Border src={border} />
-				<Img src={testImg} />
+				<Img src={props.img === "https://update.com" ? noProfileImg : props.img} />
 			</ImgProfileContainer>
 		</>
 	);

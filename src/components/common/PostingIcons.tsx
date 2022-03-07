@@ -14,6 +14,7 @@ import { useLocation, Link } from "react-router-dom";
 
 interface PostingIconsProps {
 	bookmark?: boolean;
+	articleId?: number;
 }
 
 const IconContainer = styled.div`
@@ -46,7 +47,7 @@ export default function PostingIcons(props: PostingIconsProps) {
 		<>
 			<IconContainer>
 				<Icon src={heart ? Heart_on : Heart_off} onClick={heartClick} />
-				<Link to={`/article/${1}`} state={{ backgroundLocation: location }}>
+				<Link to={`/article/${props.articleId}`} state={{ backgroundLocation: location }}>
 					<img src={comment} width="21px" height="21px" />
 				</Link>
 				<Icon src={Share} />
