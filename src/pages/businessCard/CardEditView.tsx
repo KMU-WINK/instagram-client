@@ -53,11 +53,9 @@ export default function CardEditView() {
 		return new File([u8arr], filename, { type: mime });
 	};
 
-	const onCapture = () => {
+	const onFinish = () => {
 		if (mainRef.current) {
 			html2canvas(mainRef.current).then((canvas) => {
-				onSaveAs(canvas.toDataURL("image/png"), "download.png");
-
 				const data = new FormData();
 				const file = dataURLtoFile(canvas.toDataURL("image/png"), "xxxx.png");
 				data.append("recfile", file, file.name);
@@ -67,19 +65,10 @@ export default function CardEditView() {
 		}
 	};
 
-	const onSaveAs = (uri: string, filename: string) => {
-		const link = document.createElement("a");
-		document.body.appendChild(link);
-		link.href = uri;
-		link.download = filename;
-		link.click();
-		document.body.removeChild(link);
-	};
-
 	return (
 		<>
 			<CardSettingsModal>
-				<ModalHeader onClick={() => onCapture()} headerTitle={"명함 편집하기"} />
+				<ModalHeader onClick={() => onFinish()} headerTitle={"명함 편집하기"} />
 				<ModalBody>
 					<CardMain style={{ paddingLeft: "45px" }} ref={mainRef}>
 						<CardFront color={state} alignValue={alignValue} />
@@ -88,7 +77,6 @@ export default function CardEditView() {
 					<SideBar page={"편집"} getPalette={getPalette} getAlign={getAlign} />
 				</ModalBody>
 			</CardSettingsModal>
-			<button onClick={() => onCapture()}>BYTTT</button>
 		</>
 	);
 }
