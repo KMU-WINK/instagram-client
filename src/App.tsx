@@ -57,13 +57,6 @@ export default function App() {
 
 	let state = location.state as { backgroundLocation?: Location };
 
-	const [token, setToken] = useLocalStorage<string>("token", "");
-
-	useEffect(() => {
-		// TODO: Token을 통해서 로그인 상태 확인할 수 있음.
-		console.log(token);
-	}, []);
-
 	return (
 		<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
