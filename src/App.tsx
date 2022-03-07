@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
+
 import HomeView from "./pages/HomeView";
 import MainView from "./pages/MainView";
 import CategoryView from "./pages/setting/CategoryView";
@@ -25,6 +26,9 @@ import CategoryEditPopupView from "./pages/setting/CategoryEditPopupView";
 import HighlightView from "./pages/HighlightView";
 import CategoryAddPopupView from "./pages/setting/CategoryAddPopupView";
 import PostingView from "./pages/PostingView";
+import useLocalStorage from "./hooks/useLocalStorage";
+import apiClient from "./lib/apiClient";
+import { CookiesProvider } from "react-cookie";
 
 type Mode = "light" | "dark";
 
@@ -49,12 +53,20 @@ export default function App() {
 	const [theme, setTheme] = useState(themes["light-Original-Original"]);
 
 	const setThemeHandler = (name: `${Mode}-${BgColor}-${PointColor}`) => setTheme(themes[name]);
-
+  
 	let location = useLocation();
 
 	let state = location.state as { backgroundLocation?: Location };
+  
+  const [token, setToken] = useLocalStorage<string>("token", "");
+
+	useEffect(() => {
+		// TODO: Token을 통해서 로그인 상태 확인할 수 있음.
+		console.log(token);
+	}, []);
 
 	return (
+<CookiesProvider>
 			<ThemeContext.Provider value={{ theme, setTheme: setThemeHandler }}>
 				<GlobalStyles />
 					{/* Show the modal when a `backgroundLocation` is set */}
@@ -78,12 +90,13 @@ export default function App() {
 						<Route path="/businesscard/setting" element={<CardSettingView />} />
 						<Route path="/businesscard/setting/edit" element={<CardEditView />} />
 						<Route path="/businesscard/setting/upload" element={<CardSelectView />} />
-
-						<Route path="/highlight" element={<HighlightView />} />
+<Route path="/highlight" element={<HighlightView />} />
 						<Route path="/businesscard/view" element={<CardView />} />
 						<Route path="/businesscard/wallet" element={<CardWalletView />} />
 						<Route path="/businesscard/subCard" element={<SubCardView />} />
-					</Routes>
-			</ThemeContext.Provider>
-	);
+          <Routes/>
+          </ThemeContext.Provider>
+		</CookiesProvider>
+    	);
 }
+

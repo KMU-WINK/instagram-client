@@ -61,7 +61,7 @@ export default function CardEditView() {
 			<CardSettingsModal>
 				<ModalHeader headerTitle={"명함 편집하기"} />
 				<ModalBody>
-					<CardMain style={{ width: "770px", paddingLeft: "45px" }} ref={mainRef}>
+					<CardMain style={{ paddingLeft: "45px" }} ref={mainRef}>
 						<CardFront color={state} alignValue={alignValue} />
 						<CardBack color={state} />
 					</CardMain>
