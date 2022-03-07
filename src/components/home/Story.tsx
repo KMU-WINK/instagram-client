@@ -41,7 +41,7 @@ const Img = styled.img`
 export default function Story(props: StoryProps) {
 	const navigate = useNavigate();
 	const [isView, setIsView] = useState(false);
-
+	const navigate = useNavigate();
 	const storyClick = () => {
 		setIsView(true);
 		navigate("/story");
@@ -49,7 +49,8 @@ export default function Story(props: StoryProps) {
 
 	return (
 		<>
-			<StoryContainer >
+			<StoryContainer onClick={()=>navigate("/story")}>
+
 				<ImgProfileContainer onClick={storyClick}>
 					<Border src={isView ? ViewedBorder : border} />
 					<Img src={testImg} />

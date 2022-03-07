@@ -13,9 +13,13 @@ import More_ from "../../img/More_.png";
 
 interface DetailProps {
 	isFocus: boolean;
+	image: any;
 }
-
-const Card = styled.div`
+interface CardProps{
+	image:any;
+}
+//background-image: url(${(props)=>props.image});
+const Card = styled.div<CardProps>`
 	position: relative;
 	padding: 0;
 	width: 329px;
@@ -24,7 +28,9 @@ const Card = styled.div`
 	margin: 200px 0px 200px 0px;
 	text-align: center;
 	border-radius: 8px;
-	background-image: url(${StoryExample_1});
+	
+	background-color:#B7B7AE;
+	background-image:url(${props=>props.image});
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -105,19 +111,28 @@ const Gradation = styled.div`
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0.1) 100%);
 `;
 
+const HighlightImage = styled.div<CardProps>`
+	position:absolute;
+	background-image: ${(props) => props.image};
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+`;
+
 export default function HighlightCard(props: DetailProps) {
 	const [isFocus, setIsFocus] = useState(false);
 	const name = "stack11";
 
 	const lateData = "14주";
 	return (
-		<Card>
+		<Card image={props.image}>
+			{/* <HighlightImage  /> */}
 			{props.isFocus ? (
 				<HeadSection>
 					<HighlightBar />
 					<ActionSection>
 						<ProfileSection>
-							<ProfileImg />
+							<ProfileImg/>
 							<ProgileName>{name}</ProgileName>
 							<LateDate>{lateData}</LateDate>
 						</ProfileSection>
@@ -130,9 +145,8 @@ export default function HighlightCard(props: DetailProps) {
 					</ActionSection>
 				</HeadSection>
 			) : (
-				<></>
+				<Gradation />
 			)}
-			<Gradation />
 		</Card>
 	);
 }

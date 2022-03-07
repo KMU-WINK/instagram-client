@@ -17,12 +17,6 @@ const HomeContainer = styled.div`
 `;
 export default function HomeView() {
 	const [cookies, setCookie] = useCookies(["user"]);
-
-	useEffect(() => {
-		console.log(cookies.user);
-		apiClient.get("/article/users/1").then((res) => console.log(res));
-	}, []);
-
 	return (
 		<>
 			<Header></Header>
