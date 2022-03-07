@@ -6,6 +6,7 @@ import ViewedBorder from "../../img/storyViewed.png";
 import border from "../../img/storyBorder.svg";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
+import { useNavigate } from "react-router-dom";
 
 interface StoryProps {
 	id: string;
@@ -39,14 +40,14 @@ const Img = styled.img`
 
 export default function Story(props: StoryProps) {
 	const [isView, setIsView] = useState(false);
-
+	const navigate = useNavigate();
 	const storyClick = () => {
 		setIsView(true);
 	};
 
 	return (
 		<>
-			<StoryContainer>
+			<StoryContainer onClick={()=>navigate("/story")}>
 				<ImgProfileContainer onClick={storyClick}>
 					<Border src={isView ? ViewedBorder : border} />
 					<Img src={testImg} />
