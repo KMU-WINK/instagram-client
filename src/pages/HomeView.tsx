@@ -33,6 +33,7 @@ const HomeContainer = styled.div`
 `;
 export default function HomeView() {
 	const [cookies, setCookie] = useCookies(["user"]);
+  
 	const [articlesAll, setArticlesAll] = useState([]);
 	const [myData, setMyData] = useState<MyDataProps | null>(null);
 

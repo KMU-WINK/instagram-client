@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import StoryCardContainer from "./StoryCardContainer";
 
+
 const StoryDetailBackground = styled.div`
 	width: 100wh;
 	height: 100vh;
