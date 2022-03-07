@@ -72,7 +72,7 @@ export default function PostingView() {
 	}
 
 	const testUrl = async () => {
-		const res = await apiClient.get('/category/1');
+		const res = await apiClient.get("/category/1");
 		console.log(res);
 
 		return res;
@@ -89,14 +89,14 @@ export default function PostingView() {
 	// const posting = getPostingByPostingId(params.id);
 
 	const posting = {
-		"id": 1,
-		"thumbnail": "string",
-		"location": "string",
-		"content": "test content",
-		"createdAt": "20220307",
-		"updatedAt": "string",
-		"user_id": 1
-	}
+		id: 1,
+		thumbnail: "string",
+		location: "string",
+		content: "test content",
+		createdAt: "20220307",
+		updatedAt: "string",
+		user_id: 1,
+	};
 
 	return (
 		<PostingContainer>
