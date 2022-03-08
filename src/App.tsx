@@ -32,6 +32,11 @@ import apiClient from "./lib/apiClient";
 import { CookiesProvider } from "react-cookie";
 import StoryView from "./pages/StoryView";
 
+import EasyBakingPage from "./pages/sample/easy_baking";
+import BlueMemoryPage from "./pages/sample/bluememory";
+import INAAPage from "./pages/sample/in_a_a";
+import SomPhotoPage from "./pages/sample/somphoto";
+
 type Mode = "light" | "dark";
 
 type BgColor = "Original" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple";
@@ -91,7 +96,10 @@ export default function App() {
 					<Route path="/businesscard/view" element={<CardView />} />
 					<Route path="/businesscard/wallet" element={<CardWalletView />} />
 					<Route path="/businesscard/subCard" element={<SubCardView />} />
-					<Route path="/story" element={<StroyView />} />
+					<Route path="/easy_baking" element={<EasyBakingPage />} />
+					<Route path="/BlueMemory" element={<BlueMemoryPage />} />
+					<Route path="/in_a_a_" element={<INAAPage />} />
+					<Route path="/_Som_photo" element={<SomPhotoPage />} />
 				</Routes>
 			</ThemeContext.Provider>
 		</CookiesProvider>

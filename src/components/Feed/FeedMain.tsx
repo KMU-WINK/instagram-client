@@ -18,52 +18,53 @@ const ImgContainer = styled.div`
 `;
 
 const FeedImg = styled.img`
+	width: 100%;
 	position: absolute;
 `;
-var img = "";
+
+const FeedChild: React.FC<{ id: string }> = ({ id }) => {
+	const [image, setImage] = useState(null);
+
+	useEffect(() => {
+		apiClient.get(`/image/${id}`).then((res) => {
+			if (res.data.images.length >= 1) {
+				setImage(res.data.images[0].url);
+			}
+		});
+	});
+
+	return (
+		<ImgContainer>
+			<FeedImg src={"http://api.redesigninsta.kro.kr/" + image} />
+		</ImgContainer>
+	);
+};
+
 export default function FeedMain() {
-
 	const [myInfo, setMyinfo] = useState({
-		id:1,
-		nickName:"kimkim",
-		userName:"김찬호",
-		descrtipion:"설명설명",
-
+		id: 1,
+		nickName: "kimkim",
+		userName: "김찬호",
+		descrtipion: "설명설명",
 	});
 
 	const [articles, setArticles] = useState<any[]>([]);
-	
-	const getThumbnail = async (id: number)=>{
-		var location = "aa";
-		console.log(id)
-		await apiClient.get("/image/7").then(image=>{
-			return image.data.images[0].url;
-		})
-		
-		
-	}
 
-	useEffect(()=>{
-
+	useEffect(() => {
 		apiClient.get("/auth/get/me").then((user) => {
-
 			setMyinfo(user.data.user);
 
 			apiClient.get("/article/users/" + user.data.user.id).then((articles) => {
-
 				setArticles(articles.data.articles);
-				
 			});
-		})
-	}, [])
+		});
+	}, []);
 
 	return (
 		<>
 			<FeedMainContainer>
 				{articles.map((article) => (
-					<ImgContainer>
-						<FeedImg src={"http://api.redesigninsta.kro.kr/" + getThumbnail(article.id).then(url => url)} />
-					</ImgContainer>
+					<FeedChild id={article.id} />
 				))}
 			</FeedMainContainer>
 		</>
