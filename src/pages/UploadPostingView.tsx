@@ -208,6 +208,10 @@ export default function UploadPostingView() {
 		setContent(e.target.value);
 	};
 
+	useEffect(() => {
+		console.log(image);
+	}, [image]);
+
 	return (
 		<PostingContainer>
 			<LeftContainer>
@@ -216,7 +220,7 @@ export default function UploadPostingView() {
 						{image === "" ? (
 							<ImageInput src={InputImg} />
 						) : (
-							<Slider images={images} width="40vw" height="40vw" isUploadPage={true}></Slider>
+							<Slider imageUrl={image} width="40vw" height="40vw" isUploadPage={image === ""}></Slider>
 						)}
 						<UploadImg
 							accept="image/jpg,image/png,image/jpeg"
