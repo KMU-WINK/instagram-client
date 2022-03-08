@@ -11,6 +11,8 @@ interface SlideProps {
 	width: string;
 	height: string;
 	images?: any;
+	imageUrl?: string;
+	isUploadPage?: boolean;
 }
 
 const Container = styled.div`
@@ -79,7 +81,10 @@ export default function Slider(props: SlideProps) {
 				setImage(e.target.result);
 			};
 	}
+	if(props.images) {
 		makeImgData(props.images.item(0));
+	}
+
 
 	// todo: 사진 여러장
 
@@ -96,8 +101,11 @@ export default function Slider(props: SlideProps) {
 			</Center>
 			<SliderContainer ref={slideRef}>
 				{/*{props.images.map((image : object) => {*/}
-					<SlideDiv style={{width: props.width ,height: props.height }}>
-						<Slide src={image ? image : testIMG} />
+					<SlideDiv style={{width: props.width ,height: props.height, display: props.isUploadPage ? "none" : "block" }}>
+						<Slide src={props.imageUrl ? "http://api.redesigninsta.kro.kr/" + props.imageUrl : testIMG} />
+					</SlideDiv>
+					<SlideDiv style={{width: props.width ,height: props.height, display: props.isUploadPage ? "block" : "none" }}>
+						<Slide src={props.images ? image : testIMG} />
 					</SlideDiv>
 				{/*})}*/}
 					{/*<SlideDiv>*/}

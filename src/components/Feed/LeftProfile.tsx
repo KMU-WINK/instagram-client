@@ -12,6 +12,7 @@ import CardChange from "../../img/CardChange.svg";
 import CardImg from "../../img/Subtract.svg";
 // @ts-ignore
 import LinkImg from "../../img/facebook.svg";
+import { useNavigate } from "react-router-dom";
 import {
 	Font2_Light,
 	FontBold,
@@ -123,6 +124,7 @@ const LinkImg = styled.img`
 
 export default function LeftProfile() {
 	const { theme } = useContext(ThemeContext);
+	const navigate = useNavigate();
 	const [myInfo, setMyinfo] = useState({
 		id:1,
 		nickName:"kimkim",
@@ -151,7 +153,9 @@ export default function LeftProfile() {
 				<BackgroundImg src={background} />
 				<Profile>
 					<ProfileImg src={profileImg} />
-					<AddButton src={addBtn} />
+					<AddButton src={addBtn} onClick={() => {
+						navigate("/article/upload/text");
+					}}/>
 					<ProfileName>{myInfo.nickName}</ProfileName>
 				</Profile>
 				<EditContainer>
