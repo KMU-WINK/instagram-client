@@ -31,6 +31,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import apiClient from "./lib/apiClient";
 import { CookiesProvider } from "react-cookie";
 import StoryView from "./pages/StoryView";
+import UploadPostingView from "./pages/UploadPostingView";
 
 type Mode = "light" | "dark";
 
@@ -78,6 +79,8 @@ export default function App() {
 					<Route path="/home" element={<HomeView />} />
 					<Route path="/setting/category" element={<CategoryView />} />
 					<Route path="/feed/:id" element={<ProfileFeedView />} />
+					<Route path="/article/upload/text" element={<UploadPostingView/>} />
+					{/*<Route path="/article/upload/img" element={<UploadImgView/>}/>*/}
 					<Route path="/setting/category/editfeed" element={<EditFeedView />} />
 					<Route path="/setting/category/editcategory" element={<CategoryEditPopupView />} />
 					<Route path="/setting/category/addcategory" element={<CategoryAddPopupView />} />
