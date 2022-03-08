@@ -17,6 +17,7 @@ import { ThemeContext, themes } from "./contexts/ThemeContext";
 import EditProfileColorPage from "./pages/setting/EditProfileColorPage";
 import CardEditView from "./pages/businessCard/CardEditView";
 import CardSelectView from "./pages/businessCard/CardSelectView";
+import StroyView from "./pages/StoryView";
 
 import CardView from "./pages/businessCard/CardView";
 import CardWalletView from "./pages/businessCard/CardWalletView";
@@ -93,6 +94,7 @@ export default function App() {
 					<Route path="/businesscard/view" element={<CardView />} />
 					<Route path="/businesscard/wallet" element={<CardWalletView />} />
 					<Route path="/businesscard/subCard" element={<SubCardView />} />
+					<Route path="/story" element={<StroyView />} />
 				</Routes>
 			</ThemeContext.Provider>
 		</CookiesProvider>
