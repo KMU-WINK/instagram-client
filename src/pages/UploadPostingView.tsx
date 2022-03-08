@@ -148,6 +148,8 @@ export default function UploadPostingView() {
 	const [content, setContent] = useState('');
 
 	const formData = new FormData();
+	const navigate = useNavigate();
+
 
 	//DrawbleBox
 	const [image, setImage] = useState("");
@@ -180,7 +182,7 @@ export default function UploadPostingView() {
 	// 	console.log("적용");
 	// }
 
-	const upload = () => {
+	const upload = async () => {
 		formData.append('img', image);
 		apiClient.post(`/article/upload/${myData?.id}`,{
 			thumbnail: "string",
@@ -204,7 +206,7 @@ export default function UploadPostingView() {
 			<LeftContainer>
 				<ImgContainer>
 					<DrawableContainer style={{ marginTop: image === "" ? "230px" : "60px" }}>
-						{image === "" ? <ImageInput src={InputImg} /> : <Slider images={images} width="40vw" height="40vw"></Slider>}
+						{image === "" ? <ImageInput src={InputImg} /> : <Slider images={images} width="40vw" height="40vw" isUploadPage={true}></Slider>}
 						<UploadImg
 							accept="image/jpg,impge/png,image/jpeg"
 							name="cover_img"
@@ -230,11 +232,11 @@ export default function UploadPostingView() {
 				<HeaderContainer>
 					<LeftArrow src={leftArrow}/>
 					<Title>새 게시물 만들기</Title>
-					<Upload onClick={upload}>공유하기</Upload>
+					<Upload onClick={()=>{upload().then(()=> {navigate('/home')})}}>공유하기</Upload>
 				</HeaderContainer>
 				<Content>
 					<ContentHeader>
-						<ProfileImg src={myData?.profileImg ? myData.profileImg : noProfileImg}/>
+						<ProfileImg src={myData.profileImg ? myData.profileImg : noProfileImg}/>
 						<UserName>{myData?.userName}</UserName>
 					</ContentHeader>
 					<ContentInput placeholder={"문구입력"} onChange={onChange}/>
