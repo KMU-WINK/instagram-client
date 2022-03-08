@@ -22,6 +22,7 @@ const FeedImg = styled.img`
 `;
 var img = "";
 export default function FeedMain() {
+
 	const [myInfo, setMyinfo] = useState({
 		id:1,
 		nickName:"kimkim",
@@ -56,8 +57,6 @@ export default function FeedMain() {
 		})
 	}, [])
 
-		
-	
 	return (
 		<>
 			<FeedMainContainer>

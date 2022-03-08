@@ -5,6 +5,7 @@ import BackImg from "../../img/BackBtn.png";
 
 interface ModalHeaderProps {
 	headerTitle: string;
+	onClick?: () => void;
 }
 const HeaderContainer = styled.div`
 	width: 100%;
@@ -40,7 +41,7 @@ export default function ModalHeader(props: ModalHeaderProps) {
 			<HeaderContainer>
 				<BackBtn src={BackImg} />
 				<HeaderText>{props.headerTitle}</HeaderText>
-				<NextBtn>다음</NextBtn>
+				<NextBtn onClick={props.onClick}>다음</NextBtn>
 			</HeaderContainer>
 		</>
 	);

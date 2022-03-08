@@ -14,7 +14,14 @@ import { Font3_Light, FontBold, FontNormal } from "../style/Font";
 import Comment from "./Comment";
 import CommentInput from "../common/CommentInput";
 import PostingIcons from "../common/PostingIcons";
+import { remakeDate } from "../../hooks/useRegex";
 
+interface FeedFooterProps {
+	userName: string;
+	createAt: string;
+	content: string;
+	articleId: number;
+}
 const FooterContainer = styled.div`
 	border: 1px solid #e0e0e0;
 	padding: 20px;
@@ -29,17 +36,18 @@ const PostTime = styled(Font3_Light)`
 	margin: 16px 0 8px 0;
 `;
 
-export default function FeedFooter() {
+export default function FeedFooter(props : FeedFooterProps) {
+	const postingDate = remakeDate(props.createAt);
 	return (
 		<>
 			<FooterContainer>
-				<PostingIcons />
+				<PostingIcons articleId={props.articleId}/>
 				<FontNormal>여러 명이 좋아합니다</FontNormal>
-				<Comment id="insta_123" content="test" />
+				<Comment id={props.userName} content={props.content} />
 				<ViewAll>댓글 5개 모두 보기</ViewAll>
 				<Comment id="insta_111" content="hi" />
 				<Comment id="insta_222" content="hello" />
-				<PostTime>10시간전</PostTime>
+				<PostTime>{postingDate}</PostTime>
 			</FooterContainer>
 			<CommentInput />
 		</>
