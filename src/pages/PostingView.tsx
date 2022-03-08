@@ -10,33 +10,33 @@ import { FontBold, FontNormal } from "../components/style/Font";
 import FeedHeader from "../components/home/FeedHeader";
 import Comment from "../components/Posting/Comment";
 import apiClient from "../lib/apiClient";
-import {remakeDate} from "../hooks/useRegex";
+import { remakeDate } from "../hooks/useRegex";
 
 interface PostingDataProps {
-	id: number,
-	thumbnail: string,
-	location: string,
-	content: string,
-	createdAt: string,
-	updatedAt: string,
-	user_id: number,
+	id: number;
+	thumbnail: string;
+	location: string;
+	content: string;
+	createdAt: string;
+	updatedAt: string;
+	user_id: number;
 }
 
 interface UserDataProps {
-	id: number,
-	email: string,
-	password: string,
-	userName: string,
-	profileImg: string,
-	nickName: string,
-	description: string,
-	private: boolean,
-	backgroundImage: string,
-	themaColor: string,
-	selectedCategory: null,
-	createdAt: string,
-	updatedAt: string
-};
+	id: number;
+	email: string;
+	password: string;
+	userName: string;
+	profileImg: string;
+	nickName: string;
+	description: string;
+	private: boolean;
+	backgroundImage: string;
+	themaColor: string;
+	selectedCategory: null;
+	createdAt: string;
+	updatedAt: string;
+}
 
 const PostingContainer = styled.div`
 	display: flex;
@@ -61,8 +61,8 @@ const Exit = styled.img`
 `;
 
 const ImgContainer = styled.div`
-	width: 40vw;
-	height: 40vw;
+	width: 848px;
+	height: 848px;
 	margin: 0 auto;
 	margin-top: calc((100vh - 40vw) / 2);
 `;
@@ -99,24 +99,33 @@ export default function PostingView() {
 	const [postingData, setPostingData] = useState<PostingDataProps | null>(null);
 	const [userData, setUserData] = useState<UserDataProps | null>(null);
 
-	const getUserDataById = (userId : number | undefined) => {
-		apiClient.get(`/auth/${userId}`, ).then(response => {
-			if(response.data.user) {
-				setUserData(response.data.user);
-			};
-		});
-	}
+	const [images, setImages] = useState([]);
 
-	const getPostingByPostingId = (postingId : string | undefined) => {
-		apiClient.get(`/article/${postingId}`).then(response => {
+	const getUserDataById = (userId: number | undefined) => {
+		apiClient.get(`/auth/${userId}`).then((response) => {
+			if (response.data.user) {
+				setUserData(response.data.user);
+			}
+		});
+	};
+
+	const getPostingByPostingId = (postingId: string | undefined) => {
+		apiClient.get(`/article/${postingId}`).then((response) => {
 			setPostingData(response.data);
 			getUserDataById(response.data?.user_id);
 		});
 	};
 
-	useEffect(()=> {
+	const getImagesByPostingId = (postingId: string | undefined) => {
+		apiClient.get(`/image/${postingId}`).then((response) => {
+			setImages(response.data.images);
+		});
+	};
+
+	useEffect(() => {
 		getPostingByPostingId(params.id);
-	},[])
+		getImagesByPostingId(params.id);
+	}, []);
 
 	const postingDate = remakeDate(postingData?.createdAt);
 
@@ -125,12 +134,22 @@ export default function PostingView() {
 			<LeftContainer>
 				<Exit src={exit} onClick={onDismiss} />
 				<ImgContainer>
-					<Slider imageUrl={"http://api.redesigninsta.kor.kr/images/"+postingData?.thumbnail} width="40vw" height="40vw" />
+					<Slider images={images} width="848px" height="848px" />
 				</ImgContainer>
 			</LeftContainer>
 			<RightContainer>
-				<FeedHeader isFollowingBtn={true} userId={postingData?.user_id} profileImg={userData?.profileImg} userName={userData?.userName} />
-				<Comment isMainContent={true} content={postingData?.content} user={userData?.userName} date={postingDate ? postingDate : ''} />
+				<FeedHeader
+					isFollowingBtn={true}
+					userId={postingData?.user_id}
+					profileImg={userData?.profileImg}
+					userName={userData?.userName}
+				/>
+				<Comment
+					isMainContent={true}
+					content={postingData?.content}
+					user={userData?.userName}
+					date={postingDate ? postingDate : ""}
+				/>
 				{/*<Comment />*/}
 				{/*<Comment />*/}
 				<RightFooter>
@@ -139,7 +158,7 @@ export default function PostingView() {
 						<FontBold>insta_123</FontBold>
 						<FontNormal>님 외 여러명이 좋아합니다</FontNormal>
 					</LikeDescription>
-					<Date>{postingDate ? postingDate : ''}</Date>
+					<Date>{postingDate ? postingDate : ""}</Date>
 				</RightFooter>
 				<CommentInput />
 			</RightContainer>

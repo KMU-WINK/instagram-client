@@ -23,7 +23,8 @@ const Container = styled.div`
 const Button = styled.img``;
 
 const Slide = styled.img`
-	height: 100%;
+	height: 848px;
+	width: 848px;
 `;
 
 const SliderContainer = styled.div`
@@ -31,33 +32,36 @@ const SliderContainer = styled.div`
 	display: flex; // 이미지들을 가로로 나열합니다.
 `;
 
-const SlideDiv = styled.div`
-	`;
+const SlideDiv = styled.div``;
 
 const Center = styled.div`
-		position: relative;
-		display: flex;
-		justify-content: space-between;
-		z-index: 2;
-		opacity: 0.5;
-	`;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	z-index: 2;
+	opacity: 0.5;
+`;
 
 const TOTAL_SLIDES = 2; // 전체 슬라이드 개수
 
 export default function Slider(props: SlideProps) {
 	const [currentSlide, setCurrentSlide] = useState(0);
-	const [image, setImage] = useState('');
+	const [totalSlide, setTotalSlide] = useState(1);
+	const [image, setImage] = useState("");
 	const slideRef = React.useRef<any>();
 
 	// Next 버튼 클릭 시
 	const NextSlide = () => {
-		if (currentSlide >= TOTAL_SLIDES) {
+		if (currentSlide >= totalSlide - 1) {
 			// 더 이상 넘어갈 슬라이드가 없으면
 			return; // 클릭이 작동하지 않습니다.
 		} else {
 			setCurrentSlide(currentSlide + 1);
 		}
 	};
+
+	console.log(currentSlide);
+	console.log(totalSlide);
 
 	// Prev 버튼 클릭 시
 	const PrevSlide = () => {
@@ -69,22 +73,24 @@ export default function Slider(props: SlideProps) {
 	};
 
 	useEffect(() => {
+		if (props.images) {
+			setTotalSlide(props.images.length);
+		}
+	}, [props.images]);
+
+	useEffect(() => {
 		slideRef.current.style.transition = "all 0.5s ease-in-out";
 		slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
 	}, [currentSlide]);
 
-	const makeImgData = (image : any) => {
-			const fileReader = new FileReader();
-			fileReader.readAsDataURL(image);
-			fileReader.onload = function (e: any) {
-				console.log(e.target.result);
-				setImage(e.target.result);
-			};
-	}
-	if(props.images) {
-		makeImgData(props.images.item(0));
-	}
-
+	const makeImgData = (image: any) => {
+		const fileReader = new FileReader();
+		fileReader.readAsDataURL(image);
+		fileReader.onload = function (e: any) {
+			console.log(e.target.result);
+			setImage(e.target.result);
+		};
+	};
 
 	// todo: 사진 여러장
 
@@ -95,22 +101,52 @@ export default function Slider(props: SlideProps) {
 
 	return (
 		<Container>
-			<Center style={{top: parseInt(props.height) / 2 + props.height.replace(/[0-9]/g, "")}}>
+			<Center style={{ top: parseInt(props.height) / 2 + props.height.replace(/[0-9]/g, "") }}>
 				<Button src={Prev} onClick={PrevSlide} />
 				<Button src={Next} onClick={NextSlide} />
 			</Center>
 			<SliderContainer ref={slideRef}>
 				{/*{props.images.map((image : object) => {*/}
-					<SlideDiv style={{width: props.width ,height: props.height, display: props.isUploadPage ? "none" : "block" }}>
-						<Slide src={props.imageUrl ? "http://api.redesigninsta.kro.kr/" + props.imageUrl : testIMG} />
+
+				{/*{props.images.map((image : object) => {*/}
+				{props.images &&
+					props.images.map((item: any) => (
+						<SlideDiv
+							style={{
+								width: props.width,
+								height: props.height,
+								display: props.isUploadPage ? "none" : "block",
+							}}
+						>
+							<Slide src={item.url ? "http://api.redesigninsta.kro.kr/" + item.url : testIMG} />
+						</SlideDiv>
+					))}
+				{props.imageUrl && (
+					<SlideDiv
+						style={{
+							width: props.width,
+							height: props.height,
+							display: props.isUploadPage ? "none" : "block",
+						}}
+					>
+						<Slide src={props.imageUrl !== null ? props.imageUrl : testIMG} />
 					</SlideDiv>
-					<SlideDiv style={{width: props.width ,height: props.height, display: props.isUploadPage ? "block" : "none" }}>
-						<Slide src={props.images ? image : testIMG} />
+				)}
+				{props.imageUrl === null && (
+					<SlideDiv
+						style={{
+							width: props.width,
+							height: props.height,
+							display: props.isUploadPage ? "none" : "block",
+						}}
+					>
+						<Slide src={testIMG} />
 					</SlideDiv>
+				)}
 				{/*})}*/}
-					{/*<SlideDiv>*/}
-					{/*	*/}
-					{/*</SlideDiv>*/}
+				{/*<SlideDiv>*/}
+				{/*	*/}
+				{/*</SlideDiv>*/}
 			</SliderContainer>
 		</Container>
 	);
