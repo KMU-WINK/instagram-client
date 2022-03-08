@@ -54,7 +54,7 @@ export default function HomeView() {
 			<Recommend />
 			<HomeContainer>
 				<Storys />
-				{articlesAll.map(article => <MainFeed article={article}></MainFeed>)}
+				{articlesAll.reverse().map(article => <MainFeed article={article}></MainFeed>)}
 			</HomeContainer>
 		</>
 	);

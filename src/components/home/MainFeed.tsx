@@ -64,7 +64,7 @@ export default function MainFeed(props : MainFeedProps) {
 		apiClient.get(`/image/${articleId}`,).then(async (res)=> {
 			if(res.data.images[0]) {
 				setImage(res.data.images[0].url);
-				console.log(res.data.images[0].url);
+				console.log(res.data.images[0]);
 			}
 			// const fileReader = new FileReader();
 			// fileReader.readAsDataURL(res.data.image);
@@ -86,7 +86,7 @@ export default function MainFeed(props : MainFeedProps) {
 			<>
 				<FeedContainer>
 					<FeedHeader userId={userData?.id} userName={userData?.userName} profileImg={userData?.profileImg} />
-					<Slider width="828px" height="828px" image={image}/>
+					<Slider width="828px" height="828px" imageUrl={image}/>
 					<FeedFooter userName={userData.userName} content={props.article.content} createAt={props.article.createdAt} articleId={props.article.id}/>
 				</FeedContainer>
 			</>
