@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 import apiClient from "../../lib/apiClient";
+import { useParams } from "react-router-dom";
 
 const FeedMainContainer = styled.div`
 	display: grid;
@@ -41,6 +42,8 @@ const FeedChild: React.FC<{ id: string }> = ({ id }) => {
 };
 
 export default function FeedMain() {
+	const { id } = useParams();
+
 	const [myInfo, setMyinfo] = useState({
 		id: 1,
 		nickName: "kimkim",
@@ -51,12 +54,8 @@ export default function FeedMain() {
 	const [articles, setArticles] = useState<any[]>([]);
 
 	useEffect(() => {
-		apiClient.get("/auth/get/me").then((user) => {
-			setMyinfo(user.data.user);
-
-			apiClient.get("/article/users/" + user.data.user.id).then((articles) => {
-				setArticles(articles.data.articles);
-			});
+		apiClient.get("/article/users/" + id).then((articles) => {
+			setArticles(articles.data.articles);
 		});
 	}, []);
 

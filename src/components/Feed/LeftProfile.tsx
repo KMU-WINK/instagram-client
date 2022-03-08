@@ -24,6 +24,7 @@ import {
 import { ThemeContext } from "../../contexts/ThemeContext";
 import FeedButton from "./FeedButton";
 import apiClient from "../../lib/apiClient";
+import { useParams } from "react-router";
 
 interface ButtonProps {
 	width: string;
@@ -122,28 +123,26 @@ const LinkImg = styled.img`
 `;
 
 export default function LeftProfile() {
+	const { id } = useParams();
 	const { theme } = useContext(ThemeContext);
 	const [myInfo, setMyinfo] = useState({
-		id:1,
-		nickName:"kimkim",
-		userName:"김찬호",
-		descrtipion:"설명설명",
-
+		id: 1,
+		nickName: "kimkim",
+		userName: "김찬호",
+		descrtipion: "설명설명",
 	});
 
 	const [articles, setArticles] = useState([]);
 
-
-	useEffect(()=>{
-		apiClient.get("/auth/get/me").then((user)=>{
+	useEffect(() => {
+		apiClient.get("/auth/" + id).then((user) => {
 			setMyinfo(user.data.user);
-			console.log(myInfo)
+
+			apiClient.get("/article/users/" + id).then((articles) => {
+				setArticles(articles.data.articles);
+			});
 		});
-		apiClient.get("/article/users/" + myInfo.id ).then(articles => {
-			setArticles(articles.data.articles)
-		});
-		
-	}, [])
+	}, []);
 
 	return (
 		<>
