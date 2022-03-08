@@ -50,7 +50,7 @@ const FeedImg = styled.img`
 
 export default function MainFeed(props : MainFeedProps) {
 	const [userData, setUserData] = useState<UserDataProps | null>(null);
-	const [images, setImages] = useState('');
+	const [image, setImage] = useState('');
 
 	const getUserDataById = (userId : number | undefined) => {
 		apiClient.get(`/auth/${userId}`, ).then(response => {
@@ -62,8 +62,8 @@ export default function MainFeed(props : MainFeedProps) {
 
 	const getImgById = (articleId : number | undefined) => {
 		apiClient.get(`/image/${articleId}`,).then(async (res)=> {
-			if(res.data.images.value != null) {
-				setImages(res.data.images[0].url);
+			if(res.data.images[0]) {
+				setImage(res.data.images[0].url);
 				console.log(res.data.images[0].url);
 			}
 			// const fileReader = new FileReader();
@@ -77,15 +77,16 @@ export default function MainFeed(props : MainFeedProps) {
 
 	useEffect(()=> {
 		getUserDataById(props.article.user_id);
-		getImgById(props.article.id);
 	},[])
+
+	getImgById(props.article.id);
 
 	if(userData) {
 		return (
 			<>
 				<FeedContainer>
 					<FeedHeader userId={userData?.id} userName={userData?.userName} profileImg={userData?.profileImg} />
-					<Slider width="828px" height="828px" images={images ? images : null}/>
+					<Slider width="828px" height="828px" image={image}/>
 					<FeedFooter userName={userData.userName} content={props.article.content} createAt={props.article.createdAt} articleId={props.article.id}/>
 				</FeedContainer>
 			</>
