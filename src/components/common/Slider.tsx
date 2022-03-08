@@ -10,6 +10,7 @@ import Next from "../../img/Next.svg";
 interface SlideProps {
 	width: string;
 	height: string;
+	images?: any;
 }
 
 const Container = styled.div`
@@ -28,26 +29,23 @@ const SliderContainer = styled.div`
 	display: flex; // 이미지들을 가로로 나열합니다.
 `;
 
-const TOTAL_SLIDES = 2; // 전체 슬라이드 개수
-
-export default function Slider(props: SlideProps) {
-	const [currentSlide, setCurrentSlide] = useState(0);
-	const slideRef = React.useRef<any>();
-
-	//styled component
-	const SlideDiv = styled.div`
-		width: ${props.width};
-		height: ${props.height};
+const SlideDiv = styled.div`
 	`;
 
-	const Center = styled.div`
+const Center = styled.div`
 		position: relative;
 		display: flex;
 		justify-content: space-between;
 		z-index: 2;
-		top: ${parseInt(props.height) / 2}${props.height.replace(/[0-9]/g, "")};
 		opacity: 0.5;
 	`;
+
+const TOTAL_SLIDES = 2; // 전체 슬라이드 개수
+
+export default function Slider(props: SlideProps) {
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const [image, setImage] = useState('');
+	const slideRef = React.useRef<any>();
 
 	// Next 버튼 클릭 시
 	const NextSlide = () => {
@@ -73,22 +71,38 @@ export default function Slider(props: SlideProps) {
 		slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
 	}, [currentSlide]);
 
+	const makeImgData = (image : any) => {
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(image);
+			fileReader.onload = function (e: any) {
+				console.log(e.target.result);
+				setImage(e.target.result);
+			};
+	}
+		makeImgData(props.images.item(0));
+
+	// todo: 사진 여러장
+
+	// const imgData = makeImgData(props.images.item(0));
+	// Array.from(props.images).forEach((file)=> {
+	// 	makeImgData(file);
+	// })
+
 	return (
 		<Container>
-			<Center>
+			<Center style={{top: parseInt(props.height) / 2 + props.height.replace(/[0-9]/g, "")}}>
 				<Button src={Prev} onClick={PrevSlide} />
 				<Button src={Next} onClick={NextSlide} />
 			</Center>
 			<SliderContainer ref={slideRef}>
-				<SlideDiv>
-					<Slide src={testIMG} />
-				</SlideDiv>
-				<SlideDiv>
-					<Slide src={testIMG} />
-				</SlideDiv>
-				<SlideDiv>
-					<Slide src={testIMG} />
-				</SlideDiv>
+				{/*{props.images.map((image : object) => {*/}
+					<SlideDiv style={{width: props.width ,height: props.height }}>
+						<Slide src={image ? image : testIMG} />
+					</SlideDiv>
+				{/*})}*/}
+					{/*<SlideDiv>*/}
+					{/*	*/}
+					{/*</SlideDiv>*/}
 			</SliderContainer>
 		</Container>
 	);
