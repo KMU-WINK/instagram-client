@@ -124,8 +124,8 @@ const LinkImg = styled.img`
 `;
 
 export default function LeftProfile() {
+	const { theme, setTheme } = useContext(ThemeContext);
 	const { id } = useParams();
-	const { theme } = useContext(ThemeContext);
 	const navigate = useNavigate();
 	const [myInfo, setMyinfo] = useState({
 		id: 1,
@@ -140,10 +140,16 @@ export default function LeftProfile() {
 		apiClient.get("/auth/" + id).then((user) => {
 			setMyinfo(user.data.user);
 
+			setTheme(user.data.user.themaColor);
+
 			apiClient.get("/article/users/" + id).then((articles) => {
 				setArticles(articles.data.articles);
 			});
 		});
+
+		return () => {
+			setTheme("light-Original-Original");
+		};
 	}, []);
 
 	return (
@@ -152,13 +158,22 @@ export default function LeftProfile() {
 				<BackgroundImg src={background} />
 				<Profile>
 					<ProfileImg src={profileImg} />
-					<AddButton src={addBtn} onClick={() => {
-						navigate("/article/upload/text");
-					}}/>
+					<AddButton
+						src={addBtn}
+						onClick={() => {
+							navigate("/article/upload/text");
+						}}
+					/>
 					<ProfileName>{myInfo.nickName}</ProfileName>
 				</Profile>
 				<EditContainer>
-					<FeedButton width="141px" height="40px">
+					<FeedButton
+						width="141px"
+						height="40px"
+						onClick={() => {
+							navigate("/setting/category");
+						}}
+					>
 						프로필 편집
 					</FeedButton>
 					<SettingIcon src={CardImg} />

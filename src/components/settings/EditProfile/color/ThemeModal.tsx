@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { BgColor, Mode, PointColor, ThemeContext } from "../../../../contexts/ThemeContext";
+import apiClient from "../../../../lib/apiClient";
 
 interface ThemeModalProps {}
 
@@ -128,6 +130,7 @@ const StyledToggle = styled.label`
 `;
 
 const ThemeModal: React.FC<ThemeModalProps> = () => {
+	let navigate = useNavigate();
 	const [mode, setMode] = useState<Mode>("light");
 	const { theme, setTheme } = useContext(ThemeContext);
 
@@ -169,6 +172,20 @@ const ThemeModal: React.FC<ThemeModalProps> = () => {
 		setTheme(`${currentMode as Mode}-${currentBg as BgColor}-${type}`);
 	};
 
+	const onSubmit = () => {
+		apiClient.get("/auth/get/me").then((res) => {
+			console.log(res.data.user.id);
+			apiClient
+				.put("/auth/" + res.data.user.id, {
+					themaColor: theme.name,
+				})
+				.then((r) => {
+					console.log(r);
+					navigate("/feed/" + res.data.user.id);
+				});
+		});
+	};
+
 	return (
 		<StyledThemeModal>
 			<div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -207,7 +224,7 @@ const ThemeModal: React.FC<ThemeModalProps> = () => {
 			</StyledFlexDiv>
 			<StyledButtonFlexDiv>
 				<StyledButton>취소</StyledButton>
-				<StyledButton>적용하기</StyledButton>
+				<StyledButton onClick={onSubmit}>적용하기</StyledButton>
 			</StyledButtonFlexDiv>
 		</StyledThemeModal>
 	);

@@ -6,6 +6,8 @@ import BlueButton from "../../common/BlueButton";
 // @ts-ignore
 import None from "../../../img/None.png";
 import CheckBox from "./CheckBox";
+import { useNavigate } from "react-router";
+import apiClient from "../../../lib/apiClient";
 
 const InnerContainer = styled.div`
 	width: 100%;
@@ -55,6 +57,7 @@ const CheckBoxContainer = styled.div`
 `;
 
 export default function ColorBox() {
+	let navigate = useNavigate();
 	const [item, setItem] = useState([
 		{
 			label: "스토리",
@@ -191,7 +194,16 @@ export default function ColorBox() {
 			<Container style={{ borderBottom: "#C4C4C4 1px solid" }} topMargin={30} height={520}>
 				<InnerContainer>
 					<Title content="배경" />
-					<PreviewBtn>미리보기</PreviewBtn>
+					<PreviewBtn
+						onClick={() => {
+							apiClient.get("/auth/get/me").then((res) => {
+								console.log(res.data.user.id);
+								navigate("/setting/category/editprofile/color/" + res.data.user.id);
+							});
+						}}
+					>
+						미리보기
+					</PreviewBtn>
 					<PaletteBox>
 						{backgroundColor.map((item, index) => {
 							return index >= 1 ? (
