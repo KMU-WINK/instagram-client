@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // @ts-ignore
 import testImg from "../../img/sea.jpg";
 import apiClient from "../../lib/apiClient";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 const FeedMainContainer = styled.div`
 	display: grid;
@@ -25,7 +25,8 @@ const FeedImg = styled.img`
 
 const FeedChild: React.FC<{ id: string }> = ({ id }) => {
 	const [image, setImage] = useState(null);
-
+	const navigate = useNavigate();
+	const location = useLocation();
 	useEffect(() => {
 		apiClient.get(`/image/${id}`).then((res) => {
 			if (res.data.images.length >= 1) {
@@ -36,13 +37,19 @@ const FeedChild: React.FC<{ id: string }> = ({ id }) => {
 
 	return (
 		<ImgContainer>
-			<FeedImg src={"http://api.redesigninsta.kro.kr/" + image} />
+			<Link to={`/article/${id}`} state={{ backgroundLocation: location }}>
+				<FeedImg
+					src={"http://api.redesigninsta.kro.kr/" + image}
+				/>
+			</Link>
 		</ImgContainer>
 	);
 };
 
 export default function FeedMain() {
 	const { id } = useParams();
+
+	
 
 	const [myInfo, setMyinfo] = useState({
 		id: 1,

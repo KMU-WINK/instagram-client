@@ -93,7 +93,7 @@ export default function Header(props : HeaderProps) {
 				<IconContainer>
 					<Icon src={mainBtn} />
 					<Icon src={Union} />
-					<Icon src={plus} />
+					<Icon onClick={()=>{navigate("/article/upload/text")}} src={plus} />
 					<Icon src={compass} />
 					<Icon src={Heart} />
 					<MyProfile style={{ cursor: "pointer" }} src={props.profileImg ? props.profileImg : profile} onClick={() => navigate(`/feed/${props.userId}`)} />

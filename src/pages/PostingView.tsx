@@ -125,7 +125,7 @@ export default function PostingView() {
 			<LeftContainer>
 				<Exit src={exit} onClick={onDismiss} />
 				<ImgContainer>
-					<Slider width="40vw" height="40vw" />
+					<Slider imageUrl={"http://api.redesigninsta.kor.kr/images/"+postingData?.thumbnail} width="40vw" height="40vw" />
 				</ImgContainer>
 			</LeftContainer>
 			<RightContainer>
