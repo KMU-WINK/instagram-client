@@ -14,26 +14,27 @@ import leftArrow from "../img/leftArrow.svg";
 // @ts-ignore
 import InputImg from "../img/inputImg.svg";
 import BlueButton from "../components/common/BlueButton";
+import { dataURLtoFile } from "./businessCard/CardEditView";
 
 interface MyDataProps {
-	id: number,
-	email: string,
-	password: string,
-	userName: string,
-	profileImg: string,
-	nickName: string,
-	description: string,
-	private: boolean,
-	backgroundImage: string,
-	themaColor: string,
-	selectedCategory: null,
-	createdAt: string,
-	updatedAt: string
-};
+	id: number;
+	email: string;
+	password: string;
+	userName: string;
+	profileImg: string;
+	nickName: string;
+	description: string;
+	private: boolean;
+	backgroundImage: string;
+	themaColor: string;
+	selectedCategory: null;
+	createdAt: string;
+	updatedAt: string;
+}
 
 const DrawableContainer = styled.div`
-	width:40vw;
-	height:40vw;
+	width: 40vw;
+	height: 40vw;
 	margin: 0 auto;
 	margin-top: 230px;
 	text-align: center;
@@ -77,7 +78,7 @@ const Title = styled.div`
 
 const Upload = styled.div`
 	font-size: 16px;
-	color: #3796F0;
+	color: #3796f0;
 	font-weight: 500;
 `;
 
@@ -116,24 +117,23 @@ const RightContainer = styled.div`
 
 const Content = styled.div`
 	padding: 44px;
-	
 `;
 
 const ContentHeader = styled.div`
 	display: flex;
-	gap:11px;
+	gap: 11px;
 `;
 
 const ContentInput = styled.textarea`
-	width:100%;
+	width: 100%;
 	border: 0;
-	margin-top:15px;
+	margin-top: 15px;
 	height: 320px;
 `;
 
 const ProfileImg = styled.img`
-	width:23px;
-	height:23px;
+	width: 23px;
+	height: 23px;
 	border-radius: 100%;
 `;
 
@@ -145,11 +145,9 @@ const UserName = styled.div`
 
 export default function UploadPostingView() {
 	const [myData, setMyData] = useState<MyDataProps | null>(null);
-	const [content, setContent] = useState('');
+	const [content, setContent] = useState("");
 
-	const formData = new FormData();
 	const navigate = useNavigate();
-
 
 	//DrawbleBox
 	const [image, setImage] = useState("");
@@ -172,10 +170,9 @@ export default function UploadPostingView() {
 	};
 	console.log(images);
 
-
-	useEffect(()=> {
-		apiClient.get("/auth/get/me").then((res)=> setMyData(res.data.user));
-	},[])
+	useEffect(() => {
+		apiClient.get("/auth/get/me").then((res) => setMyData(res.data.user));
+	}, []);
 
 	// const formAppend = (imgData : Blob) => {
 	// 	formData.append('img',imgData);
@@ -183,32 +180,46 @@ export default function UploadPostingView() {
 	// }
 
 	const upload = async () => {
-		formData.append('img', image);
-		apiClient.post(`/article/upload/${myData?.id}`,{
-			thumbnail: "string",
-			location: "string",
-			content: content
-		}).then((res)=> {
-			apiClient.post(`/image/${res.data.id}`,
-				formData, {headers: {
-						'Content-Type': 'multipart/form-data',
-					}},
-			).then((res)=> console.log(res));
-		});
-	}
+		apiClient
+			.post(`/article/upload/${myData?.id}`, {
+				thumbnail: "string",
+				location: "string",
+				content: content,
+			})
+			.then((res) => {
+				const formData = new FormData();
+				const file = dataURLtoFile(image, "xxxx.png");
+				formData.append("img", file, file.name);
+				apiClient
+					.post(`/image/${res.data.id}`, formData, {
+						headers: {
+							"Content-Type": "multipart/form-data",
+						},
+					})
+					.then((x) => {
+						console.log("HERE");
+						console.log(x);
+						navigate("/home");
+					});
+			});
+	};
 
-	const onChange = (e : any) => {
+	const onChange = (e: any) => {
 		setContent(e.target.value);
-	}
+	};
 
 	return (
 		<PostingContainer>
 			<LeftContainer>
 				<ImgContainer>
 					<DrawableContainer style={{ marginTop: image === "" ? "230px" : "60px" }}>
-						{image === "" ? <ImageInput src={InputImg} /> : <Slider images={images} width="40vw" height="40vw" isUploadPage={true}></Slider>}
+						{image === "" ? (
+							<ImageInput src={InputImg} />
+						) : (
+							<Slider images={images} width="40vw" height="40vw" isUploadPage={true}></Slider>
+						)}
 						<UploadImg
-							accept="image/jpg,impge/png,image/jpeg"
+							accept="image/jpg,image/png,image/jpeg"
 							name="cover_img"
 							onChange={onChangeHandle}
 							multiple
@@ -230,16 +241,22 @@ export default function UploadPostingView() {
 			</LeftContainer>
 			<RightContainer>
 				<HeaderContainer>
-					<LeftArrow src={leftArrow}/>
+					<LeftArrow src={leftArrow} />
 					<Title>새 게시물 만들기</Title>
-					<Upload onClick={()=>{upload().then(()=> {navigate('/home')})}}>공유하기</Upload>
+					<Upload
+						onClick={() => {
+							upload();
+						}}
+					>
+						공유하기
+					</Upload>
 				</HeaderContainer>
 				<Content>
 					<ContentHeader>
-						<ProfileImg src={myData.profileImg ? myData.profileImg : noProfileImg}/>
+						<ProfileImg src={myData?.profileImg ? myData.profileImg : noProfileImg} />
 						<UserName>{myData?.userName}</UserName>
 					</ContentHeader>
-					<ContentInput placeholder={"문구입력"} onChange={onChange}/>
+					<ContentInput placeholder={"문구입력"} onChange={onChange} />
 				</Content>
 			</RightContainer>
 		</PostingContainer>

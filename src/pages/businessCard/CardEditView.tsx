@@ -26,6 +26,19 @@ const ModalBody = styled.div`
 	height: 740px;
 `;
 
+export const dataURLtoFile = (dataurl: string, filename: string) => {
+	const arr = dataurl.split(",");
+	const mime = arr[0].match(/:(.*?);/)[1];
+	const bstr = atob(arr[1]);
+	let n = bstr.length;
+	const u8arr = new Uint8Array(n);
+	while (n) {
+		u8arr[n - 1] = bstr.charCodeAt(n - 1);
+		n -= 1; // to make eslint happy
+	}
+	return new File([u8arr], filename, { type: mime });
+};
+
 export default function CardEditView() {
 	const mainRef = useRef<HTMLDivElement>(null);
 	const [state, setState] = useState("#F5F5F5");
@@ -38,19 +51,6 @@ export default function CardEditView() {
 
 	const getAlign = (value: string) => {
 		setAlignValue(value);
-	};
-
-	const dataURLtoFile = (dataurl: string, filename: string) => {
-		const arr = dataurl.split(",");
-		const mime = arr[0].match(/:(.*?);/)[1];
-		const bstr = atob(arr[1]);
-		let n = bstr.length;
-		const u8arr = new Uint8Array(n);
-		while (n) {
-			u8arr[n - 1] = bstr.charCodeAt(n - 1);
-			n -= 1; // to make eslint happy
-		}
-		return new File([u8arr], filename, { type: mime });
 	};
 
 	const onFinish = () => {
