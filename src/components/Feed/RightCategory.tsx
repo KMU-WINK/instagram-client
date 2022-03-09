@@ -105,7 +105,7 @@ export default function RightCategory() {
 					<DropMenu open={moreOpen}>
 						<DropItem>피드 순서 편집</DropItem>
 						<DropItem>카테고리 설정</DropItem>
-						<DropItem>취소</DropItem>
+						<DropItem onClick={IsMoreOpen}>취소</DropItem>
 					</DropMenu>
 				</MoreContainer>
 			</CategoryHeader>
